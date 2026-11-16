@@ -2,7 +2,7 @@
 """
 Master Studio CLI for Antigravity Video Studio
 Unifies Graphify Memory, Edge-TTS Audio Engine, Remotion Timeline,
-and Smart Model Router with Prompt Compression & Zero-Cost Fallbacks.
+Smart Model Router, DaVinci Cinematic Grading & OpenCut Pacing Presets.
 """
 
 import sys
@@ -15,6 +15,7 @@ BASE_DIR = os.path.dirname(SCRIPTS_DIR)
 GRAPH_MEMORY = os.path.join(SCRIPTS_DIR, "graph_memory.py")
 VOICEOVER = os.path.join(SCRIPTS_DIR, "make_voiceovers.py")
 MODEL_ROUTER = os.path.join(SCRIPTS_DIR, "model_router.py")
+DIRECTOR_PRESETS = os.path.join(SCRIPTS_DIR, "director_presets.py")
 
 def run_cmd(args):
     return subprocess.run(args, cwd=BASE_DIR)
@@ -26,9 +27,11 @@ def print_help():
 Usage:
   python3 scripts/studio.py init "<Film Title>"
   python3 scripts/studio.py status
-  python3 scripts/studio.py clean "<noisy prompt>"
   python3 scripts/studio.py models
-  python3 scripts/studio.py smart-scene <id> "<rough / noisy prompt>"
+  python3 scripts/studio.py presets
+  python3 scripts/studio.py clean "<noisy prompt>"
+  python3 scripts/studio.py director-scene <id> "<rough idea>" [preset: netflix-doc | hollywood-epic | historical-investigation | noir-crime | modern-explainer]
+  python3 scripts/studio.py smart-scene <id> "<rough prompt>"
   python3 scripts/studio.py add-scene <id> "<title>" "<narration>" [dur] [prompt] [motion]
   python3 scripts/studio.py sync
   python3 scripts/studio.py audio [voice_name]
@@ -50,9 +53,41 @@ if __name__ == "__main__":
         run_cmd([sys.executable, GRAPH_MEMORY, "status"])
     elif cmd == "models":
         run_cmd([sys.executable, MODEL_ROUTER, "status"])
+    elif cmd == "presets":
+        run_cmd([sys.executable, DIRECTOR_PRESETS])
     elif cmd == "clean":
         raw = " ".join(sys.argv[2:])
         run_cmd([sys.executable, MODEL_ROUTER, "clean", raw])
+    elif cmd == "director-scene":
+        if len(sys.argv) < 4:
+            print("Usage: python3 scripts/studio.py director-scene <id> '<rough concept>' [preset_name]")
+            sys.exit(1)
+        sid = sys.argv[2]
+        raw_concept = sys.argv[3]
+        preset = sys.argv[4] if len(sys.argv) > 4 else "netflix-doc"
+
+        # 1. Clean Prompt
+        from model_router import PromptCompressor
+        compressor = PromptCompressor()
+        cleaned = compressor.clean_noisy_prompt(raw_concept)
+        print(f"🧹 Cleaned Concept ({cleaned['estimated_token_savings']} token savings): '{cleaned['cleaned_prompt']}'")
+
+        # 2. Enhance with DaVinci Color Science & OpenCut J-Cuts
+        from director_presets import enhance_prompt
+        enhanced = enhance_prompt(cleaned['cleaned_prompt'], preset)
+        print(f"🎨 Applied DaVinci Preset: {enhanced['preset_title']} ({enhanced['colorGrade']}, J-Cut: {enhanced['jCutFrames']} frames)")
+
+        # 3. Add to Graphify Memory
+        title = sid.replace("_", " ").title()
+        narration = cleaned['cleaned_prompt']
+        dur = cleaned['detected_duration']
+        motion = cleaned['detected_motion']
+        vp = enhanced['enhanced_visual_prompt']
+
+        run_cmd([sys.executable, GRAPH_MEMORY, "add-scene", sid, title, narration, str(dur), vp, motion])
+        run_cmd([sys.executable, GRAPH_MEMORY, "export-timeline"])
+        print(f"✨ Scene [{sid}] saved with {preset} cinematic color grade and J-Cut pacing!")
+
     elif cmd == "smart-scene":
         if len(sys.argv) < 4:
             print("Usage: python3 scripts/studio.py smart-scene <id> '<rough noisy prompt>'")
@@ -60,7 +95,6 @@ if __name__ == "__main__":
         sid = sys.argv[2]
         raw_prompt = " ".join(sys.argv[3:])
         
-        # Import directly to run smart pipeline
         from model_router import PromptCompressor, ModelRouter
         compressor = PromptCompressor()
         router = ModelRouter()
@@ -73,7 +107,6 @@ if __name__ == "__main__":
         
         gen_result = router.generate_with_fallback(cleaned['cleaned_prompt'])
         
-        # Parse generation output into scene parameters
         title = sid.replace("_", " ").title()
         narration = cleaned['cleaned_prompt']
         duration = cleaned['detected_duration']
@@ -91,7 +124,6 @@ if __name__ == "__main__":
             except Exception:
                 pass
 
-        # Add to Graphify memory
         run_cmd([sys.executable, GRAPH_MEMORY, "add-scene", sid, title, narration, str(duration), visual_prompt, motion])
         run_cmd([sys.executable, GRAPH_MEMORY, "export-timeline"])
         print(f"✨ Successfully integrated [{sid}] via smart router into Graphify Memory & Remotion Timeline!")

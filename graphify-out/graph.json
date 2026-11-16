@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-11-16T17:11:01.117923Z",
+  "updatedAt": "2026-11-16T17:16:48.750171Z",
   "project": {
     "id": "proj_01",
     "title": "The AI Creative Revolution",
@@ -80,6 +80,20 @@
         "voiceoverAsset": "assets/audio/scene_05.mp3",
         "visualAsset": "assets/visuals/scene_05.jpg"
       }
+    },
+    {
+      "id": "scene_08",
+      "type": "Scene",
+      "properties": {
+        "title": "Scene 08",
+        "narration": "can you show marine biologists discovering glowing bioluminescent jellyfish at 3000 meters depth for 7 seconds pan left",
+        "durationSeconds": 7.0,
+        "durationInFrames": 210,
+        "visualPrompt": "Cinematic photorealistic documentary frame: can you show marine biologists discovering glowing bioluminescent jellyfish at 3000 meters depth for 7 seconds pan left. Cinematography: 35mm prime lens, shallow depth of field, subtle film grain. Lighting: Chiaroscuro moody side-lighting, deep shadows with soft fill. Color: moody-documentary palette, film texture, 8k resolution, award-winning cinematography.",
+        "motionType": "pan-left",
+        "voiceoverAsset": "assets/audio/scene_08.mp3",
+        "visualAsset": "assets/visuals/scene_08.jpg"
+      }
     }
   ],
   "edges": [
@@ -113,6 +127,15 @@
     {
       "from": "scene_04",
       "to": "scene_05",
+      "type": "TRANSITIONS_TO",
+      "properties": {
+        "transition": "crossfade",
+        "durationFrames": 15
+      }
+    },
+    {
+      "from": "scene_05",
+      "to": "scene_08",
       "type": "TRANSITIONS_TO",
       "properties": {
         "transition": "crossfade",

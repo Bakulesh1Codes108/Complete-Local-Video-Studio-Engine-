@@ -43,6 +43,14 @@
       "visual": "assets/visuals/scene_05.jpg",
       "subtitle": "can you make a scene about the discovery of deep sea hydrothermal vents for 8 seconds pan left",
       "motion": "zoom-in"
+    },
+    {
+      "id": "scene_08",
+      "durationInFrames": 210,
+      "voiceover": "assets/audio/scene_08.mp3",
+      "visual": "assets/visuals/scene_08.jpg",
+      "subtitle": "can you show marine biologists discovering glowing bioluminescent jellyfish at 3000 meters depth for 7 seconds pan left",
+      "motion": "pan-left"
     }
   ]
 }
