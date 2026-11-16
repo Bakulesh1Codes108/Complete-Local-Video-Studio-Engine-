@@ -16,6 +16,7 @@ whisper/
 
 # Node.js & Temporary Caches
 node_modules/
+.pnpm-store/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -27,6 +28,9 @@ projects/*/renders/
 projects/*/audio/*.wav
 projects/*/audio/*.aiff
 projects/*/renders/thumbnails/
+out/
+dist/
+.remotion/
 *.tmp
 
 # User Personal Recordings & Generated Videos (NEVER PUSH)
@@ -43,8 +47,11 @@ projects/nikhil-kamath*/**/test*.mp4
 !Antigravity-Video-Free-Guide.pdf
 !templates/**/assets/*.gitkeep
 
-# OS / Editor artifacts
+# OS / Editor artifacts & Caches
+*.log
 .DS_Store
 Thumbs.db
 .idea/
 .vscode/
+.env
+.env.local

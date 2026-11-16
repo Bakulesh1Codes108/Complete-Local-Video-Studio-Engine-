@@ -1,0 +1,77 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-11-16T16:19:24.515157Z",
+  "project": {
+    "id": "proj_01",
+    "title": "The AI Creative Revolution",
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "aspectRatio": "16:9",
+    "fontFamily": "Inter, sans-serif"
+  },
+  "nodes": [
+    {
+      "id": "scene_01",
+      "type": "Scene",
+      "properties": {
+        "title": "The Spark",
+        "narration": "For centuries, creation was strictly human. In 2024, everything changed.",
+        "durationSeconds": 5.0,
+        "durationInFrames": 150,
+        "visualPrompt": "Cinematic wide shot of futuristic server room, volumetric blue lighting, 35mm lens",
+        "motionType": "zoom-in",
+        "voiceoverAsset": "assets/audio/scene_01.mp3",
+        "visualAsset": "assets/visuals/scene_01.jpg"
+      }
+    },
+    {
+      "id": "scene_02",
+      "type": "Scene",
+      "properties": {
+        "title": "The Synthesis",
+        "narration": "Pixels and neural weights began dreaming together, rendering thoughts into light.",
+        "durationSeconds": 6.0,
+        "durationInFrames": 180,
+        "visualPrompt": "Abstract neural network glowing synaptic pathways blending into film reels",
+        "motionType": "pan-right",
+        "voiceoverAsset": "assets/audio/scene_02.mp3",
+        "visualAsset": "assets/visuals/scene_02.jpg"
+      }
+    },
+    {
+      "id": "scene_03",
+      "type": "Scene",
+      "properties": {
+        "title": "The Horizon",
+        "narration": "Human creators now direct digital symphonies, where code becomes cinema.",
+        "durationSeconds": 5.5,
+        "durationInFrames": 165,
+        "visualPrompt": "Panoramic mountain vista with glowing futuristic holographic displays at sunrise",
+        "motionType": "zoom-in",
+        "voiceoverAsset": "assets/audio/scene_03.mp3",
+        "visualAsset": "assets/visuals/scene_03.jpg"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "scene_01",
+      "to": "scene_02",
+      "type": "TRANSITIONS_TO",
+      "properties": {
+        "transition": "crossfade",
+        "durationFrames": 15
+      }
+    },
+    {
+      "from": "scene_02",
+      "to": "scene_03",
+      "type": "TRANSITIONS_TO",
+      "properties": {
+        "transition": "crossfade",
+        "durationFrames": 15
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "version": "1.0.0",
+  "name": "antigravity-film-studio-graph",
+  "description": "Graphify context memory schema for token-efficient documentary and course video generation",
+  "storage": {
+    "graphFile": "graphify-out/graph.json",
+    "reportFile": "graphify-out/GRAPH_REPORT.md"
+  },
+  "nodeTypes": [
+    {
+      "type": "Project",
+      "description": "Global film/documentary parameters including resolution, fps, aspect ratio, and typography"
+    },
+    {
+      "type": "Entity",
+      "description": "Characters, historical figures, locations, or core conceptual subjects"
+    },
+    {
+      "type": "Scene",
+      "description": "Individual timestamped narrative scene beats"
+    },
+    {
+      "type": "VisualAsset",
+      "description": "Keyframe images (Fooocus/Imagen), animated motion clips (Kling/Hailuo), or diagrams"
+    },
+    {
+      "type": "AudioAsset",
+      "description": "Voiceover tracks (Edge-TTS), background score beds, sound effects"
+    },
+    {
+      "type": "StyleGuide",
+      "description": "Lighting, camera angle, color grading, mood, and Ken Burns motion rules"
+    }
+  ],
+  "edgeTypes": [
+    "APPEARS_IN",
+    "HAS_VISUAL",
+    "HAS_AUDIO",
+    "TRANSITIONS_TO",
+    "ENFORCES_STYLE",
+    "AUDIO_DUCKS"
+  ],
+  "tokenOptimization": {
+    "maxPromptTokensPerQuery": 250,
+    "strategy": "selective-node-retrieval",
+    "caching": true
+  }
+}

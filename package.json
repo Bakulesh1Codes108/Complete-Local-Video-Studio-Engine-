@@ -1,0 +1,21 @@
+{
+  "name": "antigravity-video-studio",
+  "version": "1.0.0",
+  "description": "Autonomous AI Documentary & Course Studio with Graphify Memory and Remotion",
+  "scripts": {
+    "preview": "remotion preview src/index.ts",
+    "render": "remotion render src/index.ts Documentary out/documentary.mp4",
+    "memory:status": "python3 scripts/graph_memory.py status",
+    "memory:export": "python3 scripts/graph_memory.py export-timeline",
+    "voiceover:generate": "python3 scripts/make_voiceovers.py"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "typescript": "^5.0.0"
+  }
+}
