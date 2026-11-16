@@ -1,40 +1,32 @@
 {
-  "project": "The AI Creative Revolution",
+  "project": "The Exploration Of Europa Ocean Beneath The I",
   "fps": 30,
   "width": 1920,
   "height": 1080,
-  "letterbox": true,
-  "defaultColorGrade": "hollywood-epic",
   "scenes": [
     {
       "id": "scene_01",
-      "durationInFrames": 255,
+      "durationInFrames": 150,
       "voiceover": "assets/audio/scene_01.mp3",
       "visual": "assets/visuals/scene_01.jpg",
-      "subtitle": "For centuries, creation was strictly human. In 2024, everything changed.",
-      "motion": "zoom-out",
-      "colorGrade": "hollywood-epic",
-      "jCutFrames": 12
+      "subtitle": "The exploration of Europa ocean beneath the ice - The mysterious beginning and initial catalyst.",
+      "motion": "zoom-in"
     },
     {
       "id": "scene_02",
-      "durationInFrames": 180,
+      "durationInFrames": 150,
       "voiceover": "assets/audio/scene_02.mp3",
       "visual": "assets/visuals/scene_02.jpg",
-      "subtitle": "Neural networks and human vision merged into pure cinema",
-      "motion": "pan-right",
-      "colorGrade": "hollywood-epic",
-      "jCutFrames": 12
+      "subtitle": "The exploration of Europa ocean beneath the ice - Venturing deeper into the unknown, facing immense scale and challenge.",
+      "motion": "zoom-in"
     },
     {
       "id": "scene_03",
-      "durationInFrames": 225,
+      "durationInFrames": 150,
       "voiceover": "assets/audio/scene_03.mp3",
       "visual": "assets/visuals/scene_03.jpg",
-      "subtitle": "Human creators now direct digital symphonies, where code becomes cinema.",
-      "motion": "pan-right",
-      "colorGrade": "hollywood-epic",
-      "jCutFrames": 12
+      "subtitle": "The exploration of Europa ocean beneath the ice - Reaching the breakthrough, a breathtaking perspective of what lies ahead.",
+      "motion": "zoom-in"
     },
     {
       "id": "scene_04",
@@ -42,9 +34,7 @@
       "voiceover": "assets/audio/scene_04.mp3",
       "visual": "assets/visuals/scene_04.jpg",
       "subtitle": "Through code and cognition, imagination takes physical form.",
-      "motion": "zoom-in",
-      "colorGrade": "hollywood-epic",
-      "jCutFrames": 12
+      "motion": "zoom-in"
     },
     {
       "id": "scene_05",
@@ -52,9 +42,7 @@
       "voiceover": "assets/audio/scene_05.mp3",
       "visual": "assets/visuals/scene_05.jpg",
       "subtitle": "can you make a scene about the discovery of deep sea hydrothermal vents for 8 seconds pan left",
-      "motion": "zoom-in",
-      "colorGrade": "hollywood-epic",
-      "jCutFrames": 12
+      "motion": "zoom-in"
     },
     {
       "id": "scene_08",
@@ -62,9 +50,7 @@
       "voiceover": "assets/audio/scene_08.mp3",
       "visual": "assets/visuals/scene_08.jpg",
       "subtitle": "can you show marine biologists discovering glowing bioluminescent jellyfish at 3000 meters depth for 7 seconds pan left",
-      "motion": "pan-left",
-      "colorGrade": "hollywood-epic",
-      "jCutFrames": 12
+      "motion": "pan-left"
     }
   ]
 }

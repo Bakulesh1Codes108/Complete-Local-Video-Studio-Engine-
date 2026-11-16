@@ -1,9 +1,9 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-11-16T17:16:48.750171Z",
+  "updatedAt": "2026-11-16T17:21:48.419530Z",
   "project": {
     "id": "proj_01",
-    "title": "The AI Creative Revolution",
+    "title": "The Exploration Of Europa Ocean Beneath The I",
     "fps": 30,
     "width": 1920,
     "height": 1080,
@@ -12,51 +12,6 @@
     "defaultColorGrade": "hollywood-epic"
   },
   "nodes": [
-    {
-      "id": "scene_01",
-      "type": "Scene",
-      "properties": {
-        "title": "The Spark",
-        "narration": "For centuries, creation was strictly human. In 2024, everything changed.",
-        "durationSeconds": 8.5,
-        "durationInFrames": 255,
-        "visualPrompt": "Cinematic wide shot of futuristic server room, volumetric blue lighting, 35mm lens",
-        "motionType": "zoom-out",
-        "voiceoverAsset": "assets/audio/scene_01.mp3",
-        "visualAsset": "assets/visuals/scene_01.jpg",
-        "colorGrade": "hollywood-epic"
-      }
-    },
-    {
-      "id": "scene_02",
-      "type": "Scene",
-      "properties": {
-        "title": "The Synthesis",
-        "narration": "Neural networks and human vision merged into pure cinema",
-        "durationSeconds": 6.0,
-        "durationInFrames": 180,
-        "visualPrompt": "Abstract neural network glowing synaptic pathways blending into film reels",
-        "motionType": "pan-right",
-        "voiceoverAsset": "assets/audio/scene_02.mp3",
-        "visualAsset": "assets/visuals/scene_02.jpg",
-        "colorGrade": "hollywood-epic"
-      }
-    },
-    {
-      "id": "scene_03",
-      "type": "Scene",
-      "properties": {
-        "title": "The Horizon",
-        "narration": "Human creators now direct digital symphonies, where code becomes cinema.",
-        "durationSeconds": 7.5,
-        "durationInFrames": 225,
-        "visualPrompt": "Panoramic mountain vista with glowing futuristic holographic displays at sunrise",
-        "motionType": "pan-right",
-        "voiceoverAsset": "assets/audio/scene_03.mp3",
-        "visualAsset": "assets/visuals/scene_03.jpg",
-        "colorGrade": "hollywood-epic"
-      }
-    },
     {
       "id": "scene_04",
       "type": "Scene",
@@ -100,6 +55,48 @@
         "voiceoverAsset": "assets/audio/scene_08.mp3",
         "visualAsset": "assets/visuals/scene_08.jpg",
         "colorGrade": "hollywood-epic"
+      }
+    },
+    {
+      "id": "scene_01",
+      "type": "Scene",
+      "properties": {
+        "title": "Scene 01",
+        "narration": "The exploration of Europa ocean beneath the ice - The mysterious beginning and initial catalyst.",
+        "durationSeconds": 5.0,
+        "durationInFrames": 150,
+        "visualPrompt": "Cinematic photorealistic documentary frame: The exploration of Europa ocean beneath the ice - The mysterious beginning and initial catalyst.. Cinematography: 35mm prime lens, shallow depth of field, subtle film grain. Lighting: Chiaroscuro moody side-lighting, deep shadows with soft fill. Color: moody-documentary palette, film texture, 8k resolution, award-winning cinematography.",
+        "motionType": "zoom-in",
+        "voiceoverAsset": "assets/audio/scene_01.mp3",
+        "visualAsset": "assets/visuals/scene_01.jpg"
+      }
+    },
+    {
+      "id": "scene_02",
+      "type": "Scene",
+      "properties": {
+        "title": "Scene 02",
+        "narration": "The exploration of Europa ocean beneath the ice - Venturing deeper into the unknown, facing immense scale and challenge.",
+        "durationSeconds": 5.0,
+        "durationInFrames": 150,
+        "visualPrompt": "Cinematic photorealistic documentary frame: The exploration of Europa ocean beneath the ice - Venturing deeper into the unknown, facing immense scale and challenge.. Cinematography: 35mm prime lens, shallow depth of field, subtle film grain. Lighting: Chiaroscuro moody side-lighting, deep shadows with soft fill. Color: moody-documentary palette, film texture, 8k resolution, award-winning cinematography.",
+        "motionType": "zoom-in",
+        "voiceoverAsset": "assets/audio/scene_02.mp3",
+        "visualAsset": "assets/visuals/scene_02.jpg"
+      }
+    },
+    {
+      "id": "scene_03",
+      "type": "Scene",
+      "properties": {
+        "title": "Scene 03",
+        "narration": "The exploration of Europa ocean beneath the ice - Reaching the breakthrough, a breathtaking perspective of what lies ahead.",
+        "durationSeconds": 5.0,
+        "durationInFrames": 150,
+        "visualPrompt": "Cinematic photorealistic documentary frame: The exploration of Europa ocean beneath the ice - Reaching the breakthrough, a breathtaking perspective of what lies ahead.. Cinematography: 35mm prime lens, shallow depth of field, subtle film grain. Lighting: Chiaroscuro moody side-lighting, deep shadows with soft fill. Color: moody-documentary palette, film texture, 8k resolution, award-winning cinematography.",
+        "motionType": "zoom-in",
+        "voiceoverAsset": "assets/audio/scene_03.mp3",
+        "visualAsset": "assets/visuals/scene_03.jpg"
       }
     }
   ],

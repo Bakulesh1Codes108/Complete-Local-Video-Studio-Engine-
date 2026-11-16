@@ -2,7 +2,7 @@
 """
 Master Studio CLI for Antigravity Video Studio
 Unifies Graphify Memory, Edge-TTS Audio Engine, Remotion Timeline,
-Smart Model Router, DaVinci Cinematic Grading & Prompt-Driven Graph Editor.
+Smart Model Router, DaVinci Cinematic Grading & Hardware Space Advisor.
 """
 
 import sys
@@ -17,6 +17,8 @@ GRAPH_EDITOR = os.path.join(SCRIPTS_DIR, "graph_editor.py")
 VOICEOVER = os.path.join(SCRIPTS_DIR, "make_voiceovers.py")
 MODEL_ROUTER = os.path.join(SCRIPTS_DIR, "model_router.py")
 DIRECTOR_PRESETS = os.path.join(SCRIPTS_DIR, "director_presets.py")
+DEVICE_ADVISOR = os.path.join(SCRIPTS_DIR, "device_advisor.py")
+QUICKSTART = os.path.join(SCRIPTS_DIR, "quickstart.py")
 
 def run_cmd(args):
     return subprocess.run(args, cwd=BASE_DIR)
@@ -26,6 +28,8 @@ def print_help():
 🎬 Antigravity Video Studio CLI
 
 Usage:
+  python3 scripts/studio.py quickstart "<story idea>"   [1-Click full film generator]
+  python3 scripts/studio.py advisor                     [Hardware & disk space analysis]
   python3 scripts/studio.py init "<Film Title>"
   python3 scripts/studio.py status
   python3 scripts/studio.py models
@@ -48,7 +52,12 @@ if __name__ == "__main__":
 
     cmd = sys.argv[1].lower()
 
-    if cmd == "init":
+    if cmd in ["advisor", "doctor", "sysinfo"]:
+        run_cmd([sys.executable, DEVICE_ADVISOR])
+    elif cmd in ["quickstart", "generate"]:
+        prompt = " ".join(sys.argv[2:]) if len(sys.argv) > 2 else "The mystery of deep space radio bursts"
+        run_cmd([sys.executable, QUICKSTART, prompt])
+    elif cmd == "init":
         title = sys.argv[2] if len(sys.argv) > 2 else "Autonomous AI Documentary"
         run_cmd([sys.executable, GRAPH_MEMORY, "init", title])
     elif cmd == "status":
@@ -63,10 +72,6 @@ if __name__ == "__main__":
     elif cmd == "edit":
         if len(sys.argv) < 3:
             print("Usage: python3 scripts/studio.py edit '<natural language edit command>'")
-            print("Examples:")
-            print("  python3 scripts/studio.py edit 'make scene_01 8 seconds and zoom-in'")
-            print("  python3 scripts/studio.py edit 'change subtitle of scene_02 to The world changed forever'")
-            print("  python3 scripts/studio.py edit 'switch global style to netflix-doc'")
             sys.exit(1)
         instruction = " ".join(sys.argv[2:])
         run_cmd([sys.executable, GRAPH_EDITOR, "prompt", instruction])
