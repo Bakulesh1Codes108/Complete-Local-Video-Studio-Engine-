@@ -5,10 +5,11 @@
 [![Cost](https://img.shields.io/badge/Cost-100%25%20Free%20%26%20Local-success.svg)]()
 [![Engines](https://img.shields.io/badge/Engines-Remotion%20%7C%20HyperFrames%20%2B%20GSAP%203-orange.svg)]()
 [![Memory](https://img.shields.io/badge/Memory-Graphify%20Knowledge%20Graph-brightgreen.svg)]()
-[![Models](https://img.shields.io/badge/LLMs-Gemini%20Pro%20%7C%20Ollama%20%7C%20Qwen-blueviolet.svg)]()
+[![Models](https://img.shields.io/badge/LLMs-Gemini%20Flash%20%7C%20Local%20Llama%203.2%20%7C%20OpenRouter-blueviolet.svg)]()
 
 > **100% Free, Code-Driven AI Documentary & Video Production Studio.**  
 > Turn prompts, voiceovers, and research notes into deterministic, broadcast-quality **16:9 Documentaries** and **9:16 Shorts/Reels** using **Remotion, HyperFrames, Graphify Context Memory, and Edge-TTS**.  
+> Features an **Intelligent Model Router** with **Local Llama (Ollama) offline fallback**, **OpenRouter free gateway**, and **Prompt Compression** to save tokens from messy input.  
 > **Zero Cloud Subscriptions • Zero API Costs • Zero Watermarks • Hardware Accelerated.**
 
 ---
@@ -20,70 +21,98 @@ This repository comes with the official, full-length guide:
 
 ---
 
-## 🌟 The Unified 3-Pillar Architecture
-
-This studio unites three state-of-the-art open capabilities:
+## 🌟 The Unified 4-Pillar Architecture
 
 ```mermaid
 flowchart TD
-    subgraph MemoryLayer ["1. Graphify Context Memory (Low-Token Engine)"]
-        G1["graphify.config.json<br>(Schema & Rules)"]
-        G2["graphify-out/graph.json<br>(Persistent Film Memory)"]
-        G3["graphify-out/GRAPH_REPORT.md<br>(Live Continuity Tracker)"]
+    subgraph InputLayer ["1. Input & Token Compression"]
+        Raw["Messy / Colloquial Prompt<br>('umm you know can you like make a scene...')"]
+        Comp["Prompt Compressor<br>(Strips fillers, extracts duration & motion, saves 30-70% tokens)"]
+        Raw --> Comp
     end
 
-    subgraph VideoEngines ["2. Dual Deterministic Video Engines"]
+    subgraph RoutingLayer ["2. Intelligent Model Router & Cost Optimizer"]
+        Router["Model Router Agent"]
+        Comp --> Router
+        Router -->|Local & Offline| Ollama["Local Ollama<br>(Llama 3.2 / Qwen 2.5 on HP Laptop GPU)"]
+        Router -->|Free Cloud Gateway| OR["OpenRouter Free Tier<br>(openrouter/free, llama-3.3-70b:free)"]
+        Router -->|High Context| Gem["Google Gemini / Jio AI Pro<br>(Gemini 2.0 Flash)"]
+        Router -->|Zero Network Fallback| Rule["Studio Deterministic Parser<br>($0.00, 100% Offline)"]
+    end
+
+    subgraph MemoryLayer ["3. Graphify Context Memory"]
+        G1["graphify-out/graph.json<br>(Persistent Film Memory)"]
+        G2["graphify-out/GRAPH_REPORT.md<br>(Live Continuity Tracker)"]
+        Ollama --> G1
+        OR --> G1
+        Gem --> G1
+        Rule --> G1
+        G1 --> G2
+    end
+
+    subgraph VideoEngines ["4. Dual Deterministic Video Engines"]
         R1["Remotion Studio Core<br>(React + Vite + Ken Burns + Kinetic Captions)"]
         H1["HyperFrames + GSAP 3<br>(Fluid Motion, SVG Infographics & Explainer Stems)"]
+        G1 -->|Sub-50 token timeline.json| R1
+        G1 -->|Sub-50 token timeline.json| H1
     end
-
-    subgraph AutomationLayer ["3. In-Editor Studio & Audio Automation"]
-        S1["scripts/studio.py<br>(Unified CLI Interface)"]
-        S2["scripts/make_voiceovers.py<br>(Free Edge-TTS Neural Audio)"]
-        P1["packages/extension/<br>(In-Editor Sidebar Webview from CaldiaWorks)"]
-    end
-
-    MemoryLayer -->|Sub-50 token timeline.json| VideoEngines
-    AutomationLayer --> MemoryLayer
-    AutomationLayer --> VideoEngines
 ```
 
-1. **In-Editor Video Engine (`Remotion` from CaldiaWorks)**:
-   - Live timeline player embedded directly in VS Code / Antigravity IDE (`packages/extension/`).
-   - Programmatic MP4 rendering with Ken Burns zoom, kinetic subtitles, and auto audio ducking.
-2. **Context Memory Layer (`Graphify`)**:
-   - `graphify-out/graph.json` keeps track of characters, scenes, visual style guides, and audio paths.
-   - Reduces LLM token usage by **90%+** using ultra-compact context summaries.
-3. **Autonomous Asset Generation (`Edge-TTS + Local AI Director`)**:
-   - Free Microsoft Neural voiceover synthesis (`scripts/make_voiceovers.py`).
-   - Automated timeline calculations that sync visual frames to speech length.
+---
+
+## 🧠 Smart Model Router & Token Compressor
+
+The studio includes a built-in cost-optimizer that protects you against token burn and API downtime:
+
+### 1. Token-Saving Prompt Compressor
+If you input unstructured, rambling prompts:
+```bash
+python3 scripts/studio.py clean "umm you know can you please basically make a scene about black holes for like 7 seconds pan right"
+```
+* Strips conversational filler (*"umm", "you know", "can you please like", "basically"*).
+* Saves **20% to 70% of tokens** before making any LLM call.
+* Automatically extracts duration (`7 seconds`) and camera motion (`pan-right`).
+
+### 2. Zero-Cost Fallback Cascade
+When your tokens run out or you work offline:
+* **Local Llama 3.2 via Ollama (`http://localhost:11434`):** Runs 100% free on your local GPU (ideal on the HP Pavilion Gaming NVIDIA card).
+* **OpenRouter Free Tier:** Supports `openrouter/free`, `meta-llama/llama-3.3-70b-instruct:free`, and `deepseek/deepseek-r1:free` with zero cost.
+* **Google Gemini (Jio AI Pro):** Uses Gemini 2.0 Flash for massive context and complex documentary direction.
+* **Studio Rule Parser:** Internal deterministic fallback that ensures the studio **never crashes or hangs** even with no internet connection.
 
 ---
 
 ## 🚀 Quick Start (Autonomous Studio CLI)
 
-### 1. Check Project Memory Status
+### 1. Check Model Providers & Router Status
+```bash
+python3 scripts/studio.py models
+```
+
+### 2. Add a Scene with Smart AI Routing & Prompt Cleaning
+One command cleans your prompt, selects the optimal zero-cost model, and registers the scene into Graphify memory:
+```bash
+python3 scripts/studio.py smart-scene scene_01 "umm can you like make a scene about ancient ruins hidden under dense jungle for 6 seconds zoom out"
+```
+
+### 3. Check Film Reel Continuity Report
 ```bash
 python3 scripts/studio.py status
+# Or inspect graphify-out/GRAPH_REPORT.md
 ```
 
-### 2. Add or Update a Scene (Sub-50 Token Action)
-```bash
-python3 scripts/studio.py add-scene scene_01 "The Spark" "For centuries, creation was strictly human. In 2026, everything changed." 5 "Cinematic wide shot of futuristic server room, volumetric blue lighting, 35mm lens" "zoom-in"
-```
-
-### 3. Generate Free Studio Voiceovers
+### 4. Generate Free Neural Voiceovers
 ```bash
 python3 scripts/studio.py audio
 ```
 
-### 4. Preview in Remotion
+### 5. Preview Live in Remotion
 ```bash
 npm install
 npm run preview
 ```
 
-### 5. Render Final 4K/1080p MP4
+### 6. Render Broadcast MP4
 ```bash
 npm run render
 ```
@@ -95,9 +124,10 @@ npm run render
 | Feature | On Mac (Intel i5, 8GB) | On HP Pavilion Gaming (NVIDIA GPU) |
 | :--- | :--- | :--- |
 | **Brain / Scripting** | Gemini Advanced (Jio AI Pro) | Gemini Advanced (Jio AI Pro) |
+| **Local LLM Fallback** | Ollama (CPU mode) | **Ollama Llama 3.2 (CUDA GPU accelerated)** |
 | **Memory Graph** | `scripts/studio.py` | `scripts/studio.py` |
 | **Voiceover Engine** | Edge-TTS (Cloud Neural) | Edge-TTS (Cloud Neural) |
-| **Image Keyframes** | Cloud (Imagen 3 / Pollinations) | **Fooocus Local (CUDA accelerated)** |
+| **Image Keyframes** | Cloud (Imagen 3 / Pollinations) | **Fooocus Local (CUDA SDXL accelerated)** |
 | **Remotion Rendering** | CPU Render | **NVIDIA Hardware Accelerated** |
 
 ---
@@ -107,6 +137,7 @@ npm run render
 ```
 antigravity-video-studio/
 ├── Antigravity-Video-Free-Guide.pdf   # Complete official user guide (PDF)
+├── model_router.config.json          # Smart router endpoints & cost rules
 ├── graphify-out/
 │   ├── graph.json                    # Persistent film memory graph
 │   └── GRAPH_REPORT.md               # Live film reel & continuity report
@@ -126,6 +157,7 @@ antigravity-video-studio/
 │       └── AudioMixer.tsx            # Auto voice ducking audio mixer
 ├── scripts/
 │   ├── studio.py                     # Unified master CLI
+│   ├── model_router.py               # Prompt compressor & multi-tier router
 │   ├── graph_memory.py               # Graphify memory manager
 │   ├── make_voiceovers.py            # Free Edge-TTS audio synthesizer
 │   ├── local_ai_director.py          # Bridge to local Ollama/Qwen/Llama models
