@@ -1,56 +1,40 @@
 {
-  "project": "The Exploration Of Europa Ocean Beneath The I",
+  "project": "The Secret World Of Deep Sea Geothermal Vents",
   "fps": 30,
   "width": 1920,
   "height": 1080,
+  "letterbox": true,
+  "defaultColorGrade": "hollywood-epic",
   "scenes": [
     {
       "id": "scene_01",
       "durationInFrames": 150,
       "voiceover": "assets/audio/scene_01.mp3",
       "visual": "assets/visuals/scene_01.jpg",
-      "subtitle": "The exploration of Europa ocean beneath the ice - The mysterious beginning and initial catalyst.",
-      "motion": "zoom-in"
+      "subtitle": "The secret world of deep sea geothermal vents - The mysterious beginning and initial catalyst.",
+      "motion": "zoom-in",
+      "colorGrade": "hollywood-epic",
+      "jCutFrames": 12
     },
     {
       "id": "scene_02",
-      "durationInFrames": 150,
+      "durationInFrames": 210,
       "voiceover": "assets/audio/scene_02.mp3",
       "visual": "assets/visuals/scene_02.jpg",
-      "subtitle": "The exploration of Europa ocean beneath the ice - Venturing deeper into the unknown, facing immense scale and challenge.",
-      "motion": "zoom-in"
+      "subtitle": "The secret world of deep sea geothermal vents - Venturing deeper into the unknown, facing immense scale and challenge.",
+      "motion": "zoom-in",
+      "colorGrade": "hollywood-epic",
+      "jCutFrames": 12
     },
     {
       "id": "scene_03",
       "durationInFrames": 150,
       "voiceover": "assets/audio/scene_03.mp3",
       "visual": "assets/visuals/scene_03.jpg",
-      "subtitle": "The exploration of Europa ocean beneath the ice - Reaching the breakthrough, a breathtaking perspective of what lies ahead.",
-      "motion": "zoom-in"
-    },
-    {
-      "id": "scene_04",
-      "durationInFrames": 150,
-      "voiceover": "assets/audio/scene_04.mp3",
-      "visual": "assets/visuals/scene_04.jpg",
-      "subtitle": "Through code and cognition, imagination takes physical form.",
-      "motion": "zoom-in"
-    },
-    {
-      "id": "scene_05",
-      "durationInFrames": 150,
-      "voiceover": "assets/audio/scene_05.mp3",
-      "visual": "assets/visuals/scene_05.jpg",
-      "subtitle": "can you make a scene about the discovery of deep sea hydrothermal vents for 8 seconds pan left",
-      "motion": "zoom-in"
-    },
-    {
-      "id": "scene_08",
-      "durationInFrames": 210,
-      "voiceover": "assets/audio/scene_08.mp3",
-      "visual": "assets/visuals/scene_08.jpg",
-      "subtitle": "can you show marine biologists discovering glowing bioluminescent jellyfish at 3000 meters depth for 7 seconds pan left",
-      "motion": "pan-left"
+      "subtitle": "The secret world of deep sea geothermal vents - Reaching the breakthrough, a breathtaking perspective of what lies ahead.",
+      "motion": "zoom-in",
+      "colorGrade": "hollywood-epic",
+      "jCutFrames": 12
     }
   ]
 }

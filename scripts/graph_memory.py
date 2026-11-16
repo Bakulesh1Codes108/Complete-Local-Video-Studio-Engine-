@@ -7,6 +7,7 @@ Enables token-efficient context recall for AI Film & Documentary production.
 import json
 import os
 import sys
+import re
 from datetime import datetime
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -18,6 +19,11 @@ os.makedirs(GRAPH_OUT_DIR, exist_ok=True)
 os.makedirs(os.path.join(BASE_DIR, "assets", "audio"), exist_ok=True)
 os.makedirs(os.path.join(BASE_DIR, "assets", "visuals"), exist_ok=True)
 os.makedirs(os.path.join(BASE_DIR, "assets", "broll"), exist_ok=True)
+
+def natural_sort_key(node):
+    """Sorts scene IDs naturally so scene_2 precedes scene_10"""
+    sid = node.get("id", "")
+    return [int(text) if text.isdigit() else text.lower() for text in re.split(r'(\d+)', sid)]
 
 def load_graph():
     if not os.path.exists(GRAPH_FILE):
@@ -51,6 +57,7 @@ def generate_report(data):
     edges = data.get("edges", [])
     
     scenes = [n for n in nodes if n.get("type") == "Scene"]
+    scenes.sort(key=natural_sort_key)
     entities = [n for n in nodes if n.get("type") == "Entity"]
     visuals = [n for n in nodes if n.get("type") == "VisualAsset"]
     audios = [n for n in nodes if n.get("type") == "AudioAsset"]
@@ -93,12 +100,13 @@ def generate_report(data):
 def cmd_init(title="Autonomous AI Documentary"):
     data = load_graph()
     data["project"]["title"] = title
+    data["nodes"] = []
+    data["edges"] = []
     save_graph(data)
     print(f"Initialized Graphify memory for '{title}' at {GRAPH_FILE}")
 
 def cmd_add_scene(scene_id, title, narration, duration_sec=5, visual_prompt="", motion_type="zoom-in"):
     data = load_graph()
-    # Check if scene exists
     data["nodes"] = [n for n in data["nodes"] if n["id"] != scene_id]
     
     scene_node = {
@@ -108,7 +116,7 @@ def cmd_add_scene(scene_id, title, narration, duration_sec=5, visual_prompt="", 
             "title": title,
             "narration": narration,
             "durationSeconds": float(duration_sec),
-            "durationInFrames": int(float(duration_sec) * data["project"]["fps"]),
+            "durationInFrames": int(float(duration_sec) * data["project"].get("fps", 30)),
             "visualPrompt": visual_prompt,
             "motionType": motion_type,
             "voiceoverAsset": f"assets/audio/{scene_id}.mp3",
@@ -117,9 +125,9 @@ def cmd_add_scene(scene_id, title, narration, duration_sec=5, visual_prompt="", 
     }
     data["nodes"].append(scene_node)
     
-    # Auto-link transitions between chronological scenes
+    # Natural sort scenes
     scenes = [n for n in data["nodes"] if n["type"] == "Scene"]
-    scenes.sort(key=lambda x: x["id"])
+    scenes.sort(key=natural_sort_key)
     
     # Refresh TRANSITIONS_TO edges
     data["edges"] = [e for e in data["edges"] if e["type"] != "TRANSITIONS_TO"]
@@ -135,10 +143,10 @@ def cmd_add_scene(scene_id, title, narration, duration_sec=5, visual_prompt="", 
     print(f"Scene [{scene_id}] '{title}' added to Graphify memory.")
 
 def cmd_get_compact_context():
-    """Returns ultra-compact summary designed to use < 150 LLM tokens"""
     data = load_graph()
     proj = data.get("project", {})
     scenes = [n for n in data.get("nodes", []) if n.get("type") == "Scene"]
+    scenes.sort(key=natural_sort_key)
     compact = {
         "project": proj.get("title"),
         "totalScenes": len(scenes),
@@ -155,17 +163,18 @@ def cmd_get_compact_context():
     print(json.dumps(compact, indent=2))
 
 def cmd_export_remotion_timeline(output_json=None):
-    """Exports clean timeline.json directly for Remotion Webview Player"""
     data = load_graph()
     proj = data.get("project", {})
     scenes = [n for n in data.get("nodes", []) if n.get("type") == "Scene"]
-    scenes.sort(key=lambda x: x["id"])
+    scenes.sort(key=natural_sort_key)
 
     timeline = {
-        "project": proj.get("title"),
+        "project": proj.get("title", "Autonomous AI Documentary"),
         "fps": proj.get("fps", 30),
         "width": proj.get("width", 1920),
         "height": proj.get("height", 1080),
+        "letterbox": proj.get("letterbox", True),
+        "defaultColorGrade": proj.get("defaultColorGrade", "moody-documentary"),
         "scenes": [
             {
                 "id": s["id"],

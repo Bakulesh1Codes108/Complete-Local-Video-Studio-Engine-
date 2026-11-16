@@ -9,9 +9,15 @@ import sys
 import os
 import subprocess
 import json
+import re
 
 SCRIPTS_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(SCRIPTS_DIR)
+
+# Ensure scripts directory is on sys.path for direct imports
+if SCRIPTS_DIR not in sys.path:
+    sys.path.insert(0, SCRIPTS_DIR)
+
 GRAPH_MEMORY = os.path.join(SCRIPTS_DIR, "graph_memory.py")
 GRAPH_EDITOR = os.path.join(SCRIPTS_DIR, "graph_editor.py")
 VOICEOVER = os.path.join(SCRIPTS_DIR, "make_voiceovers.py")
@@ -22,6 +28,26 @@ QUICKSTART = os.path.join(SCRIPTS_DIR, "quickstart.py")
 
 def run_cmd(args):
     return subprocess.run(args, cwd=BASE_DIR)
+
+def extract_json_from_llm(text: str) -> dict:
+    """Robustly extracts JSON from raw LLM responses or Markdown code blocks."""
+    if not text:
+        return {}
+    # Look for ```json ... ``` or { ... }
+    match = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", text, re.DOTALL)
+    if match:
+        try:
+            return json.loads(match.group(1))
+        except Exception:
+            pass
+    # Look for raw { ... }
+    match = re.search(r"(\{.*\})", text, re.DOTALL)
+    if match:
+        try:
+            return json.loads(match.group(1))
+        except Exception:
+            pass
+    return {}
 
 def print_help():
     print("""
@@ -72,6 +98,10 @@ if __name__ == "__main__":
     elif cmd == "edit":
         if len(sys.argv) < 3:
             print("Usage: python3 scripts/studio.py edit '<natural language edit command>'")
+            print("Examples:")
+            print("  python3 scripts/studio.py edit 'make scene_01 8 seconds and zoom-in'")
+            print("  python3 scripts/studio.py edit 'change subtitle of scene_02 to The world changed forever'")
+            print("  python3 scripts/studio.py edit 'switch global style to netflix-doc'")
             sys.exit(1)
         instruction = " ".join(sys.argv[2:])
         run_cmd([sys.executable, GRAPH_EDITOR, "prompt", instruction])
@@ -127,16 +157,13 @@ if __name__ == "__main__":
         motion = cleaned['detected_motion']
         visual_prompt = f"Cinematic photorealistic documentary shot: {cleaned['cleaned_prompt']}, 35mm lens, 8k"
         
-        if isinstance(gen_result.get("content"), str) and gen_result["content"].startswith("{"):
-            try:
-                parsed = json.loads(gen_result["content"])
-                title = parsed.get("title", title)
-                narration = parsed.get("narration", narration)
-                visual_prompt = parsed.get("visualPrompt", visual_prompt)
-                duration = parsed.get("duration", duration)
-                motion = parsed.get("motion", motion)
-            except Exception:
-                pass
+        parsed = extract_json_from_llm(str(gen_result.get("content", "")))
+        if parsed:
+            title = parsed.get("title", title)
+            narration = parsed.get("narration", narration)
+            visual_prompt = parsed.get("visualPrompt", visual_prompt)
+            duration = parsed.get("duration", duration)
+            motion = parsed.get("motion", motion)
 
         run_cmd([sys.executable, GRAPH_MEMORY, "add-scene", sid, title, narration, str(duration), visual_prompt, motion])
         run_cmd([sys.executable, GRAPH_MEMORY, "export-timeline"])
