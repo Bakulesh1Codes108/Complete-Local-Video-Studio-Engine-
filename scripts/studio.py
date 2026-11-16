@@ -2,7 +2,7 @@
 """
 Master Studio CLI for Antigravity Video Studio
 Unifies Graphify Memory, Edge-TTS Audio Engine, Remotion Timeline,
-Smart Model Router, DaVinci Cinematic Grading & OpenCut Pacing Presets.
+Smart Model Router, DaVinci Cinematic Grading & Prompt-Driven Graph Editor.
 """
 
 import sys
@@ -13,6 +13,7 @@ import json
 SCRIPTS_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(SCRIPTS_DIR)
 GRAPH_MEMORY = os.path.join(SCRIPTS_DIR, "graph_memory.py")
+GRAPH_EDITOR = os.path.join(SCRIPTS_DIR, "graph_editor.py")
 VOICEOVER = os.path.join(SCRIPTS_DIR, "make_voiceovers.py")
 MODEL_ROUTER = os.path.join(SCRIPTS_DIR, "model_router.py")
 DIRECTOR_PRESETS = os.path.join(SCRIPTS_DIR, "director_presets.py")
@@ -30,7 +31,8 @@ Usage:
   python3 scripts/studio.py models
   python3 scripts/studio.py presets
   python3 scripts/studio.py clean "<noisy prompt>"
-  python3 scripts/studio.py director-scene <id> "<rough idea>" [preset: netflix-doc | hollywood-epic | historical-investigation | noir-crime | modern-explainer]
+  python3 scripts/studio.py edit "<natural language edit command>"
+  python3 scripts/studio.py director-scene <id> "<rough idea>" [preset_name]
   python3 scripts/studio.py smart-scene <id> "<rough prompt>"
   python3 scripts/studio.py add-scene <id> "<title>" "<narration>" [dur] [prompt] [motion]
   python3 scripts/studio.py sync
@@ -58,6 +60,16 @@ if __name__ == "__main__":
     elif cmd == "clean":
         raw = " ".join(sys.argv[2:])
         run_cmd([sys.executable, MODEL_ROUTER, "clean", raw])
+    elif cmd == "edit":
+        if len(sys.argv) < 3:
+            print("Usage: python3 scripts/studio.py edit '<natural language edit command>'")
+            print("Examples:")
+            print("  python3 scripts/studio.py edit 'make scene_01 8 seconds and zoom-in'")
+            print("  python3 scripts/studio.py edit 'change subtitle of scene_02 to The world changed forever'")
+            print("  python3 scripts/studio.py edit 'switch global style to netflix-doc'")
+            sys.exit(1)
+        instruction = " ".join(sys.argv[2:])
+        run_cmd([sys.executable, GRAPH_EDITOR, "prompt", instruction])
     elif cmd == "director-scene":
         if len(sys.argv) < 4:
             print("Usage: python3 scripts/studio.py director-scene <id> '<rough concept>' [preset_name]")
@@ -66,18 +78,15 @@ if __name__ == "__main__":
         raw_concept = sys.argv[3]
         preset = sys.argv[4] if len(sys.argv) > 4 else "netflix-doc"
 
-        # 1. Clean Prompt
         from model_router import PromptCompressor
         compressor = PromptCompressor()
         cleaned = compressor.clean_noisy_prompt(raw_concept)
         print(f"🧹 Cleaned Concept ({cleaned['estimated_token_savings']} token savings): '{cleaned['cleaned_prompt']}'")
 
-        # 2. Enhance with DaVinci Color Science & OpenCut J-Cuts
         from director_presets import enhance_prompt
         enhanced = enhance_prompt(cleaned['cleaned_prompt'], preset)
         print(f"🎨 Applied DaVinci Preset: {enhanced['preset_title']} ({enhanced['colorGrade']}, J-Cut: {enhanced['jCutFrames']} frames)")
 
-        # 3. Add to Graphify Memory
         title = sid.replace("_", " ").title()
         narration = cleaned['cleaned_prompt']
         dur = cleaned['detected_duration']

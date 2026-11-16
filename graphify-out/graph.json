@@ -8,7 +8,8 @@
     "width": 1920,
     "height": 1080,
     "aspectRatio": "16:9",
-    "fontFamily": "Inter, sans-serif"
+    "fontFamily": "Inter, sans-serif",
+    "defaultColorGrade": "hollywood-epic"
   },
   "nodes": [
     {
@@ -17,12 +18,13 @@
       "properties": {
         "title": "The Spark",
         "narration": "For centuries, creation was strictly human. In 2024, everything changed.",
-        "durationSeconds": 5.0,
-        "durationInFrames": 150,
+        "durationSeconds": 8.5,
+        "durationInFrames": 255,
         "visualPrompt": "Cinematic wide shot of futuristic server room, volumetric blue lighting, 35mm lens",
-        "motionType": "zoom-in",
+        "motionType": "zoom-out",
         "voiceoverAsset": "assets/audio/scene_01.mp3",
-        "visualAsset": "assets/visuals/scene_01.jpg"
+        "visualAsset": "assets/visuals/scene_01.jpg",
+        "colorGrade": "hollywood-epic"
       }
     },
     {
@@ -30,13 +32,14 @@
       "type": "Scene",
       "properties": {
         "title": "The Synthesis",
-        "narration": "Pixels and neural weights began dreaming together, rendering thoughts into light.",
+        "narration": "Neural networks and human vision merged into pure cinema",
         "durationSeconds": 6.0,
         "durationInFrames": 180,
         "visualPrompt": "Abstract neural network glowing synaptic pathways blending into film reels",
         "motionType": "pan-right",
         "voiceoverAsset": "assets/audio/scene_02.mp3",
-        "visualAsset": "assets/visuals/scene_02.jpg"
+        "visualAsset": "assets/visuals/scene_02.jpg",
+        "colorGrade": "hollywood-epic"
       }
     },
     {
@@ -45,12 +48,13 @@
       "properties": {
         "title": "The Horizon",
         "narration": "Human creators now direct digital symphonies, where code becomes cinema.",
-        "durationSeconds": 5.5,
-        "durationInFrames": 165,
+        "durationSeconds": 7.5,
+        "durationInFrames": 225,
         "visualPrompt": "Panoramic mountain vista with glowing futuristic holographic displays at sunrise",
-        "motionType": "zoom-in",
+        "motionType": "pan-right",
         "voiceoverAsset": "assets/audio/scene_03.mp3",
-        "visualAsset": "assets/visuals/scene_03.jpg"
+        "visualAsset": "assets/visuals/scene_03.jpg",
+        "colorGrade": "hollywood-epic"
       }
     },
     {
@@ -64,7 +68,8 @@
         "visualPrompt": "High-tech creative workspace with floating glowing UI timelines, 8k resolution",
         "motionType": "zoom-in",
         "voiceoverAsset": "assets/audio/scene_04.mp3",
-        "visualAsset": "assets/visuals/scene_04.jpg"
+        "visualAsset": "assets/visuals/scene_04.jpg",
+        "colorGrade": "hollywood-epic"
       }
     },
     {
@@ -78,7 +83,8 @@
         "visualPrompt": "Cinematic photorealistic documentary shot depicting: can you make a scene about the discovery, 35mm film grain, 8k",
         "motionType": "zoom-in",
         "voiceoverAsset": "assets/audio/scene_05.mp3",
-        "visualAsset": "assets/visuals/scene_05.jpg"
+        "visualAsset": "assets/visuals/scene_05.jpg",
+        "colorGrade": "hollywood-epic"
       }
     },
     {
@@ -92,7 +98,8 @@
         "visualPrompt": "Cinematic photorealistic documentary frame: can you show marine biologists discovering glowing bioluminescent jellyfish at 3000 meters depth for 7 seconds pan left. Cinematography: 35mm prime lens, shallow depth of field, subtle film grain. Lighting: Chiaroscuro moody side-lighting, deep shadows with soft fill. Color: moody-documentary palette, film texture, 8k resolution, award-winning cinematography.",
         "motionType": "pan-left",
         "voiceoverAsset": "assets/audio/scene_08.mp3",
-        "visualAsset": "assets/visuals/scene_08.jpg"
+        "visualAsset": "assets/visuals/scene_08.jpg",
+        "colorGrade": "hollywood-epic"
       }
     }
   ],

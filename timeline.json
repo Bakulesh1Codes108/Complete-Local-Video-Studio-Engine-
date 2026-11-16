@@ -3,30 +3,38 @@
   "fps": 30,
   "width": 1920,
   "height": 1080,
+  "letterbox": true,
+  "defaultColorGrade": "hollywood-epic",
   "scenes": [
     {
       "id": "scene_01",
-      "durationInFrames": 150,
+      "durationInFrames": 255,
       "voiceover": "assets/audio/scene_01.mp3",
       "visual": "assets/visuals/scene_01.jpg",
       "subtitle": "For centuries, creation was strictly human. In 2024, everything changed.",
-      "motion": "zoom-in"
+      "motion": "zoom-out",
+      "colorGrade": "hollywood-epic",
+      "jCutFrames": 12
     },
     {
       "id": "scene_02",
       "durationInFrames": 180,
       "voiceover": "assets/audio/scene_02.mp3",
       "visual": "assets/visuals/scene_02.jpg",
-      "subtitle": "Pixels and neural weights began dreaming together, rendering thoughts into light.",
-      "motion": "pan-right"
+      "subtitle": "Neural networks and human vision merged into pure cinema",
+      "motion": "pan-right",
+      "colorGrade": "hollywood-epic",
+      "jCutFrames": 12
     },
     {
       "id": "scene_03",
-      "durationInFrames": 165,
+      "durationInFrames": 225,
       "voiceover": "assets/audio/scene_03.mp3",
       "visual": "assets/visuals/scene_03.jpg",
       "subtitle": "Human creators now direct digital symphonies, where code becomes cinema.",
-      "motion": "zoom-in"
+      "motion": "pan-right",
+      "colorGrade": "hollywood-epic",
+      "jCutFrames": 12
     },
     {
       "id": "scene_04",
@@ -34,7 +42,9 @@
       "voiceover": "assets/audio/scene_04.mp3",
       "visual": "assets/visuals/scene_04.jpg",
       "subtitle": "Through code and cognition, imagination takes physical form.",
-      "motion": "zoom-in"
+      "motion": "zoom-in",
+      "colorGrade": "hollywood-epic",
+      "jCutFrames": 12
     },
     {
       "id": "scene_05",
@@ -42,7 +52,9 @@
       "voiceover": "assets/audio/scene_05.mp3",
       "visual": "assets/visuals/scene_05.jpg",
       "subtitle": "can you make a scene about the discovery of deep sea hydrothermal vents for 8 seconds pan left",
-      "motion": "zoom-in"
+      "motion": "zoom-in",
+      "colorGrade": "hollywood-epic",
+      "jCutFrames": 12
     },
     {
       "id": "scene_08",
@@ -50,7 +62,9 @@
       "voiceover": "assets/audio/scene_08.mp3",
       "visual": "assets/visuals/scene_08.jpg",
       "subtitle": "can you show marine biologists discovering glowing bioluminescent jellyfish at 3000 meters depth for 7 seconds pan left",
-      "motion": "pan-left"
+      "motion": "pan-left",
+      "colorGrade": "hollywood-epic",
+      "jCutFrames": 12
     }
   ]
 }
