@@ -27,6 +27,14 @@
       "visual": "assets/visuals/scene_03.jpg",
       "subtitle": "Human creators now direct digital symphonies, where code becomes cinema.",
       "motion": "zoom-in"
+    },
+    {
+      "id": "scene_04",
+      "durationInFrames": 150,
+      "voiceover": "assets/audio/scene_04.mp3",
+      "visual": "assets/visuals/scene_04.jpg",
+      "subtitle": "Through code and cognition, imagination takes physical form.",
+      "motion": "zoom-in"
     }
   ]
 }

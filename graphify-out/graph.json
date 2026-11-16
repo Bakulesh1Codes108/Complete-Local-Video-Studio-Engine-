@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-11-16T16:19:24.515157Z",
+  "updatedAt": "2026-11-16T16:25:02.041490Z",
   "project": {
     "id": "proj_01",
     "title": "The AI Creative Revolution",
@@ -52,6 +52,20 @@
         "voiceoverAsset": "assets/audio/scene_03.mp3",
         "visualAsset": "assets/visuals/scene_03.jpg"
       }
+    },
+    {
+      "id": "scene_04",
+      "type": "Scene",
+      "properties": {
+        "title": "The Final Cut",
+        "narration": "Through code and cognition, imagination takes physical form.",
+        "durationSeconds": 5.0,
+        "durationInFrames": 150,
+        "visualPrompt": "High-tech creative workspace with floating glowing UI timelines, 8k resolution",
+        "motionType": "zoom-in",
+        "voiceoverAsset": "assets/audio/scene_04.mp3",
+        "visualAsset": "assets/visuals/scene_04.jpg"
+      }
     }
   ],
   "edges": [
@@ -67,6 +81,15 @@
     {
       "from": "scene_02",
       "to": "scene_03",
+      "type": "TRANSITIONS_TO",
+      "properties": {
+        "transition": "crossfade",
+        "durationFrames": 15
+      }
+    },
+    {
+      "from": "scene_03",
+      "to": "scene_04",
       "type": "TRANSITIONS_TO",
       "properties": {
         "transition": "crossfade",
