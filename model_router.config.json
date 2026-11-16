@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "name": "antigravity-smart-router",
+  "description": "Multi-tier model routing, prompt compression, and zero-cost fallback system",
+  "routingPolicy": {
+    "preferFree": true,
+    "promptForPermissionOnPaid": true,
+    "autoFallbackToLocal": true
+  },
+  "providers": {
+    "local_ollama": {
+      "name": "Local Ollama (Llama / Qwen)",
+      "endpoint": "http://localhost:11434/api/generate",
+      "model": "llama3.2:latest",
+      "fallbackModel": "qwen2.5:latest",
+      "costPer1kTokens": 0.0,
+      "offline": true,
+      "enabled": true
+    },
+    "openrouter_free": {
+      "name": "OpenRouter Free Gateway",
+      "endpoint": "https://openrouter.ai/api/v1/chat/completions",
+      "model": "openrouter/free",
+      "fallbackModel": "meta-llama/llama-3.3-70b-instruct:free",
+      "costPer1kTokens": 0.0,
+      "apiKeyEnv": "OPENROUTER_API_KEY",
+      "enabled": true
+    },
+    "google_gemini": {
+      "name": "Google AI Studio / Gemini API",
+      "endpoint": "https://generativelanguage.googleapis.com/v1beta/models",
+      "model": "gemini-2.0-flash",
+      "fallbackModel": "gemini-1.5-flash",
+      "costPer1kTokens": 0.0,
+      "apiKeyEnv": "GEMINI_API_KEY",
+      "enabled": true
+    }
+  },
+  "taskTiers": {
+    "prompt_cleanup": "local_ollama",
+    "scene_expansion": "openrouter_free",
+    "master_documentary_direction": "google_gemini"
+  }
+}

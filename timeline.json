@@ -35,6 +35,14 @@
       "visual": "assets/visuals/scene_04.jpg",
       "subtitle": "Through code and cognition, imagination takes physical form.",
       "motion": "zoom-in"
+    },
+    {
+      "id": "scene_05",
+      "durationInFrames": 150,
+      "voiceover": "assets/audio/scene_05.mp3",
+      "visual": "assets/visuals/scene_05.jpg",
+      "subtitle": "can you make a scene about the discovery of deep sea hydrothermal vents for 8 seconds pan left",
+      "motion": "zoom-in"
     }
   ]
 }

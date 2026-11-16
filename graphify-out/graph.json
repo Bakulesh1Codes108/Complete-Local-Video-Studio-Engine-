@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-11-16T16:25:02.041490Z",
+  "updatedAt": "2026-11-16T17:11:01.117923Z",
   "project": {
     "id": "proj_01",
     "title": "The AI Creative Revolution",
@@ -66,6 +66,20 @@
         "voiceoverAsset": "assets/audio/scene_04.mp3",
         "visualAsset": "assets/visuals/scene_04.jpg"
       }
+    },
+    {
+      "id": "scene_05",
+      "type": "Scene",
+      "properties": {
+        "title": "can you make a scene about the discovery",
+        "narration": "can you make a scene about the discovery of deep sea hydrothermal vents for 8 seconds pan left",
+        "durationSeconds": 5.0,
+        "durationInFrames": 150,
+        "visualPrompt": "Cinematic photorealistic documentary shot depicting: can you make a scene about the discovery, 35mm film grain, 8k",
+        "motionType": "zoom-in",
+        "voiceoverAsset": "assets/audio/scene_05.mp3",
+        "visualAsset": "assets/visuals/scene_05.jpg"
+      }
     }
   ],
   "edges": [
@@ -90,6 +104,15 @@
     {
       "from": "scene_03",
       "to": "scene_04",
+      "type": "TRANSITIONS_TO",
+      "properties": {
+        "transition": "crossfade",
+        "durationFrames": 15
+      }
+    },
+    {
+      "from": "scene_04",
+      "to": "scene_05",
       "type": "TRANSITIONS_TO",
       "properties": {
         "transition": "crossfade",
