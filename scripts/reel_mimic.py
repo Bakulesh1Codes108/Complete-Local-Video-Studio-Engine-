@@ -95,7 +95,7 @@ VIRAL_PRESETS = {
     }
 }
 
-def mimic_reel(preset_name: str, new_topic: str):
+def mimic_reel(preset_name: str, new_topic: str, fetch_media: bool = True, generate_audio: bool = True):
     preset = VIRAL_PRESETS.get(preset_name, VIRAL_PRESETS["alex_hormozi_viral_reel"])
     print("=" * 65)
     print(f"🧬 ENHANCED REEL MIMIC: Cloning Viral Structure: '{preset['title']}'")
@@ -121,11 +121,14 @@ def mimic_reel(preset_name: str, new_topic: str):
 
         # 1. Fetch / Guarantee Visual Asset on Disk (Prevents Remotion Breaking)
         prompt_keywords = f"{s['beat']} {new_topic}"
-        visual_path = media_fetcher.acquire_media_for_scene(sid, prompt_keywords, orientation=orientation)
+        if fetch_media:
+            visual_path = media_fetcher.acquire_media_for_scene(sid, prompt_keywords, orientation=orientation)
+        else:
+            visual_path = f"assets/visuals/{sid}.jpg"
 
         # 2. Guarantee Audio Asset on Disk
         audio_path = os.path.join(BASE_DIR, "assets", "audio", f"{sid}.mp3")
-        if not os.path.exists(audio_path):
+        if generate_audio and not os.path.exists(audio_path):
             # Create a zero-byte/silent placeholder or seed from existing audio
             seed_audio = os.path.join(BASE_DIR, "projects", "efficient-engineer-cooling", "assets", "song.mp3")
             if os.path.exists(seed_audio):

@@ -1,9 +1,9 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-11-17T08:52:07.694584Z",
+  "updatedAt": "2026-11-17T09:03:38.315630Z",
   "project": {
     "id": "proj_01",
-    "title": "Mimic: Alex Hormozi High-Retention Reel - Why Traditional Coding is",
+    "title": "Black Hole Singularity",
     "fps": 30,
     "width": 1920,
     "height": 1080,
@@ -13,80 +13,52 @@
   },
   "nodes": [
     {
-      "id": "mimic_01",
+      "id": "scene_01",
       "type": "Scene",
       "properties": {
-        "title": "Aggressive Contrarian Hook",
-        "narration": "Aggressive Contrarian Hook: Why Traditional Coding is Changing",
-        "durationSeconds": 2.0,
-        "durationInFrames": 60,
-        "visualPrompt": "Stock visual representing Aggressive Contrarian Hook Why Traditional Coding is Changing",
+        "title": "Scene 01",
+        "narration": "Black Hole Singularity - The mysterious beginning and initial catalyst.",
+        "durationSeconds": 5.0,
+        "durationInFrames": 150,
+        "visualPrompt": "Cinematic photorealistic documentary frame: Black Hole Singularity - The mysterious beginning and initial catalyst.. Cinematography: 35mm prime lens, shallow depth of field, subtle film grain. Lighting: Chiaroscuro moody side-lighting, deep shadows with soft fill. Color: moody-documentary palette, film texture, 8k resolution, award-winning cinematography.",
         "motionType": "zoom-in",
-        "voiceoverAsset": "assets/audio/mimic_01.mp3",
-        "visualAsset": "assets/visuals/mimic_01.jpg"
+        "voiceoverAsset": "assets/audio/scene_01.mp3",
+        "visualAsset": "assets/visuals/scene_01.jpg"
       }
     },
     {
-      "id": "mimic_02",
+      "id": "scene_02",
       "type": "Scene",
       "properties": {
-        "title": "The False Belief Callout",
-        "narration": "The False Belief Callout: Why Traditional Coding is Changing",
-        "durationSeconds": 2.2,
-        "durationInFrames": 66,
-        "visualPrompt": "Stock visual representing The False Belief Callout Why Traditional Coding is Changing",
-        "motionType": "pan-left",
-        "voiceoverAsset": "assets/audio/mimic_02.mp3",
-        "visualAsset": "assets/visuals/mimic_02.jpg"
-      }
-    },
-    {
-      "id": "mimic_03",
-      "type": "Scene",
-      "properties": {
-        "title": "The Hidden Real Truth",
-        "narration": "The Hidden Real Truth: Why Traditional Coding is Changing",
-        "durationSeconds": 2.4,
-        "durationInFrames": 72,
-        "visualPrompt": "Stock visual representing The Hidden Real Truth Why Traditional Coding is Changing",
+        "title": "Scene 02",
+        "narration": "Black Hole Singularity - Venturing deeper into the unknown, facing immense scale and challenge.",
+        "durationSeconds": 5.0,
+        "durationInFrames": 150,
+        "visualPrompt": "Cinematic photorealistic documentary frame: Black Hole Singularity - Venturing deeper into the unknown, facing immense scale and challenge.. Cinematography: 35mm prime lens, shallow depth of field, subtle film grain. Lighting: Chiaroscuro moody side-lighting, deep shadows with soft fill. Color: moody-documentary palette, film texture, 8k resolution, award-winning cinematography.",
         "motionType": "zoom-in",
-        "voiceoverAsset": "assets/audio/mimic_03.mp3",
-        "visualAsset": "assets/visuals/mimic_03.jpg"
+        "voiceoverAsset": "assets/audio/scene_02.mp3",
+        "visualAsset": "assets/visuals/scene_02.jpg"
       }
     },
     {
-      "id": "mimic_04",
+      "id": "scene_03",
       "type": "Scene",
       "properties": {
-        "title": "Concrete Action Step",
-        "narration": "Concrete Action Step: Why Traditional Coding is Changing",
-        "durationSeconds": 2.6,
-        "durationInFrames": 78,
-        "visualPrompt": "Stock visual representing Concrete Action Step Why Traditional Coding is Changing",
-        "motionType": "pan-right",
-        "voiceoverAsset": "assets/audio/mimic_04.mp3",
-        "visualAsset": "assets/visuals/mimic_04.jpg"
-      }
-    },
-    {
-      "id": "mimic_05",
-      "type": "Scene",
-      "properties": {
-        "title": "Punchline / Follow Call-to-Action",
-        "narration": "Punchline / Follow Call-to-Action: Why Traditional Coding is Changing",
-        "durationSeconds": 2.0,
-        "durationInFrames": 60,
-        "visualPrompt": "Stock visual representing Punchline / Follow Call-to-Action Why Traditional Coding is Changing",
-        "motionType": "zoom-out",
-        "voiceoverAsset": "assets/audio/mimic_05.mp3",
-        "visualAsset": "assets/visuals/mimic_05.jpg"
+        "title": "Scene 03",
+        "narration": "Black Hole Singularity - Reaching the breakthrough, a breathtaking perspective of what lies ahead.",
+        "durationSeconds": 5.0,
+        "durationInFrames": 150,
+        "visualPrompt": "Cinematic photorealistic documentary frame: Black Hole Singularity - Reaching the breakthrough, a breathtaking perspective of what lies ahead.. Cinematography: 35mm prime lens, shallow depth of field, subtle film grain. Lighting: Chiaroscuro moody side-lighting, deep shadows with soft fill. Color: moody-documentary palette, film texture, 8k resolution, award-winning cinematography.",
+        "motionType": "zoom-in",
+        "voiceoverAsset": "assets/audio/scene_03.mp3",
+        "visualAsset": "assets/visuals/scene_03.jpg"
       }
     }
   ],
   "edges": [
     {
-      "from": "mimic_01",
-      "to": "mimic_02",
+      "from": "scene_01",
+      "to": "scene_02",
       "type": "TRANSITIONS_TO",
       "properties": {
         "transition": "crossfade",
@@ -94,26 +66,8 @@
       }
     },
     {
-      "from": "mimic_02",
-      "to": "mimic_03",
-      "type": "TRANSITIONS_TO",
-      "properties": {
-        "transition": "crossfade",
-        "durationFrames": 15
-      }
-    },
-    {
-      "from": "mimic_03",
-      "to": "mimic_04",
-      "type": "TRANSITIONS_TO",
-      "properties": {
-        "transition": "crossfade",
-        "durationFrames": 15
-      }
-    },
-    {
-      "from": "mimic_04",
-      "to": "mimic_05",
+      "from": "scene_02",
+      "to": "scene_03",
       "type": "TRANSITIONS_TO",
       "properties": {
         "transition": "crossfade",

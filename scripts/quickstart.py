@@ -15,7 +15,7 @@ BASE_DIR = os.path.dirname(SCRIPTS_DIR)
 DEVICE_ADVISOR = os.path.join(SCRIPTS_DIR, "device_advisor.py")
 STUDIO = os.path.join(SCRIPTS_DIR, "studio.py")
 
-def run_quickstart(concept_prompt: str, preset: str = "netflix-doc"):
+def run_quickstart(concept_prompt: str, preset: str = "netflix-doc", generate_audio: bool = True, fetch_media: bool = True):
     print("=" * 65)
     print("🎬 ANTIGRAVITY 1-CLICK AUTONOMOUS VIDEO QUICKSTART")
     print("=" * 65)
@@ -57,24 +57,28 @@ def run_quickstart(concept_prompt: str, preset: str = "netflix-doc"):
     ]
 
     for b in beats:
-        subprocess.run([
+        cmd = [
             sys.executable, STUDIO, "director-scene",
             b["id"], b["concept"], preset
-        ], cwd=BASE_DIR)
+        ]
+        if not fetch_media:
+            cmd.append("--no-media")
+        subprocess.run(cmd, cwd=BASE_DIR)
 
     # 4. Generate Voiceovers (if edge-tts installed)
-    print("\n🎙️ Generating voiceovers...")
-    subprocess.run([sys.executable, STUDIO, "audio"], cwd=BASE_DIR)
+    if generate_audio:
+        print("\n🎙️ Generating voiceovers...")
+        subprocess.run([sys.executable, STUDIO, "audio"], cwd=BASE_DIR)
 
-    print("\n" + "=" * 65)
-    print("✨ PRODUCTION READY!")
-    print("=" * 65)
-    print("To preview your documentary in the video player, run:")
-    print("  npm install")
-    print("  npm run preview")
-    print("\nTo export the final high-speed MP4, run:")
-    print("  npm run render")
-    print("=" * 65)
+        print("\n" + "=" * 65)
+        print("✨ PRODUCTION READY!")
+        print("=" * 65)
+        print("To preview your documentary in the video player, run:")
+        print("  npm install")
+        print("  npm run preview")
+        print("\nTo export the final high-speed MP4, run:")
+        print("  npm run render")
+        print("=" * 65)
 
 if __name__ == "__main__":
     prompt = " ".join(sys.argv[1:]) if len(sys.argv) > 1 else "The launch of Voyager 1 into the vast cosmic interstellar void"

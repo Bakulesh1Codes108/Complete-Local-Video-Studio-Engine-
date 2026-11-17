@@ -1,75 +1,34 @@
 {
-  "project": "Mimic: Alex Hormozi High-Retention Reel - Why Traditional Coding is",
+  "project": "Black Hole Singularity",
   "fps": 30,
-  "width": 1080,
-  "height": 1920,
-  "letterbox": false,
-  "defaultColorGrade": "clean",
+  "width": 1920,
+  "height": 1080,
+  "letterbox": true,
+  "defaultColorGrade": "hollywood-epic",
   "scenes": [
     {
-      "id": "mimic_01",
-      "durationInFrames": 60,
-      "engine": "remotion",
-      "voiceover": "assets/audio/mimic_01.mp3",
-      "visual": "assets/visuals/mimic_01.jpg",
-      "subtitle": "Aggressive Contrarian Hook: Why Traditional Coding is Changing",
-      "motion": "zoom-in",
-      "higgsfieldMotion": "whip_pan",
-      "colorGrade": "clean",
-      "threeJsScene": null,
-      "jCutFrames": 8
+      "id": "scene_01",
+      "durationInFrames": 150,
+      "voiceover": "assets/audio/scene_01.mp3",
+      "visual": "assets/visuals/scene_01.jpg",
+      "subtitle": "Black Hole Singularity - The mysterious beginning and initial catalyst.",
+      "motion": "zoom-in"
     },
     {
-      "id": "mimic_02",
-      "durationInFrames": 66,
-      "engine": "remotion",
-      "voiceover": "assets/audio/mimic_02.mp3",
-      "visual": "assets/visuals/mimic_02.jpg",
-      "subtitle": "The False Belief Callout: Why Traditional Coding is Changing",
-      "motion": "pan-left",
-      "higgsfieldMotion": "handheld_subtle",
-      "colorGrade": "clean",
-      "threeJsScene": null,
-      "jCutFrames": 8
+      "id": "scene_02",
+      "durationInFrames": 150,
+      "voiceover": "assets/audio/scene_02.mp3",
+      "visual": "assets/visuals/scene_02.jpg",
+      "subtitle": "Black Hole Singularity - Venturing deeper into the unknown, facing immense scale and challenge.",
+      "motion": "zoom-in"
     },
     {
-      "id": "mimic_03",
-      "durationInFrames": 72,
-      "engine": "remotion",
-      "voiceover": "assets/audio/mimic_03.mp3",
-      "visual": "assets/visuals/mimic_03.jpg",
-      "subtitle": "The Hidden Real Truth: Why Traditional Coding is Changing",
-      "motion": "zoom-in",
-      "higgsfieldMotion": "bullet_time_freeze",
-      "colorGrade": "clean",
-      "threeJsScene": null,
-      "jCutFrames": 8
-    },
-    {
-      "id": "mimic_04",
-      "durationInFrames": 78,
-      "engine": "remotion",
-      "voiceover": "assets/audio/mimic_04.mp3",
-      "visual": "assets/visuals/mimic_04.jpg",
-      "subtitle": "Concrete Action Step: Why Traditional Coding is Changing",
-      "motion": "pan-right",
-      "higgsfieldMotion": "orbit_360",
-      "colorGrade": "clean",
-      "threeJsScene": null,
-      "jCutFrames": 8
-    },
-    {
-      "id": "mimic_05",
-      "durationInFrames": 60,
-      "engine": "remotion",
-      "voiceover": "assets/audio/mimic_05.mp3",
-      "visual": "assets/visuals/mimic_05.jpg",
-      "subtitle": "Punchline / Follow Call-to-Action: Why Traditional Coding is Changing",
-      "motion": "zoom-out",
-      "higgsfieldMotion": "fpv_drone_dive",
-      "colorGrade": "clean",
-      "threeJsScene": null,
-      "jCutFrames": 8
+      "id": "scene_03",
+      "durationInFrames": 150,
+      "voiceover": "assets/audio/scene_03.mp3",
+      "visual": "assets/visuals/scene_03.jpg",
+      "subtitle": "Black Hole Singularity - Reaching the breakthrough, a breathtaking perspective of what lies ahead.",
+      "motion": "zoom-in"
     }
   ]
 }

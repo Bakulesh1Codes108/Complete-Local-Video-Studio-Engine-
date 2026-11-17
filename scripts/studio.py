@@ -2,6 +2,7 @@
 """
 Master Studio CLI for Antigravity Video Studio
 Unifies:
+  - Interactive AI Film Copilot & Step-by-Step Controller (--until STEP)
   - Graphify Context Memory (<6 KB)
   - Pixabay / Pexels / Wikimedia Royalty-Free Stock Media Fetcher
   - Remotion + GSAP Deterministic Render Core
@@ -38,6 +39,7 @@ BLENDER_ENGINE = os.path.join(SCRIPTS_DIR, "blender_engine.py")
 MANIM_ENGINE = os.path.join(SCRIPTS_DIR, "manim_engine.py")
 RPA_SERVER = os.path.join(SCRIPTS_DIR, "rpa_server.py")
 MEDIA_FETCHER = os.path.join(SCRIPTS_DIR, "media_fetcher.py")
+COPILOT_AGENT = os.path.join(SCRIPTS_DIR, "copilot_agent.py")
 
 def run_cmd(args):
     return subprocess.run(args, cwd=BASE_DIR)
@@ -64,6 +66,8 @@ def print_help():
 🎬 Antigravity Video Studio CLI (Multi-Engine & RPA Pipeline)
 
 Usage:
+  python3 scripts/studio.py copilot [topic] [--until STEP] [Interactive producer & step-by-step controller]
+  python3 scripts/studio.py step <step_name> "<topic>"    [Execute strictly up to step: script|timeline|media|audio|preview|render]
   python3 scripts/studio.py rpa                         [Launch Visual RPA Automation UI]
   python3 scripts/studio.py quickstart "<story idea>"   [1-Click full film generator]
   python3 scripts/studio.py mimic <preset> "<topic>"    [Clone viral pacing: hormozi | vox | mrbeast]
@@ -90,7 +94,18 @@ if __name__ == "__main__":
 
     cmd = sys.argv[1].lower()
 
-    if cmd == "rpa":
+    if cmd in ["copilot", "producer", "interview"]:
+        args = [sys.executable, COPILOT_AGENT] + sys.argv[2:]
+        run_cmd(args)
+    elif cmd in ["step", "until"]:
+        if len(sys.argv) < 3:
+            print("Usage: python3 scripts/studio.py step <step_name_or_number> '<topic>'")
+            print("Steps available: 1=script, 2=timeline, 3=media, 4=audio, 5=preview, 6=render")
+            sys.exit(1)
+        step_target = sys.argv[2]
+        topic = " ".join(sys.argv[3:]) if len(sys.argv) > 3 else "Autonomous AI Video"
+        run_cmd([sys.executable, COPILOT_AGENT, topic, "--until", step_target])
+    elif cmd == "rpa":
         port = int(sys.argv[2]) if len(sys.argv) > 2 else 8080
         run_cmd([sys.executable, RPA_SERVER, str(port)])
     elif cmd in ["fetch-media", "stock", "pixabay"]:
@@ -133,6 +148,10 @@ if __name__ == "__main__":
     elif cmd == "edit":
         if len(sys.argv) < 3:
             print("Usage: python3 scripts/studio.py edit '<natural language edit command>'")
+            print("Examples:")
+            print("  python3 scripts/studio.py edit 'make scene_01 8 seconds and zoom-in'")
+            print("  python3 scripts/studio.py edit 'change subtitle of scene_02 to The world changed forever'")
+            print("  python3 scripts/studio.py edit 'switch global style to netflix-doc'")
             sys.exit(1)
         instruction = " ".join(sys.argv[2:])
         run_cmd([sys.executable, GRAPH_EDITOR, "prompt", instruction])
@@ -142,7 +161,8 @@ if __name__ == "__main__":
             sys.exit(1)
         sid = sys.argv[2]
         raw_concept = sys.argv[3]
-        preset = sys.argv[4] if len(sys.argv) > 4 else "netflix-doc"
+        preset = sys.argv[4] if len(sys.argv) > 4 and not sys.argv[4].startswith("--") else "netflix-doc"
+        skip_media = "--no-media" in sys.argv
 
         from model_router import PromptCompressor
         compressor = PromptCompressor()
@@ -159,9 +179,9 @@ if __name__ == "__main__":
         motion = cleaned['detected_motion']
         vp = enhanced['enhanced_visual_prompt']
 
-        # Auto-acquire visual media
-        import media_fetcher
-        media_fetcher.acquire_media_for_scene(sid, cleaned['cleaned_prompt'], orientation="horizontal")
+        if not skip_media:
+            import media_fetcher
+            media_fetcher.acquire_media_for_scene(sid, cleaned['cleaned_prompt'], orientation="horizontal")
 
         run_cmd([sys.executable, GRAPH_MEMORY, "add-scene", sid, title, narration, str(dur), vp, motion])
         run_cmd([sys.executable, GRAPH_MEMORY, "export-timeline"])
@@ -200,7 +220,6 @@ if __name__ == "__main__":
             duration = parsed.get("duration", duration)
             motion = parsed.get("motion", motion)
 
-        # Auto-acquire visual media
         import media_fetcher
         media_fetcher.acquire_media_for_scene(sid, narration, orientation="horizontal")
 
@@ -219,7 +238,6 @@ if __name__ == "__main__":
         vp = sys.argv[6] if len(sys.argv) > 6 else ""
         motion = sys.argv[7] if len(sys.argv) > 7 else "zoom-in"
 
-        # Auto-acquire visual media
         import media_fetcher
         media_fetcher.acquire_media_for_scene(sid, narr or title, orientation="horizontal")
 

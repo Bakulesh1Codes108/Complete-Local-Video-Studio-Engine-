@@ -100,6 +100,34 @@ python3 scripts/studio.py mimic netflix_documentary_cinema "The Secret Life of A
 
 ---
 
+## 🎬 Interactive AI Producer Copilot & Step-by-Step Controller
+
+The studio features an intelligent copilot that acts as your executive producer. It asks creative questions when needed, guides story development, and allows you to **execute strictly up to any designated pipeline step on direct command**:
+
+```bash
+# 1. Interactive Guided Producer Session (Prompts questions for aspect ratio, pacing, voice)
+python3 scripts/studio.py copilot
+
+# 2. Step-by-Step Direct Execution (Executes strictly up to target step, then stops)
+python3 scripts/studio.py step script "The Subterranean Oceans of Europa"    # Step 1: Script & token compression only
+python3 scripts/studio.py step timeline "Quantum Supercomputing"            # Step 2: Storyboard & Graphify timeline only
+python3 scripts/studio.py step media "Ancient Egyptian Astronomy"           # Step 3: Stop after downloading stock visuals
+python3 scripts/studio.py step audio "Deep Space Voyagers"                  # Step 4: Stop after voiceover synthesis
+python3 scripts/studio.py step preview "Silicon Valley AI Revolution"       # Step 5: Stop when preview player is ready
+```
+
+### Pipeline Steps Overview:
+| Step | Name | What it Executes |
+| :---: | :--- | :--- |
+| **1** | `script` | Cleans noisy prompts, strips fillers, compresses tokens, and plans story beats. |
+| **2** | `timeline` | Builds story arc, synchronizes Graphify memory nodes, and writes `timeline.json`. |
+| **3** | `media` | Automatically queries Pixabay, Pexels, and Wikimedia to ensure all visual assets exist. |
+| **4** | `audio` | Synthesizes Microsoft Neural Edge-TTS voiceovers and synchronizes audio timelines. |
+| **5** | `preview` | Prepares the deterministic Remotion composition for instant in-editor browser playback. |
+| **6** | `render` | Executes the headless Remotion engine to export final broadcast-grade MP4 video. |
+
+---
+
 ## 🤖 Visual RPA Automation Studio (`studio.py rpa`)
 Launch a node-based Robotic Process Automation (RPA) interface in your browser:
 ```bash
