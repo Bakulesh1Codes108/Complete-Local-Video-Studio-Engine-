@@ -5,6 +5,8 @@ import { KenBurns } from "./KenBurns";
 import { KineticSubtitle } from "./KineticSubtitle";
 import { AudioMixer } from "./AudioMixer";
 import { CinematicGrade } from "./CinematicGrade";
+import { HiggsfieldCamera } from "./HiggsfieldCamera";
+import { ThreeJsScene } from "./ThreeJsScene";
 
 interface DocumentaryCompositionProps {
   timeline: TimelineData;
@@ -53,18 +55,35 @@ export const DocumentaryComposition: React.FC<DocumentaryCompositionProps> = ({
           const jCutOffset = scene.jCutFrames && index > 0 ? Math.min(scene.jCutFrames, 15) : 0;
           const audioFromFrame = Math.max(0, fromFrame - jCutOffset);
 
+          // Decide visual element based on selected engine
+          const isThreeJs = scene.engine === "threejs" || Boolean(scene.threeJsScene);
+
           return (
             <React.Fragment key={scene.id || index}>
-              {/* Visual Sequence with Ken Burns Dynamic Motion */}
+              {/* Visual Sequence wrapped in Open Higgsfield Camera Rig */}
               <Sequence
                 from={fromFrame}
                 durationInFrames={duration}
               >
-                <KenBurns
-                  src={scene.visual}
+                <HiggsfieldCamera
                   durationInFrames={duration}
-                  motion={scene.motion || "zoom-in"}
-                />
+                  motion={scene.higgsfieldMotion || "orbit_360"}
+                  intensity={1.0}
+                >
+                  {isThreeJs ? (
+                    <ThreeJsScene
+                      sceneType={scene.threeJsScene || "3d_quantum_particles"}
+                      title={scene.subtitle || "3D Procedural Scene"}
+                      durationInFrames={duration}
+                    />
+                  ) : (
+                    <KenBurns
+                      src={scene.visual}
+                      durationInFrames={duration}
+                      motion={scene.motion || "zoom-in"}
+                    />
+                  )}
+                </HiggsfieldCamera>
 
                 {/* Synchronized Kinetic Subtitle */}
                 <KineticSubtitle text={scene.subtitle} />

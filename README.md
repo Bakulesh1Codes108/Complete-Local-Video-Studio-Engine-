@@ -3,118 +3,145 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Windows-555555.svg)]()
 [![Cost](https://img.shields.io/badge/Cost-100%25%20Free%20%26%20Local-success.svg)]()
-[![Engines](https://img.shields.io/badge/Engines-Remotion%20%7C%20HyperFrames%20%2B%20GSAP%203-orange.svg)]()
+[![Engines](https://img.shields.io/badge/Engines-Remotion%20%7C%20Three.js%20%7C%20Blender%20%7C%20Manim%20%7C%20GSAP-orange.svg)]()
+[![Motion](https://img.shields.io/badge/Camera-Open%20Higgsfield%20Rigs-purple.svg)]()
+[![Automation](https://img.shields.io/badge/Workflow-Visual%20RPA%20Pipeline-success.svg)]()
 [![Memory](https://img.shields.io/badge/Memory-Graphify%20Knowledge%20Graph-brightgreen.svg)]()
-[![Models](https://img.shields.io/badge/LLMs-Gemini%20Flash%20%7C%20Local%20Llama%203.2%20%7C%20OpenRouter-blueviolet.svg)]()
 
 > **100% Free, Code-Driven AI Documentary & Video Production Studio.**  
-> Turn prompts, voiceovers, and research notes into deterministic, broadcast-quality **16:9 Documentaries** and **9:16 Shorts/Reels** using **Remotion, HyperFrames, Graphify Context Memory, and Edge-TTS**.  
-> Features an **AI Hardware & Disk Space Advisor**, a **1-Click Quickstart Generator**, an **Intelligent Model Router** with **Local Llama (Ollama) offline fallback**, and **Prompt-Driven Memory Editing**.  
+> Turn prompts, voiceovers, and research notes into deterministic, broadcast-quality **16:9 Documentaries** and **9:16 Viral Reels** using **Remotion, Three.js 3D, Blender Headless, Manim Math, and Open Higgsfield Camera Rigs**.  
+> Features a **Visual RPA Automation UI**, **Reel Mimic Viral Pacing Cloner**, an **AI Hardware & Disk Space Advisor**, and **Prompt-Driven Memory Editing**.  
 > **Zero Cloud Subscriptions • Zero API Costs • Zero Watermarks • Hardware Accelerated.**
 
 ---
 
-## ⚡ 1-Click Quickstart (From Idea to Movie in 1 Command)
+## 📘 Comprehensive Free Guide Included
 
-Anyone who clones this repository can instantly generate a full 3-act cinematic film from a single sentence prompt:
-
-```bash
-python3 scripts/studio.py quickstart "The exploration of Europa ocean beneath the ice"
-```
-
-This single command automatically:
-1. 🔍 **Scans your hardware:** Checks RAM, free disk space, and GPU compute (NVIDIA CUDA vs. Apple Silicon vs. CPU).
-2. 🎬 **Generates a 3-Act Story Arc:** Writes Hook, Journey, and Climax beats.
-3. 🎨 **Applies DaVinci Color Science:** Adds 2.39:1 anamorphic cinema bars, 35mm grain, and J-Cut audio leading.
-4. 💾 **Stores in Graphify Memory (<6 KB):** Caches the knowledge graph for future zero-token recall.
-5. 🚀 **Exports Remotion Timeline:** Prepares `timeline.json` for immediate preview with `npm run preview`.
+This repository comes with the official, full-length guide:  
+👉 **[Download: Antigravity-Video-Free-Guide.pdf](./Antigravity-Video-Free-Guide.pdf)** 👈
 
 ---
 
-## 🤖 Built-in AI Hardware & Storage Advisor
-
-Before burning tokens or overloading your machine, run the advisor:
-```bash
-python3 scripts/studio.py advisor
-```
-* **Disk Space Headroom:** Calculates exact gigabytes available and warns if disk space is low (<1 GB).
-* **RAM & CPU/GPU Detection:** Detects NVIDIA RTX/GTX GPUs, Apple M-Series Metal, or Intel CPUs.
-* **Auto-Profile Recommendation:**
-  * **NVIDIA GPU (e.g. HP Pavilion Gaming):** Recommends **Local GPU Powerhouse** (Fooocus SDXL + Local Ollama Llama 3.2).
-  * **Intel Mac (8GB RAM):** Recommends **Cloud-Assisted Mode** (Gemini 2.0 Flash / OpenRouter Free) to keep your machine cool and responsive.
-
----
-
-## ✏️ Natural Language Memory Editing (Prompt-Driven)
-
-You can edit your film's cached knowledge graph using simple conversational prompts without writing any code:
-
-```bash
-# 1. Edit Duration and Camera Motion
-python3 scripts/studio.py edit "make scene_01 8.5 seconds and zoom-out"
-
-# 2. Edit Narration / Subtitles
-python3 scripts/studio.py edit 'change subtitle of scene_02 to "Neural networks and human vision merged into pure cinema"'
-
-# 3. Switch Global Cinematic Grade Across All Scenes
-python3 scripts/studio.py edit "switch global style to netflix-doc"
-```
-
----
-
-## 🌟 The Unified 4-Pillar Architecture
+## 🌟 The Unified Multi-Engine Architecture
 
 ```mermaid
 flowchart TD
-    subgraph InputLayer ["1. Input & Token Compression"]
-        Raw["Raw Prompt Idea"] --> Comp["Prompt Compressor<br>(Saves 30-70% tokens, extracts duration & motion)"]
-        Comp --> Adv["AI Hardware & Space Advisor<br>(Checks Disk, RAM & GPU Profile)"]
+    subgraph InputLayer ["1. Input & Automation Trigger"]
+        Raw["Raw Prompt / Viral Reel URL"] --> RPA["Visual RPA Automation Studio<br>(app/rpa_studio.html)"]
+        RPA --> Mimic["Reel Mimic Engine<br>(Hormozi, Vox, MrBeast Pacing)"]
     end
 
-    subgraph RoutingLayer ["2. Intelligent Model Router & Cost Optimizer"]
-        Router["Model Router Agent"]
-        Adv --> Router
-        Router -->|Local & Offline| Ollama["Local Ollama<br>(Llama 3.2 / Qwen 2.5 on HP Laptop GPU)"]
-        Router -->|Free Cloud Gateway| OR["OpenRouter Free Tier<br>(openrouter/free, llama-3.3-70b:free)"]
-        Router -->|High Context| Gem["Google Gemini / Jio AI Pro<br>(Gemini 2.0 Flash)"]
-        Router -->|Zero Network Fallback| Rule["Studio Deterministic Parser<br>($0.00, 100% Offline)"]
+    subgraph MemoryAndRouting ["2. Graphify Memory & Smart Model Router"]
+        Mimic --> Router["Model Router & Prompt Compressor"]
+        Router --> Mem["Graphify Context Memory (<6 KB)<br>(graphify-out/graph.json)"]
     end
 
-    subgraph MemoryLayer ["3. Graphify Context Memory (5 KB Storage)"]
-        G1["graphify-out/graph.json<br>(Persistent Film Memory)"]
-        G2["graphify-out/GRAPH_REPORT.md<br>(Live Continuity Tracker)"]
-        Ollama --> G1
-        OR --> G1
-        Gem --> G1
-        Rule --> G1
-        G1 --> G2
+    subgraph MultiEngines ["3. Multi-Engine Render Dispatcher"]
+        Mem --> Rem["Remotion Core<br>(React + Vite + 4K Ken Burns)"]
+        Mem --> Three["Three.js 3D Procedural<br>(Globe, Quantum Wave, Bar Chart)"]
+        Mem --> Blen["Blender Headless 3D<br>(Chrome Titles, Product Turntable)"]
+        Mem --> Man["Manim Engine<br>(3Blue1Brown Math & Formulas)"]
+        Mem --> GSAP["HyperFrames + GSAP 3<br>(Fluid Motion & Infographics)"]
     end
 
-    subgraph VideoEngines ["4. Dual Deterministic Video Engines"]
-        R1["Remotion Studio Core<br>(React + Vite + Ken Burns + Kinetic Captions)"]
-        H1["HyperFrames + GSAP 3<br>(Fluid Motion, SVG Infographics & Explainer Stems)"]
-        G1 -->|Sub-50 token timeline.json| R1
-        G1 -->|Sub-50 token timeline.json| H1
+    subgraph PostProduction ["4. Camera & Cinematic Grade"]
+        Rem --> Higgs["Open Higgsfield Camera Rig<br>(Orbit 360, FPV Dive, Vertigo Zoom)"]
+        Three --> Higgs
+        Blen --> Higgs
+        Man --> Higgs
+        GSAP --> Higgs
+        Higgs --> DaVinci["DaVinci Color Science<br>(2.39:1 Anamorphic, 35mm Grain, J-Cuts)"]
+        DaVinci --> Final["Final Broadcast MP4 Render"]
     end
 ```
 
 ---
 
-## 🚀 All CLI Commands Cheat Sheet
+## ⚡ What's New: Major Feature Additions
+
+### 1. 🤖 Visual RPA Automation Studio (`studio.py rpa`)
+Launch a node-based Robotic Process Automation (RPA) interface in your browser:
+```bash
+python3 scripts/studio.py rpa
+```
+* **Step-by-Step Flow:** Ingestion $\rightarrow$ Reel Mimic $\rightarrow$ Multi-Engine Dispatcher $\rightarrow$ Higgsfield Camera $\rightarrow$ DaVinci Grade $\rightarrow$ MP4 Export.
+* Live console logs, execution progress tracker, and direct render triggers.
+
+### 2. 🧬 Reel Mimic (Viral Video Structure Cloner)
+Clone the exact cut pacing, retention hooks, and aspect ratio of viral creators:
+```bash
+# Clone Alex Hormozi 9:16 high-retention reel structure (2.2s cuts, whip pans)
+python3 scripts/studio.py mimic alex_hormozi_viral_reel "How to Start an AI Business in 2026"
+
+# Clone Vox 16:9 data explainer structure (3.8s cuts, animated maps)
+python3 scripts/studio.py mimic vox_highlighter_explainer "The Geopolitics of Semiconductor Chips"
+
+# Clone MrBeast 9:16 fast-cut hook (1.6s cuts, FPV drone dives)
+python3 scripts/studio.py mimic mrbeast_retention_hook "Surviving 100 Hours in an AI Studio"
+```
+
+### 3. 🎥 Open Higgsfield 3D Camera Motion Rigs
+Transform static images, 3D scenes, and video layers into cinematic camera moves:
+* `orbit_360` — Smooth 3D elliptical revolution around the central subject.
+* `fpv_drone_dive` — Dynamic diving camera with banking horizon roll.
+* `vertigo_dolly_zoom` — Hitchcock vertigo effect (scaling up while reversing perspective).
+* `crane_up_reveal` — Low angle rising to wide panoramic reveal.
+* `bullet_time_freeze` — Slow-motion 3D camera sweep.
+* `whip_pan` — High-velocity transition snap.
+
+### 4. 🌐 Three.js 3D Procedural Scenes (Built-in Remotion)
+Generate live interactive 3D elements inside your video without external 3D software:
+* `3d_rotating_globe` — Holographic wireframe Earth for geopolitics and travel.
+* `3d_quantum_particles` — 3D undulating particle wave for AI and technology.
+* `3d_financial_chart` — Isometric 3D animated bar chart with depth.
+
+### 5. 🧊 Blender Headless 3D Render Engine
+Render photorealistic 3D titles and environments in the background via Blender:
+```bash
+python3 scripts/studio.py blender 3d_chrome_title "ANTIGRAVITY CINEMA"
+```
+
+### 6. 📐 Manim Mathematical & Scientific Animation
+Create 3Blue1Brown-style formula morphs and neural network animations:
+```bash
+python3 scripts/studio.py manim neural_network manim_scene_01
+```
+
+---
+
+## 🚀 CLI Commands Cheat Sheet
 
 ```bash
-python3 scripts/studio.py quickstart "<story prompt>"   # 1-Click full film generator
-python3 scripts/studio.py advisor                      # Hardware & disk space advisor
-python3 scripts/studio.py models                       # Check Ollama, OpenRouter, Gemini status
-python3 scripts/studio.py presets                      # List 5 DaVinci film color palettes
-python3 scripts/studio.py clean "<noisy prompt>"       # Strip conversational fillers & save tokens
-python3 scripts/studio.py edit "<edit command>"        # Natural prompt graph memory editor
-python3 scripts/studio.py director-scene <id> "<idea>" # Add scene with DaVinci grade & J-Cut
-python3 scripts/studio.py status                       # View live film reel report
-python3 scripts/studio.py audio                        # Generate free Microsoft Neural voiceovers
-npm run preview                                        # Open in-editor Remotion Player
-npm run render                                         # Render final broadcast MP4
+python3 scripts/studio.py rpa                         # Launch Visual RPA Automation Studio UI
+python3 scripts/studio.py quickstart "<story prompt>" # 1-Click 3-act film generator
+python3 scripts/studio.py mimic <preset> "<topic>"    # Clone viral video pacing (Hormozi, Vox, MrBeast)
+python3 scripts/studio.py blender [type] [title]      # Headless 3D Blender render (3d_chrome_title)
+python3 scripts/studio.py manim [type] [id]           # 3Blue1Brown math render (neural_network)
+python3 scripts/studio.py advisor                     # AI Hardware, RAM & disk space advisor
+python3 scripts/studio.py models                      # Check Ollama, OpenRouter, Gemini status
+python3 scripts/studio.py presets                     # List 5 DaVinci film color palettes
+python3 scripts/studio.py clean "<noisy prompt>"      # Strip conversational fillers & save tokens
+python3 scripts/studio.py edit "<edit command>"       # Natural prompt graph memory editor
+python3 scripts/studio.py director-scene <id> "<idea>"# Add scene with DaVinci grade & J-Cut
+python3 scripts/studio.py status                      # View live film reel report
+python3 scripts/studio.py audio                       # Generate free Microsoft Neural voiceovers
+npm run preview                                       # Open in-editor Remotion Player
+npm run render                                        # Render final broadcast MP4
 ```
+
+---
+
+## 💻 Dual-Machine Production Guide
+
+| Feature | On Mac (Intel i5, 8GB) | On HP Pavilion Gaming (NVIDIA GPU) |
+| :--- | :--- | :--- |
+| **Brain / Scripting** | Gemini Advanced (Jio AI Pro) | Gemini Advanced (Jio AI Pro) |
+| **Local LLM Fallback** | Ollama (CPU mode) | **Ollama Llama 3.2 (CUDA GPU accelerated)** |
+| **3D Blender Renders** | Headless CPU Render | **NVIDIA OptiX / CUDA GPU Accelerated** |
+| **Memory Graph** | `scripts/studio.py` | `scripts/studio.py` |
+| **Voiceover Engine** | Edge-TTS (Cloud Neural) | Edge-TTS (Cloud Neural) |
+| **Image Keyframes** | Cloud (Imagen 3 / Pollinations) | **Fooocus Local (CUDA SDXL accelerated)** |
+| **Remotion Rendering** | CPU Render | **NVIDIA Hardware Accelerated** |
 
 ---
 
@@ -122,33 +149,42 @@ npm run render                                         # Render final broadcast 
 
 ```
 antigravity-video-studio/
+├── app/
+│   ├── rpa_studio.html               # Visual node-based RPA automation UI
+│   ├── main.py                       # Cross-platform desktop backend
+│   └── ui.html                       # Dark studio GUI interface
 ├── scripts/
 │   ├── studio.py                     # Unified master CLI
+│   ├── rpa_server.py                 # RPA local backend server
+│   ├── reel_mimic.py                 # Viral video pacing cloner (Hormozi, Vox, MrBeast)
+│   ├── blender_engine.py             # Blender headless 3D render engine
+│   ├── manim_engine.py               # Manim math & formula animation dispatcher
 │   ├── quickstart.py                 # 1-Click full film generator
 │   ├── device_advisor.py             # AI hardware & disk space advisor
 │   ├── model_router.py               # Prompt compressor & multi-tier router
-│   ├── graph_memory.py               # Graphify memory manager
+│   ├── graph_memory.py               # Graphify memory manager (<6 KB)
 │   ├── graph_editor.py               # Natural language prompt graph editor
 │   ├── director_presets.py           # DaVinci LUTs & OpenCut J-Cut presets
 │   └── make_voiceovers.py            # Free Edge-TTS audio synthesizer
-├── graphify-out/
-│   ├── graph.json                    # Persistent film memory graph (~5 KB)
-│   └── GRAPH_REPORT.md               # Live film reel & continuity report
-├── graphify.config.json              # Graphify memory schema
-├── timeline.json                     # Code-ready Remotion timeline recipe
-├── remotion.config.ts                # Remotion video configuration
-├── packages/
-│   └── extension/                    # In-Editor Sidebar Webview (CaldiaWorks Core)
 ├── src/
 │   ├── Root.tsx                      # Remotion composition registry
 │   ├── index.ts                      # Remotion root entry
 │   ├── types/timeline.ts             # TypeScript definitions
 │   └── compositions/
 │       ├── DocumentaryComposition.tsx# Master timeline sequencer with J-Cuts
+│       ├── HiggsfieldCamera.tsx      # Open Higgsfield 3D camera motion rigs
+│       ├── ThreeJsScene.tsx          # 3D procedural scenes (Globe, Quantum, Charts)
 │       ├── CinematicGrade.tsx        # DaVinci 2.39:1 bars, grain & color LUTs
 │       ├── KenBurns.tsx              # Cinematic sub-pixel camera motion
 │       ├── KineticSubtitle.tsx       # Physics-based spring subtitles
 │       └── AudioMixer.tsx            # Auto voice ducking audio mixer
+├── graphify-out/
+│   ├── graph.json                    # Persistent film memory graph (~5 KB)
+│   └── GRAPH_REPORT.md               # Live film reel & continuity report
+├── timeline.json                     # Code-ready Remotion timeline recipe
+├── remotion.config.ts                # Remotion video configuration
+├── package.json                      # Remotion & React dependencies
+├── tsconfig.json                     # TypeScript compiler configuration
 └── README.md                         # Complete studio documentation
 ```
 

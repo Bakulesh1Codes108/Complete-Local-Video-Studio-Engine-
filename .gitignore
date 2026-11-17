@@ -28,6 +28,9 @@ projects/*/renders/
 projects/*/audio/*.wav
 projects/*/audio/*.aiff
 projects/*/renders/thumbnails/
+projects/manim-animations/media/
+projects/manim-animations/*.mp4
+projects/blender-renders/*.png
 out/
 dist/
 .remotion/

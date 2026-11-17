@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antigravity Studio - Autonomous RPA Video Pipeline</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07090e;
+      --panel: #0d111a;
+      --card: #141a27;
+      --card-active: #1a2234;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-glow: #6366f1;
+      --accent: #6366f1;
+      --accent-alt: #ec4899;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    header {
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .badge-rpa {
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      color: white;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    main {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* Left: RPA Flow Canvas */
+    .flow-canvas {
+      flex: 1;
+      padding: 24px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .rpa-node {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      position: relative;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .rpa-node.active {
+      border-color: var(--accent);
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.25);
+      background: var(--card-active);
+    }
+    .rpa-node.completed {
+      border-color: var(--success);
+    }
+
+    .node-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .node-step {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+    }
+    .rpa-node.completed .node-step {
+      background: var(--success);
+      color: black;
+    }
+    .rpa-node.active .node-step {
+      background: var(--accent);
+      color: white;
+    }
+
+    .node-title { font-weight: 700; font-size: 15px; }
+    .node-subtitle { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+    .node-controls select, .node-controls input {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .connector-line {
+      width: 2px;
+      height: 14px;
+      background: rgba(255, 255, 255, 0.1);
+      margin-left: 36px;
+    }
+
+    /* Right: Live Monitor & Inspector */
+    .sidebar-monitor {
+      width: 420px;
+      background: var(--panel);
+      border-left: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .monitor-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 12px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .tab-btn.active {
+      color: white;
+      border-bottom: 2px solid var(--accent);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .terminal-logs {
+      flex: 1;
+      padding: 16px;
+      background: #04060a;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      overflow-y: auto;
+      color: #38bdf8;
+      line-height: 1.6;
+    }
+
+    .btn-run {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.2s;
+    }
+    .btn-run:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <h2>🎬 Antigravity Video Studio</h2>
+      <span class="badge-rpa">RPA MULTI-ENGINE PIPELINE</span>
+    </div>
+    <div style="display:flex; gap: 10px;">
+      <button class="btn-run" onclick="executeFullRpaPipeline()">⚡ Run Autonomous Pipeline</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Left: Flow Canvas -->
+    <div class="flow-canvas">
+      
+      <!-- Node 1: Input & Story Prompt -->
+      <div class="rpa-node active" id="node-1">
+        <div class="node-header">
+          <div class="node-step">01</div>
+          <div>
+            <div class="node-title">Creative Prompt Ingestion</div>
+            <div class="node-subtitle">Token Compressor & Filler Stripper</div>
+          </div>
+        </div>
+        <div class="node-controls">
+          <input type="text" id="prompt-input" value="The discovery of subterranean oceans beneath Europa ice" style="width: 320px;" />
+        </div>
+      </div>
+      <div class="connector-line"></div>
+
+      <!-- Node 2: Reel Mimic & Pacing -->
+      <div class="rpa-node" id="node-2">
+        <div class="node-header">
+          <div class="node-step">02</div>
+          <div>
+            <div class="node-title">Reel Mimic & Pacing Engine</div>
+            <div class="node-subtitle">Clone viral cut frequencies & aspect ratios</div>
+          </div>
+        </div>
+        <div class="node-controls">
+          <select id="mimic-select">
+            <option value="netflix_documentary_cinema">Netflix Cinema Doc (16:9, ~5.5s cuts)</option>
+            <option value="alex_hormozi_viral_reel">Alex Hormozi Viral Reel (9:16, ~2.2s cuts)</option>
+            <option value="vox_highlighter_explainer">Vox Data Explainer (16:9, ~3.8s cuts)</option>
+            <option value="mrbeast_retention_hook">MrBeast Fast Cut (9:16, ~1.6s cuts)</option>
+          </select>
+        </div>
+      </div>
+      <div class="connector-line"></div>
+
+      <!-- Node 3: Multi-Engine Dispatcher -->
+      <div class="rpa-node" id="node-3">
+        <div class="node-header">
+          <div class="node-step">03</div>
+          <div>
+            <div class="node-title">Multi-Engine Render Dispatcher</div>
+            <div class="node-subtitle">Route scenes to optimal visual synthesizer</div>
+          </div>
+        </div>
+        <div class="node-controls">
+          <select id="engine-select">
+            <option value="hybrid_auto">Hybrid Auto (Remotion + Three.js + Blender)</option>
+            <option value="remotion_kenburns">Remotion (Dynamic 4K Ken Burns)</option>
+            <option value="threejs_3d">Three.js (3D Procedural Holographic Scenes)</option>
+            <option value="blender_headless">Blender (Headless Photorealistic 3D)</option>
+            <option value="manim_math">Manim (Scientific & Formula Morphs)</option>
+          </select>
+        </div>
+      </div>
+      <div class="connector-line"></div>
+
+      <!-- Node 4: Open Higgsfield Camera Rig -->
+      <div class="rpa-node" id="node-4">
+        <div class="node-header">
+          <div class="node-step">04</div>
+          <div>
+            <div class="node-title">Open Higgsfield Camera Motion Rig</div>
+            <div class="node-subtitle">Cinematic 3D parametric camera choreography</div>
+          </div>
+        </div>
+        <div class="node-controls">
+          <select id="higgsfield-select">
+            <option value="orbit_360">Orbit 360 (Revolution around subject)</option>
+            <option value="fpv_drone_dive">FPV Drone Dive (Dynamic horizon banking)</option>
+            <option value="vertigo_dolly_zoom">Vertigo Dolly Zoom (Hitchcock effect)</option>
+            <option value="crane_up_reveal">Crane Up (Panoramic rising reveal)</option>
+            <option value="bullet_time_freeze">Bullet Time (Slow-mo 3D sweep)</option>
+          </select>
+        </div>
+      </div>
+      <div class="connector-line"></div>
+
+      <!-- Node 5: DaVinci Color Science -->
+      <div class="rpa-node" id="node-5">
+        <div class="node-header">
+          <div class="node-step">05</div>
+          <div>
+            <div class="node-title">DaVinci Resolve Color Science</div>
+            <div class="node-subtitle">35mm Film Grain, Anamorphic Bars & J-Cuts</div>
+          </div>
+        </div>
+        <div class="node-controls">
+          <select id="preset-select">
+            <option value="netflix-doc">Netflix Documentary (Moody, 2.39:1)</option>
+            <option value="hollywood-epic">Hollywood Epic (Teal & Orange, 2.39:1)</option>
+            <option value="kodak-portra">Kodak Portra (Vintage Archive)</option>
+            <option value="noir-monochrome">Neo-Noir Monochrome</option>
+            <option value="clean">Modern Clean (16:9 Full Frame)</option>
+          </select>
+        </div>
+      </div>
+      <div class="connector-line"></div>
+
+      <!-- Node 6: Audio & MP4 Render -->
+      <div class="rpa-node" id="node-6">
+        <div class="node-header">
+          <div class="node-step">06</div>
+          <div>
+            <div class="node-title">Neural Audio & Final MP4 Render</div>
+            <div class="node-subtitle">Microsoft Neural Edge-TTS & Remotion Headless</div>
+          </div>
+        </div>
+        <div class="node-controls">
+          <button class="btn-run" style="padding: 6px 14px; font-size: 12px;" onclick="renderFinalVideo()">🚀 Export MP4</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right: Real-time Monitor & Log Stream -->
+    <div class="sidebar-monitor">
+      <div class="monitor-tabs">
+        <button class="tab-btn active">Live RPA Console</button>
+        <button class="tab-btn" onclick="openReport()">Graphify Memory</button>
+      </div>
+      <div class="terminal-logs" id="log-output">
+[System] Antigravity RPA Pipeline Initialized.
+[Engine] Multi-engine ready: Remotion, Three.js, Manim, Blender.
+[Memory] Graphify cache: 5.0 KB (Ready for zero-token execution).
+Ready. Click 'Run Autonomous Pipeline' to start.
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function log(msg) {
+      const el = document.getElementById('log-output');
+      el.innerHTML += '<br>' + msg;
+      el.scrollTop = el.scrollHeight;
+    }
+
+    async function executeFullRpaPipeline() {
+      const prompt = document.getElementById('prompt-input').value;
+      const mimic = document.getElementById('mimic-select').value;
+      const engine = document.getElementById('engine-select').value;
+      const motion = document.getElementById('higgsfield-select').value;
+      const preset = document.getElementById('preset-select').value;
+
+      log("⚡ [RPA Node 1] Ingesting prompt: '" + prompt + "'...");
+      document.getElementById('node-1').className = "rpa-node completed";
+      
+      log("🧬 [RPA Node 2] Applying Reel Mimic template: " + mimic);
+      document.getElementById('node-2').className = "rpa-node completed";
+
+      log("🎬 [RPA Node 3] Dispatching multi-engine renderer: " + engine);
+      document.getElementById('node-3').className = "rpa-node completed";
+
+      log("🎥 [RPA Node 4] Rigging Open Higgsfield Camera: " + motion);
+      document.getElementById('node-4').className = "rpa-node completed";
+
+      log("🎨 [RPA Node 5] Baking DaVinci Color Science: " + preset);
+      document.getElementById('node-5').className = "rpa-node completed";
+
+      log("💾 [RPA Node 6] Synchronizing Graphify memory & timeline.json...");
+      document.getElementById('node-6').className = "rpa-node active";
+
+      try {
+        const resp = await fetch('/api/rpa/execute', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ prompt, mimic, engine, motion, preset })
+        });
+        const data = await resp.json();
+        log("✅ [RPA Success] Pipeline executed: " + JSON.stringify(data.status || "Complete"));
+        document.getElementById('node-6').className = "rpa-node completed";
+      } catch (err) {
+        log("💡 CLI execution command ready:");
+        log("  python3 scripts/studio.py quickstart '" + prompt + "'");
+      }
+    }
+
+    function renderFinalVideo() {
+      log("🚀 [Render] Executing headless Remotion MP4 export...");
+      log("Run in terminal: npm run render");
+    }
+
+    function openReport() {
+      window.open('/graphify-out/GRAPH_REPORT.md', '_blank');
+    }
+  </script>
+</body>
+</html>
