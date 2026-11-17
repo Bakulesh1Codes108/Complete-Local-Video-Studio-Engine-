@@ -4,12 +4,13 @@
 [![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Windows-555555.svg)]()
 [![Cost](https://img.shields.io/badge/Cost-100%25%20Free%20%26%20Local-success.svg)]()
 [![Engines](https://img.shields.io/badge/Engines-Remotion%20%7C%20Three.js%20%7C%20Blender%20%7C%20Manim%20%7C%20GSAP-orange.svg)]()
+[![Media](https://img.shields.io/badge/Stock%20Media-Pixabay%20%7C%20Pexels%20%7C%20Wikimedia-blue.svg)]()
 [![Motion](https://img.shields.io/badge/Camera-Open%20Higgsfield%20Rigs-purple.svg)]()
 [![Automation](https://img.shields.io/badge/Workflow-Visual%20RPA%20Pipeline-success.svg)]()
 [![Memory](https://img.shields.io/badge/Memory-Graphify%20Knowledge%20Graph-brightgreen.svg)]()
 
 > **100% Free, Code-Driven AI Documentary & Video Production Studio.**  
-> Turn prompts, voiceovers, and research notes into deterministic, broadcast-quality **16:9 Documentaries** and **9:16 Viral Reels** using **Remotion, Three.js 3D, Blender Headless, Manim Math, and Open Higgsfield Camera Rigs**.  
+> Turn prompts, voiceovers, and research notes into deterministic, broadcast-quality **16:9 Documentaries** and **9:16 Viral Reels** using **Remotion, Three.js 3D, Blender Headless, Manim Math, Pixabay Media, and Open Higgsfield Camera Rigs**.  
 > Features a **Visual RPA Automation UI**, **Reel Mimic Viral Pacing Cloner**, an **AI Hardware & Disk Space Advisor**, and **Prompt-Driven Memory Editing**.  
 > **Zero Cloud Subscriptions • Zero API Costs • Zero Watermarks • Hardware Accelerated.**
 
@@ -28,12 +29,12 @@ This repository comes with the official, full-length guide:
 flowchart TD
     subgraph InputLayer ["1. Input & Automation Trigger"]
         Raw["Raw Prompt / Viral Reel URL"] --> RPA["Visual RPA Automation Studio<br>(app/rpa_studio.html)"]
-        RPA --> Mimic["Reel Mimic Engine<br>(Hormozi, Vox, MrBeast Pacing)"]
+        RPA --> Mimic["Enhanced Reel Mimic Engine<br>(Hormozi, Vox, MrBeast Pacing)"]
     end
 
-    subgraph MemoryAndRouting ["2. Graphify Memory & Smart Model Router"]
-        Mimic --> Router["Model Router & Prompt Compressor"]
-        Router --> Mem["Graphify Context Memory (<6 KB)<br>(graphify-out/graph.json)"]
+    subgraph MediaAndMemory ["2. Media Fetcher & Graphify Memory"]
+        Mimic --> Stock["Pixabay / Pexels Media Fetcher<br>(Zero-Key Wikimedia & Resilient Fallback)"]
+        Stock --> Mem["Graphify Context Memory (<6 KB)<br>(graphify-out/graph.json)"]
     end
 
     subgraph MultiEngines ["3. Multi-Engine Render Dispatcher"]
@@ -44,7 +45,7 @@ flowchart TD
         Mem --> GSAP["HyperFrames + GSAP 3<br>(Fluid Motion & Infographics)"]
     end
 
-    subgraph PostProduction ["4. Camera & Cinematic Grade"]
+    subgraph CameraAndGrade ["4. Camera & Cinematic Grade"]
         Rem --> Higgs["Open Higgsfield Camera Rig<br>(Orbit 360, FPV Dive, Vertigo Zoom)"]
         Three --> Higgs
         Blen --> Higgs
@@ -57,30 +58,59 @@ flowchart TD
 
 ---
 
-## ⚡ What's New: Major Feature Additions
+## 📸 Pixabay & Pexels Stock Media Fetcher (Zero-Breakage Guarantee)
 
-### 1. 🤖 Visual RPA Automation Studio (`studio.py rpa`)
+The studio automatically acquires royalty-free visual assets for each scene so that Remotion **never fails or shows missing files**:
+
+```bash
+# Fetch media on demand for any scene (horizontal or vertical)
+python3 scripts/studio.py fetch-media scene_01 "deep space interstellar nebulae" horizontal
+```
+
+### Supported Providers:
+1. **Pixabay API (`PIXABAY_API_KEY`):** Fetches high-resolution photos and videos across landscape or 9:16 vertical portrait formats.
+2. **Pexels API (`PEXELS_API_KEY`):** Alternative stock photo & video catalog.
+3. **Wikimedia Commons (Zero Key Needed):** Public domain free media query.
+4. **Resilient Local Fail-Safe:** If running offline or without an API key, automatically generates high-contrast visual cards so the video timeline **always renders without breaking**.
+
+To configure your free Pixabay or Pexels API keys:
+```bash
+export PIXABAY_API_KEY="your_free_pixabay_key"
+export PEXELS_API_KEY="your_free_pexels_key"
+```
+
+---
+
+## 🧬 Enhanced Reel Mimic Engine (Crash-Proof)
+
+The Reel Mimic engine replicates viral pacing while guaranteeing all visual and audio assets exist on disk:
+```bash
+# 1. Alex Hormozi Style 9:16 Viral Reel (~2.2s cuts, whip pans, high-energy hook)
+python3 scripts/studio.py mimic alex_hormozi_viral_reel "How to Start an AI Business in 2026"
+
+# 2. Vox Style 16:9 Explainer (~3.8s cuts, animated maps & data charts)
+python3 scripts/studio.py mimic vox_highlighter_explainer "The Geopolitics of Semiconductor Chips"
+
+# 3. MrBeast Style 9:16 Fast Cut (~1.6s cuts, FPV drone dives, retention hooks)
+python3 scripts/studio.py mimic mrbeast_retention_hook "Surviving 100 Hours in an AI Studio"
+
+# 4. Netflix Cinematic 16:9 Documentary (~5.5s cuts, 2.39:1 letterbox, slow orbit)
+python3 scripts/studio.py mimic netflix_documentary_cinema "The Secret Life of Ancient Oceans"
+```
+
+---
+
+## 🤖 Visual RPA Automation Studio (`studio.py rpa`)
 Launch a node-based Robotic Process Automation (RPA) interface in your browser:
 ```bash
 python3 scripts/studio.py rpa
 ```
-* **Step-by-Step Flow:** Ingestion $\rightarrow$ Reel Mimic $\rightarrow$ Multi-Engine Dispatcher $\rightarrow$ Higgsfield Camera $\rightarrow$ DaVinci Grade $\rightarrow$ MP4 Export.
-* Live console logs, execution progress tracker, and direct render triggers.
+* **Step-by-Step Flow:** Ingestion $\rightarrow$ Reel Mimic $\rightarrow$ Media Fetcher $\rightarrow$ Multi-Engine Dispatcher $\rightarrow$ Higgsfield Camera $\rightarrow$ DaVinci Grade $\rightarrow$ MP4 Export.
+* Live console logs, execution progress tracker, and direct render buttons.
 
-### 2. 🧬 Reel Mimic (Viral Video Structure Cloner)
-Clone the exact cut pacing, retention hooks, and aspect ratio of viral creators:
-```bash
-# Clone Alex Hormozi 9:16 high-retention reel structure (2.2s cuts, whip pans)
-python3 scripts/studio.py mimic alex_hormozi_viral_reel "How to Start an AI Business in 2026"
+---
 
-# Clone Vox 16:9 data explainer structure (3.8s cuts, animated maps)
-python3 scripts/studio.py mimic vox_highlighter_explainer "The Geopolitics of Semiconductor Chips"
-
-# Clone MrBeast 9:16 fast-cut hook (1.6s cuts, FPV drone dives)
-python3 scripts/studio.py mimic mrbeast_retention_hook "Surviving 100 Hours in an AI Studio"
-```
-
-### 3. 🎥 Open Higgsfield 3D Camera Motion Rigs
+## 🎥 Open Higgsfield 3D Camera Motion Rigs
 Transform static images, 3D scenes, and video layers into cinematic camera moves:
 * `orbit_360` — Smooth 3D elliptical revolution around the central subject.
 * `fpv_drone_dive` — Dynamic diving camera with banking horizon roll.
@@ -89,22 +119,28 @@ Transform static images, 3D scenes, and video layers into cinematic camera moves
 * `bullet_time_freeze` — Slow-motion 3D camera sweep.
 * `whip_pan` — High-velocity transition snap.
 
-### 4. 🌐 Three.js 3D Procedural Scenes (Built-in Remotion)
+---
+
+## 🌐 Three.js 3D Procedural Scenes (Built-in Remotion)
 Generate live interactive 3D elements inside your video without external 3D software:
 * `3d_rotating_globe` — Holographic wireframe Earth for geopolitics and travel.
 * `3d_quantum_particles` — 3D undulating particle wave for AI and technology.
 * `3d_financial_chart` — Isometric 3D animated bar chart with depth.
 
-### 5. 🧊 Blender Headless 3D Render Engine
+---
+
+## 🧊 Blender Headless 3D Render Engine
 Render photorealistic 3D titles and environments in the background via Blender:
 ```bash
 python3 scripts/studio.py blender 3d_chrome_title "ANTIGRAVITY CINEMA"
 ```
 
-### 6. 📐 Manim Mathematical & Scientific Animation
+---
+
+## 📐 Manim Mathematical & Scientific Animation
 Create 3Blue1Brown-style formula morphs and neural network animations:
 ```bash
-python3 scripts/studio.py manim neural_network manim_scene_01
+python3 scripts/studio.py manim neural_network scene_nn_01
 ```
 
 ---
@@ -115,6 +151,7 @@ python3 scripts/studio.py manim neural_network manim_scene_01
 python3 scripts/studio.py rpa                         # Launch Visual RPA Automation Studio UI
 python3 scripts/studio.py quickstart "<story prompt>" # 1-Click 3-act film generator
 python3 scripts/studio.py mimic <preset> "<topic>"    # Clone viral video pacing (Hormozi, Vox, MrBeast)
+python3 scripts/studio.py fetch-media <id> "<query>" # Fetch Pixabay/Pexels stock media
 python3 scripts/studio.py blender [type] [title]      # Headless 3D Blender render (3d_chrome_title)
 python3 scripts/studio.py manim [type] [id]           # 3Blue1Brown math render (neural_network)
 python3 scripts/studio.py advisor                     # AI Hardware, RAM & disk space advisor
@@ -137,6 +174,7 @@ npm run render                                        # Render final broadcast M
 | :--- | :--- | :--- |
 | **Brain / Scripting** | Gemini Advanced (Jio AI Pro) | Gemini Advanced (Jio AI Pro) |
 | **Local LLM Fallback** | Ollama (CPU mode) | **Ollama Llama 3.2 (CUDA GPU accelerated)** |
+| **Stock Media Fetching** | Pixabay / Pexels / Wikimedia | Pixabay / Pexels / Wikimedia |
 | **3D Blender Renders** | Headless CPU Render | **NVIDIA OptiX / CUDA GPU Accelerated** |
 | **Memory Graph** | `scripts/studio.py` | `scripts/studio.py` |
 | **Voiceover Engine** | Edge-TTS (Cloud Neural) | Edge-TTS (Cloud Neural) |
@@ -155,6 +193,7 @@ antigravity-video-studio/
 │   └── ui.html                       # Dark studio GUI interface
 ├── scripts/
 │   ├── studio.py                     # Unified master CLI
+│   ├── media_fetcher.py              # Pixabay/Pexels/Wikimedia stock media fetcher
 │   ├── rpa_server.py                 # RPA local backend server
 │   ├── reel_mimic.py                 # Viral video pacing cloner (Hormozi, Vox, MrBeast)
 │   ├── blender_engine.py             # Blender headless 3D render engine

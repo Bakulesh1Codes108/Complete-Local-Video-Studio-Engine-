@@ -3,6 +3,7 @@
 Master Studio CLI for Antigravity Video Studio
 Unifies:
   - Graphify Context Memory (<6 KB)
+  - Pixabay / Pexels / Wikimedia Royalty-Free Stock Media Fetcher
   - Remotion + GSAP Deterministic Render Core
   - Open Higgsfield Camera Motion Rigs (Orbit 360, FPV Dive, Vertigo)
   - Three.js 3D Procedural Scenes (Globe, Particles, Isometric Chart)
@@ -36,6 +37,7 @@ REEL_MIMIC = os.path.join(SCRIPTS_DIR, "reel_mimic.py")
 BLENDER_ENGINE = os.path.join(SCRIPTS_DIR, "blender_engine.py")
 MANIM_ENGINE = os.path.join(SCRIPTS_DIR, "manim_engine.py")
 RPA_SERVER = os.path.join(SCRIPTS_DIR, "rpa_server.py")
+MEDIA_FETCHER = os.path.join(SCRIPTS_DIR, "media_fetcher.py")
 
 def run_cmd(args):
     return subprocess.run(args, cwd=BASE_DIR)
@@ -65,8 +67,9 @@ Usage:
   python3 scripts/studio.py rpa                         [Launch Visual RPA Automation UI]
   python3 scripts/studio.py quickstart "<story idea>"   [1-Click full film generator]
   python3 scripts/studio.py mimic <preset> "<topic>"    [Clone viral pacing: hormozi | vox | mrbeast]
+  python3 scripts/studio.py fetch-media <id> "<query>" [Fetch Pixabay/Pexels stock media]
   python3 scripts/studio.py blender [type] [title]      [Headless 3D Blender render: 3d_chrome_title]
-  python3 scripts/studio.py manim [type] [id]           [3Blue1Brown math render: neural_network | quantum_formula]
+  python3 scripts/studio.py manim [type] [id]           [3Blue1Brown math render: neural_network]
   python3 scripts/studio.py advisor                     [Hardware, RAM & disk space advisor]
   python3 scripts/studio.py models                      [Check local Llama / OpenRouter / Gemini]
   python3 scripts/studio.py presets                     [List DaVinci cinematic color palettes]
@@ -90,6 +93,14 @@ if __name__ == "__main__":
     if cmd == "rpa":
         port = int(sys.argv[2]) if len(sys.argv) > 2 else 8080
         run_cmd([sys.executable, RPA_SERVER, str(port)])
+    elif cmd in ["fetch-media", "stock", "pixabay"]:
+        if len(sys.argv) < 4:
+            print("Usage: python3 scripts/studio.py fetch-media <scene_id> '<search query>' [orientation: horizontal|vertical]")
+            sys.exit(1)
+        sid = sys.argv[2]
+        query = sys.argv[3]
+        ori = sys.argv[4] if len(sys.argv) > 4 else "horizontal"
+        run_cmd([sys.executable, MEDIA_FETCHER, sid, query, ori])
     elif cmd == "mimic":
         pname = sys.argv[2] if len(sys.argv) > 2 else "alex_hormozi_viral_reel"
         topic = " ".join(sys.argv[3:]) if len(sys.argv) > 3 else "AI Video Revolution"
@@ -148,6 +159,10 @@ if __name__ == "__main__":
         motion = cleaned['detected_motion']
         vp = enhanced['enhanced_visual_prompt']
 
+        # Auto-acquire visual media
+        import media_fetcher
+        media_fetcher.acquire_media_for_scene(sid, cleaned['cleaned_prompt'], orientation="horizontal")
+
         run_cmd([sys.executable, GRAPH_MEMORY, "add-scene", sid, title, narration, str(dur), vp, motion])
         run_cmd([sys.executable, GRAPH_MEMORY, "export-timeline"])
         print(f"✨ Scene [{sid}] saved with {preset} cinematic color grade and J-Cut pacing!")
@@ -185,6 +200,10 @@ if __name__ == "__main__":
             duration = parsed.get("duration", duration)
             motion = parsed.get("motion", motion)
 
+        # Auto-acquire visual media
+        import media_fetcher
+        media_fetcher.acquire_media_for_scene(sid, narration, orientation="horizontal")
+
         run_cmd([sys.executable, GRAPH_MEMORY, "add-scene", sid, title, narration, str(duration), visual_prompt, motion])
         run_cmd([sys.executable, GRAPH_MEMORY, "export-timeline"])
         print(f"✨ Successfully integrated [{sid}] via smart router into Graphify Memory & Remotion Timeline!")
@@ -193,7 +212,18 @@ if __name__ == "__main__":
         if len(sys.argv) < 5:
             print("Usage: python3 scripts/studio.py add-scene <id> <title> <narration> [dur] [prompt] [motion]")
             sys.exit(1)
-        run_cmd([sys.executable, GRAPH_MEMORY, "add-scene"] + sys.argv[2:])
+        sid = sys.argv[2]
+        title = sys.argv[3]
+        narr = sys.argv[4]
+        dur = sys.argv[5] if len(sys.argv) > 5 else "5"
+        vp = sys.argv[6] if len(sys.argv) > 6 else ""
+        motion = sys.argv[7] if len(sys.argv) > 7 else "zoom-in"
+
+        # Auto-acquire visual media
+        import media_fetcher
+        media_fetcher.acquire_media_for_scene(sid, narr or title, orientation="horizontal")
+
+        run_cmd([sys.executable, GRAPH_MEMORY, "add-scene", sid, title, narr, dur, vp, motion])
         run_cmd([sys.executable, GRAPH_MEMORY, "export-timeline"])
     elif cmd == "sync":
         run_cmd([sys.executable, GRAPH_MEMORY, "export-timeline"])
