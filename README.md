@@ -331,6 +331,13 @@ flowchart TD
 ```
 
 ### 🔍 Repository Fusion & Capability Matrix:
+
+<p align="center">
+  <a href="assets/images/ecosystem_capability_matrix.png" target="_blank">
+    <img src="assets/images/ecosystem_capability_matrix.png" alt="Open Video Engine Ecosystem Capability Matrix" width="100%" />
+  </a>
+</p>
+
 | Capability | Original Standalone Repos | Unified in Antigravity Video Studio | Why You Don't Need to Install Separately |
 | :--- | :--- | :--- | :--- |
 | **Video Reverse-Engineering** | `nexu-io/openmotion`, `PySceneDetect` | `python3 scripts/studio.py reverse-engineer <video.mp4>` | Automatically maps scene cuts & motion rhythms into `timeline.json` without extra wrappers. |
