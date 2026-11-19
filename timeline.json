@@ -1,88 +1,34 @@
 {
-  "project": "Mimic: MrBeast Hyper-Retention Fast Cut - AI Can Build Any App in 6",
+  "project": "The Story Of Quantum Entanglement",
   "fps": 30,
-  "width": 1080,
-  "height": 1920,
-  "letterbox": false,
+  "width": 1920,
+  "height": 1080,
+  "letterbox": true,
   "defaultColorGrade": "hollywood-epic",
   "scenes": [
     {
       "id": "scene_01",
-      "durationInFrames": 60,
-      "engine": "remotion",
+      "durationInFrames": 150,
       "voiceover": "assets/audio/scene_01.mp3",
       "visual": "assets/visuals/scene_01.jpg",
-      "subtitle": "Reverse Engineered Beat 1: Dynamic visual hook",
-      "motion": "zoom-in",
-      "higgsfieldMotion": "whip_pan",
-      "colorGrade": "teal-and-orange",
-      "threeJsScene": null,
-      "jCutFrames": 8
+      "subtitle": "Imagine this: The story of quantum entanglement.",
+      "motion": "zoom-in"
     },
     {
       "id": "scene_02",
-      "durationInFrames": 72,
-      "engine": "remotion",
+      "durationInFrames": 150,
       "voiceover": "assets/audio/scene_02.mp3",
       "visual": "assets/visuals/scene_02.jpg",
-      "subtitle": "Reverse Engineered Beat 2: Dynamic visual hook",
-      "motion": "pan-left",
-      "higgsfieldMotion": "handheld_subtle",
-      "colorGrade": "teal-and-orange",
-      "threeJsScene": null,
-      "jCutFrames": 8
+      "subtitle": "Behind the scenes, complex forces shape everything we thought we understood.",
+      "motion": "pan-right"
     },
     {
       "id": "scene_03",
-      "durationInFrames": 54,
-      "engine": "remotion",
+      "durationInFrames": 150,
       "voiceover": "assets/audio/scene_03.mp3",
       "visual": "assets/visuals/scene_03.jpg",
-      "subtitle": "Reverse Engineered Beat 3: Dynamic visual hook",
-      "motion": "zoom-in",
-      "higgsfieldMotion": "bullet_time_freeze",
-      "colorGrade": "teal-and-orange",
-      "threeJsScene": null,
-      "jCutFrames": 8
-    },
-    {
-      "id": "scene_04",
-      "durationInFrames": 96,
-      "engine": "remotion",
-      "voiceover": "assets/audio/scene_04.mp3",
-      "visual": "assets/visuals/scene_04.jpg",
-      "subtitle": "Reverse Engineered Beat 4: Dynamic visual hook",
-      "motion": "pan-right",
-      "higgsfieldMotion": "orbit_360",
-      "colorGrade": "teal-and-orange",
-      "threeJsScene": null,
-      "jCutFrames": 8
-    },
-    {
-      "id": "scene_05",
-      "durationInFrames": 63,
-      "engine": "remotion",
-      "voiceover": "assets/audio/scene_05.mp3",
-      "visual": "assets/visuals/scene_05.jpg",
-      "subtitle": "Reverse Engineered Beat 5: Dynamic visual hook",
-      "motion": "zoom-out",
-      "higgsfieldMotion": "fpv_drone_dive",
-      "colorGrade": "teal-and-orange",
-      "threeJsScene": null,
-      "jCutFrames": 8
-    },
-    {
-      "id": "scene_06",
-      "durationInFrames": 15,
-      "engine": "remotion",
-      "voiceover": "assets/audio/scene_06.mp3",
-      "visual": "assets/visuals/scene_06.jpg",
-      "subtitle": "Reverse Engineered Beat 6: Dynamic visual hook",
-      "motion": "zoom-in",
-      "higgsfieldMotion": "whip_pan",
-      "colorGrade": "teal-and-orange",
-      "threeJsScene": null,
-      "jCutFrames": 8
+      "subtitle": "The future belongs to those who observe and build. This changes everything.",
+      "motion": "zoom-out"
     }
   ]
 }

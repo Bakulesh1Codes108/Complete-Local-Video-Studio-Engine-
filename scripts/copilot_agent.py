@@ -2,7 +2,8 @@
 """
 Interactive AI Film Copilot & Step-by-Step Pipeline Controller.
 Guides creators through an executive producer interview, asks questions
-when needed, and supports completing up to a specific step on direct command:
+when needed, manages token expenditure & costing, supports group and step-by-step
+permissions, and executes strictly up to a specific step on command:
   Step 1: script     (Prompt compression & scene beats)
   Step 2: timeline   (Graphify memory & Remotion timeline)
   Step 3: media      (Pixabay/Pexels/Wikimedia visual asset acquisition)
@@ -74,25 +75,54 @@ def prompt_user(question: str, default=None, choices=None) -> str:
     return user_input
 
 class FilmCopilotAgent:
-    def __init__(self):
+    def __init__(self, permission_mode="group", group_max_step=4):
         self.compressor = model_router.PromptCompressor()
         self.router = model_router.ModelRouter()
+        self.cost_agent = model_router.TokenCostingAgent()
+        self.permission_mode = permission_mode.lower() # "group", "step", "auto"
+        self.group_max_step = group_max_step
+
+    def request_permission(self, step_num: int, step_name: str, description: str) -> bool:
+        """Manages Step-by-Step and Group Permission boundaries."""
+        if self.permission_mode == "auto":
+            return True
+        elif self.permission_mode == "group":
+            if step_num <= self.group_max_step:
+                print(f"   [✓ Group Permission Active]: Step {step_num} ({step_name}) auto-approved.")
+                return True
+            else:
+                prompt_str = (
+                    f"\n✋ [Group Permission Boundary Reached at Step {step_num}]:\n"
+                    f"   Authorize execution of '{step_name.upper()}' ({description})? [Y/n]: "
+                )
+                try:
+                    ans = input(prompt_str).strip().lower()
+                    return ans not in ["n", "no", "q", "quit"]
+                except (EOFError, KeyboardInterrupt):
+                    return False
+        else: # "step"
+            prompt_str = f"\n[?] [Permission Gate]: Authorize Step {step_num} ({step_name}: {description})? [Y/n]: "
+            try:
+                ans = input(prompt_str).strip().lower()
+                return ans not in ["n", "no", "q", "quit"]
+            except (EOFError, KeyboardInterrupt):
+                return False
 
     def run_pipeline(self, initial_idea=None, stop_until="render", interactive=True):
-        # Normalize stop step
         stop_step = STEP_NAMES.get(str(stop_until).lower(), str(stop_until).lower())
         if stop_step not in STEPS_ORDER:
             stop_step = "render"
 
-        print("=" * 70)
-        print("🎬 ANTIGRAVITY AI PRODUCER & PIPELINE CONTROLLER")
+        print("=" * 72)
+        print("🎬 ANTIGRAVITY AI PRODUCER, TOKEN OPTIMIZER & PERMISSION CONTROLLER")
         print(f"Target Execution Boundary: [Complete through Step: '{stop_step.upper()}']")
-        print("=" * 70)
+        print(f"Permission Mode:           [{self.permission_mode.upper()}] (Group auto-approves Steps 1-{self.group_max_step})")
+        print("=" * 72)
 
         # ----------------------------------------------------
         # STEP 1: SCRIPT & PREMISE
         # ----------------------------------------------------
-        print("\n🔹 [STEP 1/6: SCRIPTING & PROMPT OPTIMIZATION]")
+        print("\n🔹 [STEP 1/6: SCRIPTING, TOKEN OPTIMIZATION & BUDGET CHECK]")
         if interactive and not initial_idea:
             raw_topic = prompt_user(
                 "What is the story, course lesson, or topic of your video?",
@@ -105,7 +135,12 @@ class FilmCopilotAgent:
         cleaned_info = self.compressor.clean_noisy_prompt(raw_topic)
         topic = cleaned_info["cleaned_prompt"]
         if cleaned_info["estimated_token_savings"] != "0%":
-            print(f"🧹 Token savings ({cleaned_info['estimated_token_savings']}): '{topic}'")
+            print(f"🧹 Token Savings: {cleaned_info['estimated_token_savings']} tokens saved by prompt compression.")
+
+        # Token Cost Estimation
+        cost_info = self.cost_agent.calculate_cost_comparison(topic)
+        est_cost = cost_info["providers"][0]["cost_display"]
+        print(f"💰 Token Budget: ~{cost_info['total_tokens']} tokens | Est. Model Cost: {est_cost}")
 
         if stop_step == "script":
             print("\n🛑 [STOP COMMAND REACHED]: Completed Step 1 (Script & Prompt Optimized).")
@@ -115,6 +150,10 @@ class FilmCopilotAgent:
         # ----------------------------------------------------
         # STEP 2: TIMELINE & STORY ARC
         # ----------------------------------------------------
+        if not self.request_permission(2, "timeline", "Generate Storyboard & Graphify Nodes"):
+            print("\n🛑 Execution paused by user at Step 2.")
+            return
+
         print("\n🔹 [STEP 2/6: TIMELINE & GRAPHIFY STORYBOARD]")
         if interactive:
             format_choices = {
@@ -148,11 +187,11 @@ class FilmCopilotAgent:
             aspect = "16:9"
             pacing = "netflix-doc"
 
-        # Check Hardware
+        # Check Hardware & Storage
         device_info = device_advisor.analyze_system()
         print(f"💻 Hardware: {device_info['gpu']['name']} | {device_info['disk']['free_gb']} GB disk available")
 
-        # Assemble Story Arc & Graphify Timeline (Pure Storyboard / Node Generation)
+        # Assemble Story Arc & Graphify Timeline
         if pacing in ["alex_hormozi_viral_reel", "mrbeast_retention_hook", "vox_highlighter_explainer"]:
             reel_mimic.mimic_reel(pacing, topic, fetch_media=False, generate_audio=False)
         else:
@@ -174,6 +213,10 @@ class FilmCopilotAgent:
         # ----------------------------------------------------
         # STEP 3: STOCK & PROCEDURAL MEDIA ACQUISITION
         # ----------------------------------------------------
+        if not self.request_permission(3, "media", "Acquire Stock Media & 3D Visual Assets"):
+            print("\n🛑 Execution paused by user at Step 3.")
+            return
+
         print("\n🔹 [STEP 3/6: MEDIA ACQUISITION (PIXABAY / PEXELS / 3D)]")
         timeline_path = os.path.join(BASE_DIR, "timeline.json")
         with open(timeline_path, "r", encoding="utf-8") as f:
@@ -194,6 +237,10 @@ class FilmCopilotAgent:
         # ----------------------------------------------------
         # STEP 4: NEURAL VOICEOVER SYNTHESIS
         # ----------------------------------------------------
+        if not self.request_permission(4, "audio", "Synthesize Neural Audio Narration"):
+            print("\n🛑 Execution paused by user at Step 4.")
+            return
+
         print("\n🔹 [STEP 4/6: NEURAL AUDIO SYNTHESIS (EDGE-TTS)]")
         voice = "en-US-ChristopherNeural"
         if interactive:
@@ -214,6 +261,10 @@ class FilmCopilotAgent:
         # ----------------------------------------------------
         # STEP 5: IN-EDITOR REMOTION PREVIEW
         # ----------------------------------------------------
+        if not self.request_permission(5, "preview", "Launch Remotion Player"):
+            print("\n🛑 Execution paused by user at Step 5.")
+            return
+
         print("\n🔹 [STEP 5/6: PREVIEW READY]")
         print("All visual layers, audio ducking, Ken Burns and subtitles are assembled.")
         print("Run command to launch Remotion Player: npm run preview")
@@ -225,6 +276,10 @@ class FilmCopilotAgent:
         # ----------------------------------------------------
         # STEP 6: HEADLESS MP4 RENDER
         # ----------------------------------------------------
+        if not self.request_permission(6, "render", "Render Final Broadcast MP4 Video"):
+            print("\n🛑 Execution paused by user at Step 6.")
+            return
+
         print("\n🔹 [STEP 6/6: BROADCAST MP4 RENDER]")
         if aspect == "omni":
             print("⚡ Rendering Widescreen (16:9) Documentary...")
@@ -250,21 +305,33 @@ class FilmCopilotAgent:
             print("=" * 70)
 
 if __name__ == "__main__":
-    agent = FilmCopilotAgent()
-    
-    # Check flags: --until <step> or --step <step>
     until_step = "render"
+    permission_mode = "group"
+    group_max = 4
     topic_args = []
-    
+
     i = 1
     while i < len(sys.argv):
         arg = sys.argv[i]
         if arg in ["--until", "--step", "-u", "-s"] and i + 1 < len(sys.argv):
             until_step = sys.argv[i + 1]
             i += 2
+        elif arg in ["--permission", "-p"] and i + 1 < len(sys.argv):
+            permission_mode = sys.argv[i + 1]
+            i += 2
+        elif arg in ["--group", "-g"] and i + 1 < len(sys.argv):
+            try:
+                group_max = int(sys.argv[i + 1].split("-")[-1])
+            except Exception:
+                group_max = 4
+            i += 2
+        elif arg in ["--auto", "-a"]:
+            permission_mode = "auto"
+            i += 1
         else:
             topic_args.append(arg)
             i += 1
 
     topic_str = " ".join(topic_args) if topic_args else None
+    agent = FilmCopilotAgent(permission_mode=permission_mode, group_max_step=group_max)
     agent.run_pipeline(initial_idea=topic_str, stop_until=until_step, interactive=False if topic_str else True)

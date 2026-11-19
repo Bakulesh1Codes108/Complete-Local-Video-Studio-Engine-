@@ -192,6 +192,12 @@ def cmd_export_remotion_timeline(output_json=None):
         json.dump(timeline, f, indent=2)
     print(f"Exported Remotion timeline to: {out_path}")
 
+# Direct API exports
+init_graph = cmd_init
+add_scene_node = cmd_add_scene
+export_remotion_timeline = cmd_export_remotion_timeline
+get_compact_context = cmd_get_compact_context
+
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: python3 graph_memory.py [init | add-scene | compact-context | export-timeline | status]")

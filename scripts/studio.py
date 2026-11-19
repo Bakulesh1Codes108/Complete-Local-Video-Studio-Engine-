@@ -47,6 +47,7 @@ ENGINE_HUB = os.path.join(SCRIPTS_DIR, "engine_hub.py")
 UPSCALER = os.path.join(SCRIPTS_DIR, "upscaler.py")
 PDF_COMPILER = os.path.join(SCRIPTS_DIR, "compile_pdf.py")
 SETUP_DOCTOR = os.path.join(SCRIPTS_DIR, "setup_doctor.py")
+AGENT_CREATOR = os.path.join(SCRIPTS_DIR, "agent_creator.py")
 
 def run_cmd(args):
     return subprocess.run(args, cwd=BASE_DIR)
@@ -82,6 +83,9 @@ Usage:
   python3 scripts/studio.py fetch-media <id> "<query>" [Fetch Pixabay/Pexels stock media]
   python3 scripts/studio.py blender [type] [title]      [Headless 3D Blender render: 3d_chrome_title]
   python3 scripts/studio.py manim [type] [id]           [3Blue1Brown math render: neural_network]
+  python3 scripts/studio.py agent "<prompt>"            [Prompt-to-Process Agent & Parallel Multi-Worker Pipeline]
+  python3 scripts/studio.py cost "<prompt>"             [Token Optimizer & Cost Estimator ($0.00 Free vs Paid)]
+  python3 scripts/studio.py budget [max_usd]            [View or set hard ceiling token budget limit]
   python3 scripts/studio.py doctor [--fix]              [AI Setup Assistant & Self-Healing Health Doctor]
   python3 scripts/studio.py storage                     [Multi-drive disk scanner & 4K render storage advisor]
   python3 scripts/studio.py advisor                     [Hardware, RAM & GPU advisor]
@@ -152,6 +156,15 @@ if __name__ == "__main__":
         stype = sys.argv[2] if len(sys.argv) > 2 else "neural_network"
         sid = sys.argv[3] if len(sys.argv) > 3 else "manim_01"
         run_cmd([sys.executable, MANIM_ENGINE, stype, sid])
+    elif cmd in ["cost", "tokens", "pricing"]:
+        prompt = " ".join(sys.argv[2:]) if len(sys.argv) > 2 else "A cinematic 3-act documentary scene about underwater hydrothermal vents"
+        run_cmd([sys.executable, MODEL_ROUTER, "cost", prompt])
+    elif cmd == "budget":
+        args = [sys.executable, MODEL_ROUTER, "budget"] + sys.argv[2:]
+        run_cmd(args)
+    elif cmd in ["agent", "parallel", "prompt-to-process"]:
+        args = [sys.executable, AGENT_CREATOR] + sys.argv[2:]
+        run_cmd(args)
     elif cmd in ["doctor", "health", "fix"]:
         args = [sys.executable, SETUP_DOCTOR] + sys.argv[2:]
         run_cmd(args)

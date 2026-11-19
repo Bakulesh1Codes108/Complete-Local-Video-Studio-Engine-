@@ -1,9 +1,9 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-11-19T15:35:07.604002Z",
+  "updatedAt": "2026-11-19T17:41:19.886262Z",
   "project": {
     "id": "proj_01",
-    "title": "Sci-Fi Cyberpunk",
+    "title": "The Story Of Quantum Entanglement",
     "fps": 30,
     "width": 1920,
     "height": 1080,
@@ -17,11 +17,11 @@
       "id": "scene_01",
       "type": "Scene",
       "properties": {
-        "title": "Scene 1",
-        "narration": "Reverse Engineered Beat 1: Dynamic visual hook",
-        "durationSeconds": 2.0,
-        "durationInFrames": 60,
-        "visualPrompt": "Cinematic keyframe matching scene 1",
+        "title": "Scene 01",
+        "narration": "Imagine this: The story of quantum entanglement.",
+        "durationSeconds": 5.0,
+        "durationInFrames": 150,
+        "visualPrompt": "Dramatic cinematic opening shot: The story of quantum entanglement, 35mm lens, 8k",
         "motionType": "zoom-in",
         "voiceoverAsset": "assets/audio/scene_01.mp3",
         "visualAsset": "assets/visuals/scene_01.jpg"
@@ -31,12 +31,12 @@
       "id": "scene_02",
       "type": "Scene",
       "properties": {
-        "title": "Scene 2",
-        "narration": "Reverse Engineered Beat 2: Dynamic visual hook",
-        "durationSeconds": 2.4,
-        "durationInFrames": 72,
-        "visualPrompt": "Cinematic keyframe matching scene 2",
-        "motionType": "pan-left",
+        "title": "Scene 02",
+        "narration": "Behind the scenes, complex forces shape everything we thought we understood.",
+        "durationSeconds": 5.0,
+        "durationInFrames": 150,
+        "visualPrompt": "Intricate visual evidence and high-detail perspective of The story of quantum entanglement, volumetric lighting",
+        "motionType": "pan-right",
         "voiceoverAsset": "assets/audio/scene_02.mp3",
         "visualAsset": "assets/visuals/scene_02.jpg"
       }
@@ -45,56 +45,14 @@
       "id": "scene_03",
       "type": "Scene",
       "properties": {
-        "title": "Scene 3",
-        "narration": "Reverse Engineered Beat 3: Dynamic visual hook",
-        "durationSeconds": 1.8,
-        "durationInFrames": 54,
-        "visualPrompt": "Cinematic keyframe matching scene 3",
-        "motionType": "zoom-in",
+        "title": "Scene 03",
+        "narration": "The future belongs to those who observe and build. This changes everything.",
+        "durationSeconds": 5.0,
+        "durationInFrames": 150,
+        "visualPrompt": "Epic concluding wide-angle shot, golden hour cinematic grade, 8k resolution",
+        "motionType": "zoom-out",
         "voiceoverAsset": "assets/audio/scene_03.mp3",
         "visualAsset": "assets/visuals/scene_03.jpg"
-      }
-    },
-    {
-      "id": "scene_04",
-      "type": "Scene",
-      "properties": {
-        "title": "Scene 4",
-        "narration": "Reverse Engineered Beat 4: Dynamic visual hook",
-        "durationSeconds": 3.2,
-        "durationInFrames": 96,
-        "visualPrompt": "Cinematic keyframe matching scene 4",
-        "motionType": "pan-right",
-        "voiceoverAsset": "assets/audio/scene_04.mp3",
-        "visualAsset": "assets/visuals/scene_04.jpg"
-      }
-    },
-    {
-      "id": "scene_05",
-      "type": "Scene",
-      "properties": {
-        "title": "Scene 5",
-        "narration": "Reverse Engineered Beat 5: Dynamic visual hook",
-        "durationSeconds": 2.1,
-        "durationInFrames": 63,
-        "visualPrompt": "Cinematic keyframe matching scene 5",
-        "motionType": "zoom-out",
-        "voiceoverAsset": "assets/audio/scene_05.mp3",
-        "visualAsset": "assets/visuals/scene_05.jpg"
-      }
-    },
-    {
-      "id": "scene_06",
-      "type": "Scene",
-      "properties": {
-        "title": "Scene 6",
-        "narration": "Reverse Engineered Beat 6: Dynamic visual hook",
-        "durationSeconds": 0.5,
-        "durationInFrames": 15,
-        "visualPrompt": "Cinematic keyframe matching scene 6",
-        "motionType": "zoom-in",
-        "voiceoverAsset": "assets/audio/scene_06.mp3",
-        "visualAsset": "assets/visuals/scene_06.jpg"
       }
     }
   ],
@@ -111,33 +69,6 @@
     {
       "from": "scene_02",
       "to": "scene_03",
-      "type": "TRANSITIONS_TO",
-      "properties": {
-        "transition": "crossfade",
-        "durationFrames": 15
-      }
-    },
-    {
-      "from": "scene_03",
-      "to": "scene_04",
-      "type": "TRANSITIONS_TO",
-      "properties": {
-        "transition": "crossfade",
-        "durationFrames": 15
-      }
-    },
-    {
-      "from": "scene_04",
-      "to": "scene_05",
-      "type": "TRANSITIONS_TO",
-      "properties": {
-        "transition": "crossfade",
-        "durationFrames": 15
-      }
-    },
-    {
-      "from": "scene_05",
-      "to": "scene_06",
       "type": "TRANSITIONS_TO",
       "properties": {
         "transition": "crossfade",

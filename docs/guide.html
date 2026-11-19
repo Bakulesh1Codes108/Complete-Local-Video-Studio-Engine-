@@ -489,7 +489,69 @@ python3 scripts/studio.py doctor --fix</pre>
     <p>Setup scripts request clear, upfront consent before modifying environment paths or installing packages. The entire studio complies with NVIDIA model safety and open-source verification practices: 100% free, local-first, zero telemetry, and zero malware.</p>
   </div>
 
-  <h2>13. Frequently Asked Questions</h2>
+  <h2>13. Token Optimizer, Costing Agent & Group Permission Controller</h2>
+  <p>To eliminate unexpected cloud charges and give creators fine-grained authority over every stage of production, Open Video Engine incorporates an integrated economic and authorization framework:</p>
+
+  <div class="card">
+    <h3 style="margin-top:0;">1. Token Costing Agent & Hard Budget Ceiling</h3>
+    <p>Tracks and calculates token expenditure across 7 model tiers, from 100% free offline local models to commercial cloud APIs:</p>
+    <ul>
+      <li><strong>Tier 0 ($0.00 Free):</strong> Local Ollama (Llama 3.2 / Qwen 2.5), OpenRouter Free Gateway, Edge-TTS, and deterministic rule engines.</li>
+      <li><strong>Tier 1 (Micro-Cost):</strong> Google Gemini 2.0 Flash (~$0.00008 per video) & Groq Llama 3.3 70B (~$0.00020 per video).</li>
+      <li><strong>Tier 2/3 (Commercial):</strong> OpenAI GPT-4o and Claude 3.5 Sonnet (~$0.002 to $0.004 per scene).</li>
+    </ul>
+    <p>Set a hard ceiling budget to guarantee you never overspend:</p>
+    <pre># View real-time cost estimate comparison
+python3 scripts/studio.py cost "Documentary on the Mariana Trench"
+
+# Set a hard dollar budget limit (e.g. $0.05 or $0.00 for strictly free mode)
+python3 scripts/studio.py budget 0.00</pre>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0;">2. Group Permission & Step-by-Step Approval</h3>
+    <p>Choose the level of autonomy your AI assistant possesses during production:</p>
+    <ul>
+      <li><strong>Group Permission Mode (<code>--permission group</code>):</strong> Automatically approves Steps 1 through 4 (Script, Timeline, Media, Audio), then pauses for human approval before rendering final video.</li>
+      <li><strong>Step-by-Step Mode (<code>--permission step</code>):</strong> Prompts for explicit creator authorization at every individual milestone.</li>
+      <li><strong>Autonomous Mode (<code>--permission auto</code>):</strong> Runs all 6 steps continuously without interruption for RPA scripts or automated pipelines.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0;">3. Prompt-to-Process Agent & Parallel Execution</h3>
+    <p>Decomposes any natural language video concept into a concurrent multi-agent graph. Visual media fetching and neural voiceover synthesis execute in parallel threads simultaneously:</p>
+    <pre>python3 scripts/studio.py agent "A high-retention 9:16 TikTok reel explaining quantum computing"</pre>
+    <p><strong>Continuous Learning Memory:</strong> Learned user preferences (aspect ratio, narration voice, color grades, cut speed) are cached in <code>graphify-out/learning_cache.json</code> and automatically applied to future videos.</p>
+  </div>
+
+  <h2>14. Dual-Platform Operating Manual (Windows & macOS)</h2>
+  <table style="width:100%; border-collapse:collapse; margin-bottom:14px; font-size:9pt;">
+    <thead>
+      <tr style="background:#f1f5f9; text-align:left;">
+        <th style="padding:6px; border:1px solid #cbd5e1;">Operating System</th>
+        <th style="padding:6px; border:1px solid #cbd5e1;">1-Click Setup</th>
+        <th style="padding:6px; border:1px solid #cbd5e1;">Launch Command</th>
+        <th style="padding:6px; border:1px solid #cbd5e1;">Hardware Acceleration</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:6px; border:1px solid #cbd5e1;"><strong>Windows 10/11</strong><br>(HP, ASUS, Dell, Lenovo)</td>
+        <td style="padding:6px; border:1px solid #cbd5e1;">Double-click <code>setup.bat</code><br>(Auto winget, .venv, portable FFmpeg, and D: drive render junction)</td>
+        <td style="padding:6px; border:1px solid #cbd5e1;">Double-click <code>Run_Studio.bat</code><br>Or: <code>python scripts/studio.py ove</code></td>
+        <td style="padding:6px; border:1px solid #cbd5e1;">NVIDIA CUDA PyTorch (F5-TTS Voice Clone, OptiX Blender 3D, NVENC export)</td>
+      </tr>
+      <tr>
+        <td style="padding:6px; border:1px solid #cbd5e1;"><strong>macOS</strong><br>(Apple Silicon & Intel)</td>
+        <td style="padding:6px; border:1px solid #cbd5e1;"><code>python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt && npm install</code></td>
+        <td style="padding:6px; border:1px solid #cbd5e1;"><code>python3 scripts/studio.py ove</code><br>(Opens UI on http://127.0.0.1:8080)</td>
+        <td style="padding:6px; border:1px solid #cbd5e1;">Apple Silicon Metal GPU & Cloud-Assisted low-RAM mode (Zero GPU memory overhead)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>15. Frequently Asked Questions</h2>
   <div class="card">
     <strong>Q: How does the studio run on an 8GB RAM Mac without crashing?</strong><br>
     The studio runs in Cloud-Assisted Mode: Gemini 2.0 Flash / OpenRouter handles story arc planning, Pixabay delivers stock visuals, Edge-TTS synthesizes neural narration, and Remotion renders frame-accurately on CPU with zero GPU memory overhead.
