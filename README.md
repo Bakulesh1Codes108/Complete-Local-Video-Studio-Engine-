@@ -32,6 +32,22 @@ This repository includes the official, full-length verified production handbook:
 
 ---
 
+## ⚡ 1-Click Automated Setup for Windows Laptops & PCs
+If you are downloading or cloning this repository on a Windows laptop (e.g. **HP Pavilion, ASUS, Dell, Lenovo**) or gaming PC, setup is **100% automated with zero manual configuration**:
+
+1. **Step 1:** Download or clone this repository.
+2. **Step 2:** Double-click **`setup.bat`** (or right-click `setup.ps1` $\rightarrow$ Run with PowerShell).
+   * Automatically detects and installs **Node.js LTS** (via winget).
+   * Automatically detects and installs **Python 3.11** (via winget).
+   * Automatically downloads and configures **FFmpeg** in your user PATH.
+   * Configures `.venv` and installs all video dependencies (`requirements.txt`).
+   * **NVIDIA GPU Auto-Detection:** If an NVIDIA GPU is detected (GTX/RTX), automatically installs CUDA-accelerated PyTorch for **5-second local voice cloning (F5-TTS)**!
+   * Runs `npm install` for Remotion, Three.js, and GSAP video components.
+   * Creates a convenient **`Open Video Engine (OVE)`** shortcut right on your Desktop!
+3. **Step 3:** Double-click **`Run_Studio.bat`** (or the Desktop shortcut) to launch the studio and start creating!
+
+---
+
 ## 💡 About This Project & What It Solves
 
 ### 🛑 The Problem with Modern AI Video Tools
