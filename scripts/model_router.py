@@ -261,7 +261,7 @@ class ModelRouter:
             headers = {
                 "Authorization": f"Bearer {api_key}",
                 "Content-Type": "application/json",
-                "HTTP-Referer": "https://github.com/Bakulesh1Codes108/antigravity-video-studio"
+                "HTTP-Referer": "https://github.com/Bakulesh1Codes108/Complete-Local-Video-Studio-Engine-"
             }
             payload = json.dumps({
                 "model": "openrouter/free",

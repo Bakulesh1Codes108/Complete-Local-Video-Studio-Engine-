@@ -2,7 +2,7 @@
 ### Autonomous Code-Driven AI Video, Documentary & Viral Reel Production Engine
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v1.5.0-success.svg)](https://github.com/Bakulesh1Codes108/antigravity-video-studio/releases/tag/v1.5.0)
+[![Release](https://img.shields.io/badge/Release-v1.5.0-success.svg)](https://github.com/Bakulesh1Codes108/Complete-Local-Video-Studio-Engine-/releases/tag/v1.5.0)
 [![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Windows-555555.svg)]()
 [![Cost](https://img.shields.io/badge/Cost-100%25%20Free%20%26%20Local-success.svg)]()
 [![Engines](https://img.shields.io/badge/Engines-Remotion%20%7C%20Three.js%20%7C%20Blender%20%7C%20Manim%20%7C%20GSAP-orange.svg)]()
