@@ -58,6 +58,36 @@ CINEMATIC_PRESETS = {
         "lighting": "High-key crisp studio lighting, neutral color accuracy",
         "lens": "Clean digital sensor, sharp graphics overlays",
         "musicDucking": 0.22
+    },
+    "aftereffects-motion": {
+        "name": "Adobe After Effects Motion Graphics",
+        "aspectRatio": "16:9",
+        "letterbox": False,
+        "colorGrade": "teal-and-orange",
+        "jCutFrames": 8,
+        "lighting": "Dynamic volumetric edge lighting, glowing neon highlights",
+        "lens": "50mm prime with depth of field, 3D motion motion blur",
+        "musicDucking": 0.20
+    },
+    "vidyo-repurpose": {
+        "name": "vidyo.ai / Social Reel Repurpose",
+        "aspectRatio": "9:16",
+        "letterbox": False,
+        "colorGrade": "clean",
+        "jCutFrames": 4,
+        "lighting": "Crisp ring-light studio illumination, vibrant skin tones",
+        "lens": "24mm wide angle, vertical safe-zone composition",
+        "musicDucking": 0.24
+    },
+    "vlog-pop": {
+        "name": "KineMaster / InShot / VN Vibrant Vlog",
+        "aspectRatio": "9:16",
+        "letterbox": False,
+        "colorGrade": "clean",
+        "jCutFrames": 5,
+        "lighting": "Bright natural daylight, punchy saturated colors",
+        "lens": "35mm vlog perspective, snappy cuts and transitions",
+        "musicDucking": 0.22
     }
 }
 

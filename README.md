@@ -177,7 +177,7 @@ python3 scripts/studio.py step preview "Silicon Valley AI Revolution"       # St
 
 ## 🎨 Pro NLE Desktop Studio UI (`studio.py app`)
 
-Experience a high-end, paid-application-style Non-Linear Editor (NLE) right in your browser or desktop window, with zero subscriptions and zero bloat:
+Experience a high-end, paid-application-style Non-Linear Editor (NLE) right in your browser or desktop window, with zero subscriptions, zero watermarks, and zero bloat:
 
 ```bash
 # Launch the Pro NLE Video Studio
@@ -186,15 +186,26 @@ python3 scripts/studio.py app
 python3 scripts/studio.py ui
 ```
 
-### 🌟 Pro Editing Suite Features & Theme Switcher:
-* **4 Popular Industry Themes (Instant 1-Click Switch):**
-  * 🎛️ **DaVinci Resolve Dark (Amber / Gold Accent):** Precision colorist and post-production suite aesthetic.
-  * ⚡ **CapCut Neon (Electric Cyan Accent):** Modern high-energy creator UI optimized for fast short-form pacing.
-  * 🎞️ **Adobe Premiere Pro (Slate & Blue Accent):** Classic broadcast editing interface with clean workspace docks.
-  * 🍏 **Final Cut Pro X (Magnetic Graphite Accent):** Streamlined magnetic timeline look with high contrast.
+### 🌟 10 Industry-Standard Themes (Instant 1-Click Switch):
+Designed with the exact visual ergonomics, track layouts, and color palettes of the most popular editing software and creator platforms across India and worldwide:
+
+| Suite & Creator App | Accent & Aesthetic | Target Workflow & Creator Persona |
+| :--- | :--- | :--- |
+| **🎛️ DaVinci Resolve Studio** | Amber / Gold (`#e59324`) | Color grading, anamorphic documentary, film LUTs, node-based post-production. |
+| **⚡ CapCut Creator Neon** | Electric Cyan (`#00f2fe`) | High-retention TikTok, Shorts, and Reels with kinetic word highlights. |
+| **🎞️ Adobe Premiere Pro** | Broadcast Blue (`#1473e6`) | Standard multi-track timeline, J-Cuts, audio ducking, broadcast exports. |
+| **🍏 Apple Final Cut Pro X** | Magnetic Graphite (`#3b82f6`) | Clean high-contrast magnetic tracks, fast skimming, frictionless assembly. |
+| **⚡ VN Video Editor** | Slate Turquoise (`#00e5ff`) | Modern creator mobile & desktop aesthetic favored by Indian vloggers. |
+| **🍃 Wondershare Filmora** | Emerald Green (`#00f076`) | Beginner-friendly, vibrant social transitions, and punchy b-roll pacing. |
+| **🟣 Adobe After Effects** | Deep Motion Purple (`#9d4edd`) | Motion graphics, 3D procedural scenes (Globe/Particles), and kinetic title cards. |
+| **💖 InShot & KineMaster** | Vibrant Coral Pink (`#ff3366`) | Multi-layer mobile social reels, green screen, stickers, and vertical vlogs. |
+| **🎬 Avid Media Composer** | Hollywood Ruby (`#e63946`) | Classic broadcast dark-room interface for enterprise and long-form features. |
+| **🤖 vidyo.ai & Clipchamp** | AI Violet & Indigo (`#7928ca`) | Automated video repurposing, podcast-to-shorts clipping, and auto-safe zones. |
+
+### 🛠️ Professional Editing Suite Features Built-In:
 * **Aspect Ratio Switcher & Safe-Zone Overlay:**
-  * Instant toggle between **16:9 Widescreen Cinema** and **9:16 Vertical Reel**.
-  * **TikTok / YouTube Shorts Safe-Zone Guide:** Interactive bounding overlay showing live UI safe areas (header, like button stack, audio ticker) so your titles and kinetic subtitles never get cut off.
+  * Instant 1-click toggle between **16:9 Widescreen Cinema** and **9:16 Vertical Reel**.
+  * **TikTok / YouTube Shorts / Instagram Reels Safe-Zone Guide:** Interactive bounding overlay showing live UI safe areas (header, like button stack, audio ticker) so your titles and kinetic subtitles never get cut off.
 * **DaVinci 3-Way Color Wheels & Grading:**
   * Real-time CSS interactive Lift, Gamma, and Gain color tuning wheels.
   * 35mm film grain toggle, 2.39:1 anamorphic letterboxing, and cinematic LUT presets (*Kodak 2383, Teal & Orange, Moody Sci-Fi, Vintage Technicolor*).
@@ -202,7 +213,7 @@ python3 scripts/studio.py ui
   * Multi-layer tracks: **FX** (Camera moves & transitions), **TXT** (Kinetic typography), **V1** (Video/3D scene clips), **A1** (Voiceover speech), and **A2** (Ambient music bed).
   * Interactive scrubber playhead with timecode display (`00:00:04:12`) and spacebar Play/Pause hotkey.
 * **Integrated Creation Drawers:**
-  * **AI Story Arc Copilot:** Enter premise, select director preset, and generate multi-scene story arcs.
+  * **AI Story Arc Copilot:** Enter premise, select director preset (*Netflix Doc, Hormozi Reel, MrBeast Hook, Vox Explainer, vidyo.ai Repurpose, After Effects Motion*), and generate multi-scene story arcs.
   * **Media Pool Drawer:** Drag-and-drop stock media previews with clip metadata.
   * **5-Second Voice Clone Studio:** Record or drop 5 seconds of audio to clone your voice locally.
 
@@ -387,6 +398,8 @@ Instead of forcing you to download 50+ GB of raw model weights that would fill y
 ## 🏷️ Search Keywords & Semantic Discoverability Index
 
 * **Primary Keywords:** unified video studio engine, antigravity video studio, automated video creation, open source ai video creator, remotion ai studio, text to video python pipeline, code-driven video production, viral reel generator, zero cost ai documentary.
+* **Editing Suite & Software Keywords:** davinci resolve alternative, capcut desktop free, adobe premiere pro automated, final cut pro x open source, vn video editor pc, wondershare filmora free alternative, adobe after effects motion graphics, kinemaster pc, inshot video editor, avid media composer, lumafusion android pc, shotcut, vsdc free video editor, microsoft clipchamp automation.
+* **Indian Creator & AI Platform Keywords:** vidyo.ai alternative, typito text animation, frammer ai automated clips, clueso ai video, indian video creator tools, youtube shorts india automation, instagram reels creator india.
 * **Format & Platform Keywords:** vertical v3, tiktok video automation, youtube shorts generator, instagram reels auto-editor, 9:16 safe zone subtitles, alex hormozi subtitle style, mrbeast fast cut pacing, vox data explainer.
 * **Engine & Model Keywords:** remotion react, three.js 3d video, blender headless automation, manim 3blue1brown, open higgsfield 3d camera, f5-tts voice cloning, moss-tts nano, edge-tts free, pyscenedetect, whisperx forced alignment, losslesscut ffmpeg concat, lightricks ltx-video, minimax h3 freevideo, ollama llama 3.2.
 

@@ -92,6 +92,76 @@ VIRAL_PRESETS = {
             {"beat": "The Scientific Search", "duration": 6.0, "motion": "pan-right", "higgsfield": "crane_up_reveal"},
             {"beat": "The Shocking Revelation", "duration": 5.5, "motion": "zoom-out", "higgsfield": "vertigo_dolly_zoom"}
         ]
+    },
+    "vidyo_ai_repurpose": {
+        "title": "vidyo.ai / Frammer Auto-Repurpose Reel",
+        "aspectRatio": "9:16",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "averageCutSeconds": 2.5,
+        "subtitleStyle": "yellow_highlighter_box",
+        "colorGrade": "clean",
+        "higgsfieldMotion": "whip_pan",
+        "musicDucking": 0.22,
+        "structure": [
+            {"beat": "Viral Hook Statement", "duration": 2.2, "motion": "zoom-in", "higgsfield": "whip_pan"},
+            {"beat": "Key Insight & Demonstration", "duration": 2.6, "motion": "pan-left", "higgsfield": "handheld_subtle"},
+            {"beat": "Surprising Metric or Proof", "duration": 2.4, "motion": "zoom-in", "higgsfield": "bullet_time_freeze"},
+            {"beat": "Engaging Conclusion", "duration": 2.8, "motion": "zoom-out", "higgsfield": "fpv_drone_dive"}
+        ]
+    },
+    "aftereffects_kinetic_motion": {
+        "title": "After Effects Kinetic Motion Graphics",
+        "aspectRatio": "16:9",
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "averageCutSeconds": 3.2,
+        "subtitleStyle": "kinetic_single_word_bounce",
+        "colorGrade": "teal-and-orange",
+        "higgsfieldMotion": "orbit_360",
+        "musicDucking": 0.20,
+        "structure": [
+            {"beat": "Dynamic Kinetic Title Reveal", "duration": 3.0, "motion": "zoom-in", "higgsfield": "orbit_360", "engine": "threejs"},
+            {"beat": "3D Visual Breakdown", "duration": 3.5, "motion": "pan-right", "higgsfield": "crane_up_reveal"},
+            {"beat": "Infographic Deep Dive", "duration": 3.2, "motion": "zoom-in", "higgsfield": "bullet_time_freeze"}
+        ]
+    },
+    "kinemaster_vlog_layer": {
+        "title": "KineMaster / InShot Social Vlog",
+        "aspectRatio": "9:16",
+        "width": 1080,
+        "height": 1920,
+        "fps": 30,
+        "averageCutSeconds": 2.0,
+        "subtitleStyle": "bold_outlined_pop",
+        "colorGrade": "clean",
+        "higgsfieldMotion": "handheld_subtle",
+        "musicDucking": 0.25,
+        "structure": [
+            {"beat": "Vlog High-Energy Intro", "duration": 1.8, "motion": "zoom-in", "higgsfield": "handheld_subtle"},
+            {"beat": "Reaction & Fast B-Roll", "duration": 2.0, "motion": "pan-left", "higgsfield": "whip_pan"},
+            {"beat": "Story Climax", "duration": 2.2, "motion": "zoom-in", "higgsfield": "orbit_360"},
+            {"beat": "Outro & Social CTA", "duration": 2.0, "motion": "zoom-out", "higgsfield": "crane_up_reveal"}
+        ]
+    },
+    "shotcut_lightweight_cut": {
+        "title": "Shotcut / VSDC Lightweight Quick Cut",
+        "aspectRatio": "16:9",
+        "width": 1920,
+        "height": 1080,
+        "fps": 30,
+        "averageCutSeconds": 4.0,
+        "subtitleStyle": "clean",
+        "colorGrade": "clean",
+        "higgsfieldMotion": "pan-left",
+        "musicDucking": 0.15,
+        "structure": [
+            {"beat": "Clean Narrative Opening", "duration": 4.0, "motion": "zoom-in", "higgsfield": "handheld_subtle"},
+            {"beat": "Core Explanation", "duration": 4.2, "motion": "pan-left", "higgsfield": "crane_up_reveal"},
+            {"beat": "Summary Conclusion", "duration": 3.8, "motion": "zoom-out", "higgsfield": "orbit_360"}
+        ]
     }
 }
 

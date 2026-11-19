@@ -13,13 +13,15 @@ Unified Video Studio Engine (also known as Antigravity Video Studio) is an open-
 - **Lossless Stream Editing:** Millisecond video concatenation with zero re-encoding (FFmpeg concat demuxer) and precision keyframe slicing (`studio.py concat` and `studio.py cut`).
 - **Zero-Bloat JIT Engine Hub:** Repository stays under 20 MB; external heavy engines (MiniMax H3 via FlashML FreeVideo, Lightricks LTX-Video 2.5, Kokoro-82M, Ollama, Real-ESRGAN) install on demand only when ordered.
 - **AI Producer Copilot:** Interactive interview agent guiding aspect ratio, pacing, and voice selection, supporting strict step boundaries (`--until script|timeline|media|audio|preview|render`).
-- **Visual RPA Studio UI:** Node-based workflow canvas accessible in browser at `http://localhost:8080` via `python3 scripts/studio.py rpa`.
+- **Pro NLE Desktop Studio UI:** Commercial-grade Non-Linear Editor with 10 industry-standard theme presets (DaVinci Resolve, CapCut Neon, Adobe Premiere Pro, Apple Final Cut Pro X, VN Video Editor, Wondershare Filmora, Adobe After Effects, InShot/KineMaster, Avid Media Composer, vidyo.ai/Clipchamp), interactive preview monitor, TikTok/Shorts Safe-Zone guide, DaVinci 3-way color wheels, multi-track timeline, stock media drawer, and 5s voice clone studio.
+- **Visual RPA Studio UI:** Node-based workflow canvas accessible in browser at `http://localhost:8080/rpa` via `python3 scripts/studio.py rpa`.
 
 ## Target Hardware Profiles
 - **Mac (Intel Core i5, 8GB RAM, ~14GB Disk Free):** Runs cloud-assisted scripting (Gemini 2.0 Flash / OpenRouter Free), Pixabay stock media fetching, Edge-TTS audio, and Remotion rendering without overloading CPU or filling storage.
 - **HP Pavilion Gaming PC (NVIDIA GeForce GPU, Windows/Linux):** Accelerates local Ollama LLMs (Llama 3.2), F5-TTS voice cloning, Blender OptiX 3D rendering, Fooocus SDXL keyframes, and NVENC MP4 exports.
 
 ## Master CLI Commands
+- `python3 scripts/studio.py app` : Launch Pro Desktop NLE Studio UI (DaVinci, CapCut, Premiere, VN, Filmora, After Effects)
 - `python3 scripts/studio.py copilot` : Launch interactive AI producer interview
 - `python3 scripts/studio.py step <1-6> "<topic>"` : Execute strictly up to designated pipeline step
 - `python3 scripts/studio.py vertical [hormozi|mrbeast] "<topic>"` : 1-Click 9:16 vertical viral reel

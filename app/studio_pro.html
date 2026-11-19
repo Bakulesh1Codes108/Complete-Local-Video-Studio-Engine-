@@ -96,6 +96,138 @@
       --radius: 6px;
     }
 
+    /* VN Video Editor (Slate Cyan) */
+    [data-theme="vn"] {
+      --bg-app: #0f1115;
+      --bg-panel: #161920;
+      --bg-card: #1f232d;
+      --bg-input: #121419;
+      --border: #282e3c;
+      --border-focus: #00e5ff;
+      --accent: #00e5ff; /* VN Electric Turquoise */
+      --accent-hover: #33ebff;
+      --accent-rgb: 0, 229, 255;
+      --track-vid: #1a3a54;
+      --track-aud: #184e3a;
+      --track-sub: #5c351f;
+      --track-fx: #472658;
+      --text-main: #ffffff;
+      --text-muted: #9aa1b2;
+      --danger: #ff4757;
+      --success: #2ed573;
+      --radius: 6px;
+    }
+
+    /* Wondershare Filmora (Emerald Green) */
+    [data-theme="filmora"] {
+      --bg-app: #111417;
+      --bg-panel: #181d22;
+      --bg-card: #222930;
+      --bg-input: #13171b;
+      --border: #2d3640;
+      --border-focus: #00f076;
+      --accent: #00f076; /* Filmora Emerald */
+      --accent-hover: #33f391;
+      --accent-rgb: 0, 240, 118;
+      --track-vid: #1e453e;
+      --track-aud: #1f502b;
+      --track-sub: #543c1c;
+      --track-fx: #3c2452;
+      --text-main: #f0f4f8;
+      --text-muted: #8b98a5;
+      --danger: #ff5252;
+      --success: #00e676;
+      --radius: 8px;
+    }
+
+    /* Adobe After Effects (Motion Graphics Purple) */
+    [data-theme="aftereffects"] {
+      --bg-app: #131217;
+      --bg-panel: #1b1922;
+      --bg-card: #25222f;
+      --bg-input: #16141c;
+      --border: #352e46;
+      --border-focus: #9d4edd;
+      --accent: #9d4edd; /* After Effects Purple */
+      --accent-hover: #b565f5;
+      --accent-rgb: 157, 78, 221;
+      --track-vid: #2a2c5a;
+      --track-aud: #194a3e;
+      --track-sub: #573322;
+      --track-fx: #581c87;
+      --text-main: #f5f3ff;
+      --text-muted: #a79fc2;
+      --danger: #ef4444;
+      --success: #10b981;
+      --radius: 4px;
+    }
+
+    /* InShot & KineMaster (Vibrant Coral Pink) */
+    [data-theme="inshot"] {
+      --bg-app: #120e10;
+      --bg-panel: #1a1417;
+      --bg-card: #261d22;
+      --bg-input: #140f12;
+      --border: #382830;
+      --border-focus: #ff3366;
+      --accent: #ff3366; /* InShot / KineMaster Coral */
+      --accent-hover: #ff5c85;
+      --accent-rgb: 255, 51, 102;
+      --track-vid: #3a2233;
+      --track-aud: #1d4631;
+      --track-sub: #5e3b1f;
+      --track-fx: #4f1d4f;
+      --text-main: #ffffff;
+      --text-muted: #b39da6;
+      --danger: #ff2a55;
+      --success: #05c46b;
+      --radius: 10px;
+    }
+
+    /* Avid Media Composer (Hollywood Broadcast Ruby) */
+    [data-theme="avid"] {
+      --bg-app: #151618;
+      --bg-panel: #1c1e21;
+      --bg-card: #25282d;
+      --bg-input: #121315;
+      --border: #32363d;
+      --border-focus: #e63946;
+      --accent: #e63946; /* Avid Ruby */
+      --accent-hover: #ef5350;
+      --accent-rgb: 230, 57, 70;
+      --track-vid: #283747;
+      --track-aud: #1e4d2b;
+      --track-sub: #5d4037;
+      --track-fx: #4a235a;
+      --text-main: #eaeded;
+      --text-muted: #909497;
+      --danger: #d32f2f;
+      --success: #388e3c;
+      --radius: 2px;
+    }
+
+    /* vidyo.ai & Clipchamp (AI Violet / Indigo) */
+    [data-theme="vidyo"] {
+      --bg-app: #0b0d17;
+      --bg-panel: #121526;
+      --bg-card: #1a1e36;
+      --bg-input: #0f1120;
+      --border: #282e52;
+      --border-focus: #7928ca;
+      --accent: #7928ca; /* vidyo.ai Violet / Electric Indigo */
+      --accent-hover: #9042e6;
+      --accent-rgb: 121, 40, 202;
+      --track-vid: #233560;
+      --track-aud: #18523c;
+      --track-sub: #633c1d;
+      --track-fx: #6b21a8;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --danger: #f43f5e;
+      --success: #10b981;
+      --radius: 8px;
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
     body {
       background: var(--bg-app);
@@ -651,12 +783,18 @@
         <option value="9:16">📱 9:16 Vertical V3 (Reels / TikTok)</option>
       </select>
 
-      <!-- Theme Switcher: DaVinci, CapCut, Premiere, Final Cut -->
+      <!-- Theme Switcher: DaVinci, CapCut, Premiere, Final Cut, VN, Filmora, After Effects, InShot, Avid, vidyo.ai -->
       <select class="theme-select" id="themeSelect" onchange="changeTheme(this.value)">
-        <option value="davinci">🟣 Theme: DaVinci Resolve Studio</option>
-        <option value="capcut">🔵 Theme: CapCut Creator Neon</option>
-        <option value="premiere">🔴 Theme: Adobe Premiere Pro</option>
-        <option value="finalcut">🍏 Theme: Final Cut Pro X</option>
+        <option value="davinci">🟡 DaVinci Resolve Studio</option>
+        <option value="capcut">🔵 CapCut Creator Neon</option>
+        <option value="premiere">🔷 Adobe Premiere Pro</option>
+        <option value="finalcut">🍏 Final Cut Pro X</option>
+        <option value="vn">⚡ VN Video Editor (Slate Cyan)</option>
+        <option value="filmora">🍃 Wondershare Filmora (Emerald)</option>
+        <option value="aftereffects">🟣 Adobe After Effects (Motion FX)</option>
+        <option value="inshot">💖 InShot & KineMaster (Vibrant Coral)</option>
+        <option value="avid">🎬 Avid Media Composer (Hollywood)</option>
+        <option value="vidyo">🤖 vidyo.ai / Clipchamp (AI Violet)</option>
       </select>
 
       <button class="btn-accent" onclick="triggerRender()">
@@ -689,6 +827,10 @@
             <option value="alex_hormozi_viral_reel">⚡ Alex Hormozi Viral Reel (2.2s cuts, whip pans)</option>
             <option value="mrbeast_retention_hook">🔥 MrBeast Hyper-Retention (1.6s fast cuts)</option>
             <option value="vox_highlighter_explainer">📐 Vox Data Explainer (Animated 3D maps & charts)</option>
+            <option value="vidyo_ai_repurpose">🤖 vidyo.ai / Frammer Auto-Repurpose (Vertical + Safe Zones)</option>
+            <option value="aftereffects_kinetic_motion">🟣 After Effects Motion Graphics (Kinetic Typography + 3D)</option>
+            <option value="kinemaster_vlog_layer">💖 KineMaster / InShot Social Vlog (Punchy Cuts & B-Roll)</option>
+            <option value="shotcut_lightweight_cut">✂️ Shotcut / VSDC Low-Resource Cut (8GB Laptop Optimized)</option>
           </select>
         </div>
 
