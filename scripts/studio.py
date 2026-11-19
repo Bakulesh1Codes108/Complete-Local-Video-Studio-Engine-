@@ -112,7 +112,7 @@ if __name__ == "__main__":
 
     cmd = sys.argv[1].lower()
 
-    if cmd in ["app", "ui", "pro", "desktop"]:
+    if cmd in ["app", "ui", "pro", "desktop", "ove", "openvideo"]:
         port = int(sys.argv[2]) if len(sys.argv) > 2 else 8080
         run_cmd([sys.executable, RPA_SERVER, str(port)])
     elif cmd in ["copilot", "producer", "interview"]:

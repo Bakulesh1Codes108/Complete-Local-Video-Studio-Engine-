@@ -160,26 +160,82 @@ class ModelRouter:
                 return {"provider": "local_ollama", "model": suggestion["model"], "content": result}
             print("⚠️ Local Ollama failed or timed out. Falling back to Cloud/Rule engine...")
 
-        # Attempt 2: OpenRouter Free
+        # Attempt 2: Groq (Ultra-fast low latency)
+        if os.environ.get("GROQ_API_KEY"):
+            result = self._call_groq(prompt, system_prompt)
+            if result:
+                return {"provider": "groq", "model": "llama-3.3-70b-versatile", "content": result}
+            print("⚠️ Groq call failed. Falling back...")
+
+        # Attempt 3: OpenRouter Gateway (Free & paid aggregator)
         if provider == "openrouter_free" or os.environ.get("OPENROUTER_API_KEY"):
             result = self._call_openrouter(prompt, system_prompt)
             if result:
                 return {"provider": "openrouter_free", "model": "openrouter/free", "content": result}
             print("⚠️ OpenRouter free failed. Falling back...")
 
-        # Attempt 3: Google Gemini
+        # Attempt 4: Google Gemini 2.0 Flash
         if provider == "google_gemini" or os.environ.get("GEMINI_API_KEY"):
             result = self._call_gemini(prompt, system_prompt)
             if result:
                 return {"provider": "google_gemini", "model": "gemini-2.0-flash", "content": result}
-            print("⚠️ Gemini call failed. Falling back to deterministic engine...")
+            print("⚠️ Gemini call failed. Falling back...")
 
-        # Final Fallback: Deterministic Studio Rule Engine
+        # Attempt 5: OpenAI API (gpt-4o-mini)
+        if os.environ.get("OPENAI_API_KEY"):
+            result = self._call_openai(prompt, system_prompt)
+            if result:
+                return {"provider": "openai", "model": "gpt-4o-mini", "content": result}
+            print("⚠️ OpenAI call failed. Falling back...")
+
+        # Final Fallback: Antigravity Deterministic Studio Rule Engine (Zero Tokens, Zero Network)
         return {
-            "provider": "deterministic_offline",
+            "provider": "antigravity_deterministic_offline",
             "model": "rule_based_parser",
             "content": self._rule_based_generate(prompt)
         }
+
+    def _call_groq(self, prompt: str, system_prompt: str):
+        api_key = os.environ.get("GROQ_API_KEY")
+        if not api_key:
+            return None
+        try:
+            url = "https://api.groq.com/openai/v1/chat/completions"
+            headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+            payload = json.dumps({
+                "model": "llama-3.3-70b-versatile",
+                "messages": [
+                    {"role": "system", "content": system_prompt or "You are a professional film director and video editor."},
+                    {"role": "user", "content": prompt}
+                ]
+            }).encode("utf-8")
+            req = urllib.request.Request(url, data=payload, headers=headers, method="POST")
+            with urllib.request.urlopen(req, timeout=10.0) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+                return data["choices"][0]["message"]["content"]
+        except Exception:
+            return None
+
+    def _call_openai(self, prompt: str, system_prompt: str):
+        api_key = os.environ.get("OPENAI_API_KEY")
+        if not api_key:
+            return None
+        try:
+            url = "https://api.openai.com/v1/chat/completions"
+            headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+            payload = json.dumps({
+                "model": "gpt-4o-mini",
+                "messages": [
+                    {"role": "system", "content": system_prompt or "You are a professional film director and video editor."},
+                    {"role": "user", "content": prompt}
+                ]
+            }).encode("utf-8")
+            req = urllib.request.Request(url, data=payload, headers=headers, method="POST")
+            with urllib.request.urlopen(req, timeout=12.0) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+                return data["choices"][0]["message"]["content"]
+        except Exception:
+            return None
 
     def _call_ollama(self, prompt: str, system_prompt: str):
         try:

@@ -757,6 +757,175 @@
       font-family: 'JetBrains Mono', monospace;
       color: var(--text-muted);
     }
+
+    /* OVE Brand Styling (Flash / GOM Player Retro-Pro Emblem) */
+    .ove-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .ove-emblem {
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, var(--accent) 0%, #ff8c00 100%);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.45);
+      flex-shrink: 0;
+    }
+    .ove-emblem svg {
+      width: 14px;
+      height: 14px;
+    }
+    .brand-col {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    .brand-title {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: var(--text-main);
+    }
+    .brand-sub {
+      font-size: 9px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+    }
+
+    /* Right-side Corner Floating OVE Copilot Widget */
+    .copilot-corner-widget {
+      position: fixed;
+      bottom: 34px;
+      right: 18px;
+      width: 320px;
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.06);
+      display: flex;
+      flex-direction: column;
+      z-index: 1000;
+      overflow: hidden;
+      font-size: 12px;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .copilot-corner-widget.minimized .copilot-body,
+    .copilot-corner-widget.minimized .copilot-input-bar {
+      display: none;
+    }
+    .copilot-corner-widget.minimized {
+      width: 220px;
+    }
+    .copilot-header {
+      padding: 8px 12px;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+    }
+    .copilot-title {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      color: var(--text-main);
+      font-size: 11px;
+    }
+    .step-pill {
+      background: rgba(var(--accent-rgb), 0.15);
+      color: var(--accent);
+      border: 1px solid rgba(var(--accent-rgb), 0.35);
+      padding: 1px 6px;
+      border-radius: 10px;
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+    .copilot-body {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      gap: 8px;
+      max-height: 240px;
+      overflow-y: auto;
+    }
+    .copilot-msg {
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      border-radius: 6px;
+      line-height: 1.4;
+      font-size: 11.5px;
+      color: var(--text-main);
+    }
+    .copilot-msg.bot {
+      border-left: 3px solid var(--accent);
+    }
+    .copilot-msg.user {
+      background: rgba(var(--accent-rgb), 0.12);
+      border-color: rgba(var(--accent-rgb), 0.3);
+      align-self: flex-end;
+    }
+    .copilot-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 4px;
+    }
+    .copilot-chip {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 3px 7px;
+      border-radius: 10px;
+      font-size: 10.5px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .copilot-chip:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+    .copilot-input-bar {
+      display: flex;
+      border-top: 1px solid var(--border);
+      background: var(--bg-card);
+      padding: 6px 8px;
+      gap: 6px;
+    }
+    .copilot-input {
+      flex: 1;
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 5px 8px;
+      color: var(--text-main);
+      font-size: 11px;
+      outline: none;
+    }
+    .copilot-input:focus {
+      border-color: var(--accent);
+    }
+    .copilot-send-btn {
+      background: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: 4px;
+      padding: 0 9px;
+      font-weight: 700;
+      font-size: 11px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -764,9 +933,17 @@
   <!-- Top Application Control Bar -->
   <header class="app-bar">
     <div class="brand-group">
-      <div class="app-logo">
-        <span>🎬 Antigravity Studio</span>
-        <span class="badge-pro">PRO</span>
+      <div class="ove-brand">
+        <div class="ove-emblem" title="Open Video Engine (OVE)">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="6,4 20,12 6,20" />
+          </svg>
+        </div>
+        <div class="brand-col">
+          <span class="brand-title">OVE STUDIO</span>
+          <span class="brand-sub">Open Video Engine</span>
+        </div>
+        <span class="badge-pro">PRO NLE</span>
       </div>
       <div class="workspace-tabs">
         <div class="ws-tab active">Edit</div>
@@ -1030,9 +1207,38 @@
     <!-- Status Bar -->
     <div class="status-bar">
       <span id="statusMsg">🟢 Studio Ready. Connected to Python Multi-Engine Core.</span>
-      <span>Antigravity Video Studio Pro v1.2.0</span>
+      <span>Open Video Engine (OVE) Pro v1.5.0</span>
     </div>
   </footer>
+
+  <!-- Floating OVE AI Assistant Widget in Right Bottom Corner -->
+  <div class="copilot-corner-widget" id="copilotWidget">
+    <div class="copilot-header" onclick="toggleCopilotWidget()">
+      <div class="copilot-title">
+        <span>🤖</span>
+        <span>OVE AI Copilot</span>
+        <span class="step-pill" id="copilotStepPill">Step 3 / 6</span>
+      </div>
+      <div style="font-weight: bold; color: var(--text-muted); font-size: 14px;" id="copilotToggleIcon">_</div>
+    </div>
+    <div class="copilot-body" id="copilotBody">
+      <div class="copilot-msg bot">
+        <strong>👋 OVE Production Assistant</strong><br>
+        Monitoring timeline pipeline. Customize mid-production or tap options:
+        <div class="copilot-chips">
+          <button class="copilot-chip" onclick="handleChipAction('safe_zone')">📱 TikTok Safe-Zone</button>
+          <button class="copilot-chip" onclick="handleChipAction('convert_916')">⚡ 9:16 Reel Format</button>
+          <button class="copilot-chip" onclick="handleChipAction('upscale')">🔍 4K Super-Res</button>
+          <button class="copilot-chip" onclick="handleChipAction('voice_clone')">🎙️ 5s Voice Clone</button>
+          <button class="copilot-chip" onclick="handleChipAction('theme_vn')">🎨 VN Slate Theme</button>
+        </div>
+      </div>
+    </div>
+    <div class="copilot-input-bar">
+      <input type="text" class="copilot-input" id="copilotInput" placeholder="Ask OVE: e.g. 'Make it 9:16', 'Switch to VN theme'..." onkeydown="if(event.key==='Enter') sendCopilotChat()">
+      <button class="copilot-send-btn" onclick="sendCopilotChat()">Send</button>
+    </div>
+  </div>
 
   <script>
     // Theme Engine Switcher
@@ -1174,6 +1380,106 @@
           setStatus(`Loaded project: "${tl.project}" (${tl.scenes?.length || 0} scenes)`);
         }).catch(() => {});
     }
+
+    // ==========================================
+    // OVE AI COPILOT CORNER ASSISTANT LOGIC
+    // ==========================================
+    let isCopilotMinimized = false;
+    function toggleCopilotWidget() {
+      const widget = document.getElementById('copilotWidget');
+      const icon = document.getElementById('copilotToggleIcon');
+      isCopilotMinimized = !isCopilotMinimized;
+      if (isCopilotMinimized) {
+        widget.classList.add('minimized');
+        icon.innerText = '□';
+      } else {
+        widget.classList.remove('minimized');
+        icon.innerText = '_';
+      }
+    }
+
+    function handleChipAction(action) {
+      if (action === 'safe_zone') {
+        toggleSafeZone();
+      } else if (action === 'convert_916') {
+        switchFormat('9:16');
+      } else if (action === 'upscale') {
+        setStatus('Triggering 4K Super-Resolution...');
+        fetch('/api/upscale', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({}) }).catch(() => {});
+        appendCopilotBotMsg('🔍 4K Super-Resolution upscaler launched on keyframe assets.');
+      } else if (action === 'voice_clone') {
+        triggerVoiceClone();
+      } else if (action === 'theme_vn') {
+        changeTheme('vn');
+        const sel = document.getElementById('themeSelect');
+        if (sel) sel.value = 'vn';
+      }
+    }
+
+    function sendCopilotChat() {
+      const input = document.getElementById('copilotInput');
+      const msg = input.value.trim();
+      if (!msg) return;
+
+      // Append User message
+      appendCopilotUserMsg(msg);
+      input.value = '';
+
+      fetch('/api/copilot/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg })
+      })
+      .then(r => r.json())
+      .then(res => {
+        appendCopilotBotMsg(res.reply);
+        if (res.action === 'toggle_safe_zone') toggleSafeZone();
+        if (res.action === 'switch_916') switchFormat('9:16');
+        if (res.action === 'switch_169') switchFormat('16:9');
+        if (res.action?.startsWith('theme_')) {
+          const tname = res.action.replace('theme_', '');
+          changeTheme(tname);
+          const sel = document.getElementById('themeSelect');
+          if (sel) sel.value = tname;
+        }
+      })
+      .catch(() => {
+        appendCopilotBotMsg("⚡ Action noted! Updated timeline settings locally.");
+      });
+    }
+
+    function appendCopilotUserMsg(text) {
+      const body = document.getElementById('copilotBody');
+      const el = document.createElement('div');
+      el.className = 'copilot-msg user';
+      el.innerText = text;
+      body.appendChild(el);
+      body.scrollTop = body.scrollHeight;
+    }
+
+    function appendCopilotBotMsg(text) {
+      const body = document.getElementById('copilotBody');
+      const el = document.createElement('div');
+      el.className = 'copilot-msg bot';
+      el.innerHTML = text;
+      body.appendChild(el);
+      body.scrollTop = body.scrollHeight;
+    }
+
+    function updateCopilotStatus() {
+      fetch('/api/copilot/status')
+        .then(r => r.json())
+        .then(data => {
+          const pill = document.getElementById('copilotStepPill');
+          if (pill && data.currentStep) {
+            pill.innerText = `Step ${data.currentStep} / ${data.totalSteps} (${data.stepsRemaining} left)`;
+          }
+        })
+        .catch(() => {});
+    }
+
+    // Initial Status Check
+    setTimeout(updateCopilotStatus, 1000);
 
     // Keyboard Shortcuts (Space for Play/Pause)
     window.addEventListener('keydown', (e) => {

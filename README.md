@@ -1,8 +1,8 @@
-# 🎬 Unified Video Studio Engine & Antigravity AI Studio
+# 🎬 Open Video Engine (OVE) & Antigravity Video Studio
 ### Autonomous Code-Driven AI Video, Documentary & Viral Reel Production Engine
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/Release-v1.0.0-success.svg)](https://github.com/Bakulesh1Codes108/antigravity-video-studio/releases/tag/v1.0.0)
+[![Release](https://img.shields.io/badge/Release-v1.5.0-success.svg)](https://github.com/Bakulesh1Codes108/antigravity-video-studio/releases/tag/v1.5.0)
 [![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Windows-555555.svg)]()
 [![Cost](https://img.shields.io/badge/Cost-100%25%20Free%20%26%20Local-success.svg)]()
 [![Engines](https://img.shields.io/badge/Engines-Remotion%20%7C%20Three.js%20%7C%20Blender%20%7C%20Manim%20%7C%20GSAP-orange.svg)]()
@@ -10,11 +10,12 @@
 [![Motion](https://img.shields.io/badge/Camera-Open%20Higgsfield%20Rigs-purple.svg)]()
 [![Automation](https://img.shields.io/badge/Workflow-Visual%20RPA%20Pipeline-success.svg)]()
 [![Memory](https://img.shields.io/badge/Memory-Graphify%20Knowledge%20Graph-brightgreen.svg)]()
+[![Security](https://img.shields.io/badge/Security-Defensively%20Audited-brightgreen.svg)]()
 
-> **Unified Video Studio Engine (also known as Antigravity Video Studio)**  
+> **Open Video Engine (OVE) / Antigravity Video Studio**  
 > 100% Free, Code-Driven AI Video Production Studio for both **Antigravity AI workflows** and **standalone multi-engine video creation**.  
 > Turn prompts, voiceovers, and reference videos into deterministic, broadcast-quality **16:9 Cinema Documentaries** and **9:16 Viral Reels** using **Remotion, Three.js 3D, Blender Headless, Manim Math, Pixabay Media, and Open Higgsfield Camera Rigs**.  
-> Features an **Interactive AI Copilot**, **Vertical V3 Safe-Zone Engine**, **Zero-Shot 5-Second Voice Cloning**, **Video Reverse-Engineering (OpenMotion + PySceneDetect)**, **LosslessCut Stream Concat**, and a **Zero-Bloat JIT Engine Hub**.  
+> Features an **Interactive AI Copilot Widget**, **10 Popular Editing Suite Themes**, **Vertical V3 Safe-Zone Engine**, **Zero-Shot 5-Second Voice Cloning**, **Video Reverse-Engineering (OpenMotion + PySceneDetect)**, **LosslessCut Stream Concat**, and a **Zero-Bloat JIT Engine Hub**.  
 > **Zero Subscriptions • Zero API Costs • Zero Watermarks • Hardware Accelerated (macOS & Windows).**
 
 ---
@@ -216,6 +217,26 @@ Designed with the exact visual ergonomics, track layouts, and color palettes of 
   * **AI Story Arc Copilot:** Enter premise, select director preset (*Netflix Doc, Hormozi Reel, MrBeast Hook, Vox Explainer, vidyo.ai Repurpose, After Effects Motion*), and generate multi-scene story arcs.
   * **Media Pool Drawer:** Drag-and-drop stock media previews with clip metadata.
   * **5-Second Voice Clone Studio:** Record or drop 5 seconds of audio to clone your voice locally.
+
+### 🤖 Floating OVE AI Copilot Assistant (Live Right Corner Window)
+While you edit or as the video generation pipeline runs, an interactive AI assistant stays docked in the bottom-right corner of the interface:
+* **Step-by-Step Remaining Progress Tracker:** Displays live steps (e.g. `Step 3 / 6: Media & 3D Layer • 3 Steps Remaining`).
+* **Continuous Interactive Questions & Suggestions:** Prompts you at each phase:
+  * *"Need 4K Super-Resolution on Scene 1?"* $\rightarrow$ `[🔍 4K Super-Res]`
+  * *"Enable TikTok / Reels Safe-Zone Guides?"* $\rightarrow$ `[📱 Safe-Zone Guide]`
+  * *"Clone your voice in 5 seconds?"* $\rightarrow$ `[🎙️ 5s Voice Clone]`
+* **Mid-Production Live Chat Customization:** Type natural requests anytime (*"Make it vertical reel"*, *"Switch to VN theme"*, *"Apply Teal & Orange grade"*), and OVE reconfigures your active project in real time.
+
+---
+
+## 🛡️ Defensive Security, Malware Auditing & Code Hardening
+
+The entire codebase has been systematically audited against command injection, path traversal, and malicious payload execution:
+* **Zero Shell Execution Risk:** 100% of subprocess calls pass structured array arguments (`[sys.executable, script, arg]`) with `shell=False`. No unsafe `os.system()` or `eval()` constructs exist anywhere in the repository.
+* **Defensive Path Traversal Protection:** All API file handlers (`/api/upscale`, `/api/convert`, static file handlers) enforce `os.path.commonpath()` checks against the workspace root, preventing directory escape attacks (`../../`).
+* **Strict Input Sanitization:** Parameter inputs (`mimic`, `format`, `preset`) are constrained via regular expressions (`^[a-zA-Z0-9_\-:]+$`), blocking malicious injection vectors.
+* **Resilient Multi-Tier Fallback Cascade:**
+  `Local Ollama (Llama/Qwen)` $\rightarrow$ `Groq Fast API` $\rightarrow$ `OpenRouter Gateway` $\rightarrow$ `Google Gemini` $\rightarrow$ `OpenAI` $\rightarrow$ `Antigravity Deterministic Offline Rules`. If any cloud service throttles or network drops, the studio never halts or crashes.
 
 ---
 

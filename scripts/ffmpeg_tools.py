@@ -54,26 +54,30 @@ def concat_videos(input_files: list, output_file: str = None) -> str:
         output_file
     ]
 
-    res = subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
-    if os.path.exists(list_path):
-        os.remove(list_path)
-
-    if res.returncode == 0 and os.path.exists(output_file):
-        print(f"✅ Lossless Master export complete -> {output_file}")
-        return output_file
-    else:
-        print(f"⚠️ FFmpeg copy failed, retrying with re-encode fallback...")
-        fallback_cmd = [
-            "ffmpeg", "-y",
-            "-f", "concat",
-            "-safe", "0",
-            "-i", list_path,
-            "-c:v", "libx264",
-            "-c:a", "aac",
-            output_file
-        ]
-        subprocess.run(fallback_cmd)
-        return output_file
+    try:
+        res = subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+        if res.returncode == 0 and os.path.exists(output_file):
+            print(f"✅ Lossless Master export complete -> {output_file}")
+            return output_file
+        else:
+            print(f"⚠️ FFmpeg copy failed, retrying with re-encode fallback...")
+            fallback_cmd = [
+                "ffmpeg", "-y",
+                "-f", "concat",
+                "-safe", "0",
+                "-i", list_path,
+                "-c:v", "libx264",
+                "-c:a", "aac",
+                output_file
+            ]
+            subprocess.run(fallback_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+            return output_file
+    finally:
+        if os.path.exists(list_path):
+            try:
+                os.remove(list_path)
+            except Exception:
+                pass
 
 def lossless_cut(input_file: str, start_time: str, end_time: str, output_file: str = None) -> str:
     """
