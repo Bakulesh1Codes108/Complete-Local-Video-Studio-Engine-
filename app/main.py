@@ -293,19 +293,21 @@ class VideoStudioAPI:
 
 def start_app():
     api = VideoStudioAPI()
-    html_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ui.html")
+    html_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "studio_pro.html")
+    if not os.path.exists(html_path):
+        html_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ui.html")
     icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "icon.png")
     if not os.path.exists(icon_path):
         icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "icon.ico")
 
     window = webview.create_window(
-        title="Antigravity Video Studio (macOS)",
+        title="Antigravity Video Studio Pro (DaVinci / CapCut / Premiere / Final Cut)",
         url=f"file:///{html_path.replace(os.sep, '/')}",
         js_api=api,
-        width=1280,
-        height=820,
-        min_size=(1024, 680),
-        background_color="#0a0d14",
+        width=1360,
+        height=880,
+        min_size=(1080, 720),
+        background_color="#121316",
     )
     api.window = window
     webview.start(debug=False)

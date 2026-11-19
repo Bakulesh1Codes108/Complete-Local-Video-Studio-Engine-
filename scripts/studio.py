@@ -72,6 +72,7 @@ def print_help():
 🎬 Antigravity Video Studio CLI (Multi-Engine & RPA Pipeline)
 
 Usage:
+  python3 scripts/studio.py app                         [Launch Pro Desktop NLE UI (DaVinci/CapCut/Premiere/FinalCut)]
   python3 scripts/studio.py copilot [topic] [--until STEP] [Interactive producer & step-by-step controller]
   python3 scripts/studio.py step <step_name> "<topic>"    [Execute strictly up to step: script|timeline|media|audio|preview|render]
   python3 scripts/studio.py rpa                         [Launch Visual RPA Automation UI]
@@ -111,7 +112,10 @@ if __name__ == "__main__":
 
     cmd = sys.argv[1].lower()
 
-    if cmd in ["copilot", "producer", "interview"]:
+    if cmd in ["app", "ui", "pro", "desktop"]:
+        port = int(sys.argv[2]) if len(sys.argv) > 2 else 8080
+        run_cmd([sys.executable, RPA_SERVER, str(port)])
+    elif cmd in ["copilot", "producer", "interview"]:
         args = [sys.executable, COPILOT_AGENT] + sys.argv[2:]
         run_cmd(args)
     elif cmd in ["step", "until"]:

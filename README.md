@@ -175,6 +175,39 @@ python3 scripts/studio.py step preview "Silicon Valley AI Revolution"       # St
 
 ---
 
+## 🎨 Pro NLE Desktop Studio UI (`studio.py app`)
+
+Experience a high-end, paid-application-style Non-Linear Editor (NLE) right in your browser or desktop window, with zero subscriptions and zero bloat:
+
+```bash
+# Launch the Pro NLE Video Studio
+python3 scripts/studio.py app
+# or
+python3 scripts/studio.py ui
+```
+
+### 🌟 Pro Editing Suite Features & Theme Switcher:
+* **4 Popular Industry Themes (Instant 1-Click Switch):**
+  * 🎛️ **DaVinci Resolve Dark (Amber / Gold Accent):** Precision colorist and post-production suite aesthetic.
+  * ⚡ **CapCut Neon (Electric Cyan Accent):** Modern high-energy creator UI optimized for fast short-form pacing.
+  * 🎞️ **Adobe Premiere Pro (Slate & Blue Accent):** Classic broadcast editing interface with clean workspace docks.
+  * 🍏 **Final Cut Pro X (Magnetic Graphite Accent):** Streamlined magnetic timeline look with high contrast.
+* **Aspect Ratio Switcher & Safe-Zone Overlay:**
+  * Instant toggle between **16:9 Widescreen Cinema** and **9:16 Vertical Reel**.
+  * **TikTok / YouTube Shorts Safe-Zone Guide:** Interactive bounding overlay showing live UI safe areas (header, like button stack, audio ticker) so your titles and kinetic subtitles never get cut off.
+* **DaVinci 3-Way Color Wheels & Grading:**
+  * Real-time CSS interactive Lift, Gamma, and Gain color tuning wheels.
+  * 35mm film grain toggle, 2.39:1 anamorphic letterboxing, and cinematic LUT presets (*Kodak 2383, Teal & Orange, Moody Sci-Fi, Vintage Technicolor*).
+* **Multi-Track NLE Timeline:**
+  * Multi-layer tracks: **FX** (Camera moves & transitions), **TXT** (Kinetic typography), **V1** (Video/3D scene clips), **A1** (Voiceover speech), and **A2** (Ambient music bed).
+  * Interactive scrubber playhead with timecode display (`00:00:04:12`) and spacebar Play/Pause hotkey.
+* **Integrated Creation Drawers:**
+  * **AI Story Arc Copilot:** Enter premise, select director preset, and generate multi-scene story arcs.
+  * **Media Pool Drawer:** Drag-and-drop stock media previews with clip metadata.
+  * **5-Second Voice Clone Studio:** Record or drop 5 seconds of audio to clone your voice locally.
+
+---
+
 ## 🤖 Visual RPA Automation Studio (`studio.py rpa`)
 Launch a node-based Robotic Process Automation (RPA) interface in your browser:
 ```bash
