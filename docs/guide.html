@@ -362,8 +362,96 @@ python3 scripts/studio.py advise "generate a 5-minute sci-fi short film"</code><
     </tbody>
   </table>
 
+  <div class="page-break"></div>
+
+  <h2>10. Comparison: Unified Video Studio vs. Commercial SaaS Tools</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Unified Video Studio</th>
+        <th>CapCut Pro</th>
+        <th>Runway Gen-3</th>
+        <th>InVideo AI</th>
+        <th>ElevenLabs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Pricing</strong></td>
+        <td><strong>100% Free & Open-Source</strong></td>
+        <td>$10–$20/mo</td>
+        <td>$15–$95/mo</td>
+        <td>$25–$60/mo</td>
+        <td>$5–$99/mo</td>
+      </tr>
+      <tr>
+        <td><strong>Code & Script Automation</strong></td>
+        <td><strong>Full (CLI, React, Python)</strong></td>
+        <td>GUI only</td>
+        <td>Cloud prompt only</td>
+        <td>Web GUI only</td>
+        <td>API only</td>
+      </tr>
+      <tr>
+        <td><strong>Deterministic Render</strong></td>
+        <td><strong>Remotion (Frame-Accurate)</strong></td>
+        <td>Manual timeline</td>
+        <td>AI warp/jitter</td>
+        <td>Fixed templates</td>
+        <td>Audio only</td>
+      </tr>
+      <tr>
+        <td><strong>3D & Math Animations</strong></td>
+        <td><strong>Blender 3D + Three.js + Manim</strong></td>
+        <td>2D overlays only</td>
+        <td>Generative warp</td>
+        <td>Stock video only</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td><strong>Voice Cloning</strong></td>
+        <td><strong>5s Zero-Shot (F5-TTS, MOSS)</strong></td>
+        <td>Paid feature</td>
+        <td>No voice clone</td>
+        <td>Generic voices</td>
+        <td>High quality (Paid)</td>
+      </tr>
+      <tr>
+        <td><strong>Storage Footprint</strong></td>
+        <td><strong>&lt;20 MB (JIT On-Demand)</strong></td>
+        <td>1.5 GB app</td>
+        <td>Cloud hosted</td>
+        <td>Cloud hosted</td>
+        <td>Cloud hosted</td>
+      </tr>
+      <tr>
+        <td><strong>Watermarks & Limits</strong></td>
+        <td><strong>Zero Watermarks / Unlimited</strong></td>
+        <td>Watermarks on free</td>
+        <td>Token quotas</td>
+        <td>Watermarks & limits</td>
+        <td>Character limits</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>11. Frequently Asked Questions</h2>
+  <div class="card">
+    <strong>Q: How does the studio run on an 8GB RAM Mac without crashing?</strong><br>
+    The studio runs in Cloud-Assisted Mode: Gemini 2.0 Flash / OpenRouter handles story arc planning, Pixabay delivers stock visuals, Edge-TTS synthesizes neural narration, and Remotion renders frame-accurately on CPU with zero GPU memory overhead.
+  </div>
+  <div class="card">
+    <strong>Q: How does Vertical V3 fix TikTok and Instagram subtitle obstruction?</strong><br>
+    Standard video editors pin subtitles at the screen bottom (where captions, sound titles, and like/comment buttons cover them). Vertical V3 elevates subtitles into the safe middle third (~32% from bottom) with kinetic active-word bouncing highlight boxes.
+  </div>
+  <div class="card">
+    <strong>Q: How do I export for both YouTube (16:9) and TikTok (9:16) simultaneously?</strong><br>
+    Choose the <code>omni</code> format in the copilot, or run <code>python3 scripts/studio.py convert 9:16</code> to convert between widescreen and vertical reels in one second.
+  </div>
+
   <div style="margin-top: 24px; padding-top: 12px; border-top: 1px solid #cbd5e1; font-size: 8.5pt; color: #64748b; text-align: center;">
-    Antigravity AI Video Studio &bull; Verified 2026 Production Edition &bull; Open-Source MIT License
+    Unified Video Studio Engine &bull; Verified 2026 Production Edition &bull; Open-Source MIT License
   </div>
 
 </body>

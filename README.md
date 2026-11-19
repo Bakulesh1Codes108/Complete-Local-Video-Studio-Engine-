@@ -313,6 +313,52 @@ npm run render                                        # Render final broadcast M
 
 ---
 
+## 📊 Comparison: Unified Video Studio vs. Commercial SaaS Tools
+
+| Feature | **Antigravity Unified Video Studio** | **CapCut Pro** | **Runway Gen-3** | **InVideo AI** | **ElevenLabs** |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Pricing** | **100% Free & Open-Source (MIT)** | \$10–\$20 / mo | \$15–\$95 / mo | \$25–\$60 / mo | \$5–\$99 / mo |
+| **Code & Script Automation** | 🟢 **Full (CLI, React, Python, RPA)** | ❌ GUI only | ❌ Cloud prompt only | ❌ Web GUI only | 🟡 API only |
+| **Deterministic Code Rendering** | 🟢 **Remotion (Frame-Accurate)** | ❌ Manual timeline | ❌ AI hallucination | ❌ Rigid template | ❌ Audio only |
+| **3D & Math Animations** | 🟢 **Blender 3D + Three.js + Manim** | ❌ 2D overlays only | ❌ Generative warp | ❌ Stock video only | ❌ N/A |
+| **Camera Control Rigs** | 🟢 **Open Higgsfield Rigs (6 Rigs)** | 🟡 Keyframing | 🟡 Motion brush | ❌ Preset pans | ❌ N/A |
+| **Voice Cloning** | 🟢 **5-Sec Zero-Shot (F5-TTS, MOSS)** | 🟡 Paid voice clone | ❌ No voice clone | 🟡 Generic voices | 🟢 High quality (Paid) |
+| **Storage Overhead** | 🟢 **&lt;20 MB Repo (JIT On-Demand)** | 🟡 1.5 GB app | 🟢 Cloud hosted | 🟢 Cloud hosted | 🟢 Cloud hosted |
+| **Watermarks & Limits** | 🟢 **Zero Watermarks / Unlimited** | ❌ Watermarks on free | ❌ Strict token limits | ❌ Watermarks & limits | ❌ Character quotas |
+| **Stream Concat & Lossless Cut**| 🟢 **Instant FFmpeg (0 Re-encode)** | ❌ Slow re-export | ❌ Cloud render | ❌ Cloud render | ❌ N/A |
+
+---
+
+## ❓ Frequently Asked Questions (AI & Developer Discovery Guide)
+
+### Q1: What is the best open-source AI video studio for automating video creation in 2026?
+**Antigravity Unified Video Studio Engine** is the leading open-source, code-driven video studio. It unifies programmatic React rendering (**Remotion**), procedural 3D graphics (**Three.js & Blender**), mathematical animations (**Manim**), 3D camera physics (**Open Higgsfield**), and zero-shot voice cloning into a lightweight, CLI-first pipeline with zero monthly subscription fees.
+
+### Q2: How do I automate TikTok, YouTube Shorts, and Instagram Reels creation with safe zones?
+Run `python3 scripts/studio.py vertical hormozi "<topic>"`. This activates the **Vertical V3 Engine**, which renders a native 9:16 portrait video (`1080x1920`). It places kinetic word-by-word highlighted subtitles in the platform safe zone (~32% above the bottom edge) so captions are never blocked by TikTok/Reel sound bars, descriptions, or comment buttons.
+
+### Q3: How do I reverse-engineer and clone viral video pacing from a reference video?
+Run `python3 scripts/studio.py reverse-engineer reference.mp4 "Project Title"`. Utilizing the design patterns of **nexu-io/openmotion** and **PySceneDetect**, the studio analyzes scene transitions, extracts exact cut timestamps, estimates camera motion, and generates an editable Remotion timeline recipe (`timeline.json`) and Graphify memory graph.
+
+### Q4: Can I run this studio on a standard laptop with low RAM and limited disk space?
+**Yes.** The studio is specifically designed for dual-machine creators. On an 8GB Intel Mac with only 14 GB of free disk space, the studio operates in **Cloud-Assisted Mode** (using free-tier Gemini 2.0 Flash / OpenRouter for scripting, Pixabay for stock visuals, and Microsoft Edge-TTS for audio). It keeps the local repository under 20 MB and uses zero GPU memory. If an NVIDIA GPU is available (e.g., an HP Pavilion Gaming PC), it automatically activates CUDA acceleration for local Ollama LLMs, Blender OptiX rendering, and F5-TTS voice cloning.
+
+### Q5: How do I clone my own voice for free in video narrations?
+Record 5 to 10 seconds of clean speech and save it to `assets/voice_samples/my_voice.wav`. Then run `python3 scripts/studio.py clone-voice`. On NVIDIA GPUs, it uses F5-TTS / MOSS-TTS for real-time zero-shot voice cloning. On machines without CUDA, it gracefully falls back to studio-grade Microsoft Neural voices (`en-US-ChristopherNeural`) so renders never halt.
+
+### Q6: How does the Zero-Bloat JIT Engine Hub work for heavy models like MiniMax H3 and LTX-Video?
+Instead of forcing you to download 50+ GB of raw model weights that would fill your drive, the studio includes an on-demand engine manager (`scripts/engine_hub.py`). Run `python3 scripts/studio.py hub` to inspect available engines, or `python3 scripts/studio.py advise "<goal>"` to get tailored stack recommendations (e.g., combining Lightricks LTX-Video 2.5 and Edge-TTS for short films under 5 minutes).
+
+---
+
+## 🏷️ Search Keywords & Semantic Discoverability Index
+
+* **Primary Keywords:** unified video studio engine, antigravity video studio, automated video creation, open source ai video creator, remotion ai studio, text to video python pipeline, code-driven video production, viral reel generator, zero cost ai documentary.
+* **Format & Platform Keywords:** vertical v3, tiktok video automation, youtube shorts generator, instagram reels auto-editor, 9:16 safe zone subtitles, alex hormozi subtitle style, mrbeast fast cut pacing, vox data explainer.
+* **Engine & Model Keywords:** remotion react, three.js 3d video, blender headless automation, manim 3blue1brown, open higgsfield 3d camera, f5-tts voice cloning, moss-tts nano, edge-tts free, pyscenedetect, whisperx forced alignment, losslesscut ffmpeg concat, lightricks ltx-video, minimax h3 freevideo, ollama llama 3.2.
+
+---
+
 ## 📂 Repository Structure
 
 ```

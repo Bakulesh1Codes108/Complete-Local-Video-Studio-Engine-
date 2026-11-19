@@ -1,0 +1,42 @@
+# Unified Video Studio Engine (Antigravity AI Studio)
+> 100% Free, Code-Driven AI Video Production Suite & Autonomous Multi-Engine Studio.
+
+## Project Summary
+Unified Video Studio Engine (also known as Antigravity Video Studio) is an open-source, deterministic video generation platform. It transforms prompts, voiceovers, and reference videos into broadcast-quality 16:9 Cinema Documentaries and 9:16 Viral Reels (TikTok, YouTube Shorts, Instagram Reels) without cloud subscription fees, API costs, or watermarks.
+
+## Key Capabilities & Features
+- **Multi-Engine Rendering Core:** Programmatic video composition via Remotion (React), Three.js 3D procedural scenes, Blender Headless 3D, and Manim (3Blue1Brown math animations).
+- **Vertical V3 Reel Engine:** Native 9:16 vertical composition with platform safe-zone protection (elevated ~32% from bottom), kinetic active-word pop with `#FFEE00` yellow highlight boxes, top-edge retention progress bar, and dual-layer ambient blur-pad for horizontal media.
+- **Dual Omni-Master & 1-Click Conversion:** Master story arcs stored in Graphify context memory (<15 KB). Switch between 16:9 and 9:16 in 1 second via `python3 scripts/studio.py convert [16:9|9:16]`.
+- **Zero-Shot 5-Second Voice Cloning:** Clone creator voice from a 5s sample (`my_voice.wav`) using F5-TTS / MOSS-TTS on NVIDIA GPUs or free Microsoft Edge-TTS cloud neural fallback.
+- **Video Reverse-Engineering:** OpenMotion (`nexu-io/openmotion`) and PySceneDetect cut boundary extraction (`python3 scripts/studio.py reverse-engineer <video.mp4>`).
+- **Lossless Stream Editing:** Millisecond video concatenation with zero re-encoding (FFmpeg concat demuxer) and precision keyframe slicing (`studio.py concat` and `studio.py cut`).
+- **Zero-Bloat JIT Engine Hub:** Repository stays under 20 MB; external heavy engines (MiniMax H3 via FlashML FreeVideo, Lightricks LTX-Video 2.5, Kokoro-82M, Ollama, Real-ESRGAN) install on demand only when ordered.
+- **AI Producer Copilot:** Interactive interview agent guiding aspect ratio, pacing, and voice selection, supporting strict step boundaries (`--until script|timeline|media|audio|preview|render`).
+- **Visual RPA Studio UI:** Node-based workflow canvas accessible in browser at `http://localhost:8080` via `python3 scripts/studio.py rpa`.
+
+## Target Hardware Profiles
+- **Mac (Intel Core i5, 8GB RAM, ~14GB Disk Free):** Runs cloud-assisted scripting (Gemini 2.0 Flash / OpenRouter Free), Pixabay stock media fetching, Edge-TTS audio, and Remotion rendering without overloading CPU or filling storage.
+- **HP Pavilion Gaming PC (NVIDIA GeForce GPU, Windows/Linux):** Accelerates local Ollama LLMs (Llama 3.2), F5-TTS voice cloning, Blender OptiX 3D rendering, Fooocus SDXL keyframes, and NVENC MP4 exports.
+
+## Master CLI Commands
+- `python3 scripts/studio.py copilot` : Launch interactive AI producer interview
+- `python3 scripts/studio.py step <1-6> "<topic>"` : Execute strictly up to designated pipeline step
+- `python3 scripts/studio.py vertical [hormozi|mrbeast] "<topic>"` : 1-Click 9:16 vertical viral reel
+- `python3 scripts/studio.py convert [16:9|9:16]` : Switch active project between Widescreen & Vertical
+- `python3 scripts/studio.py reverse-engineer <video.mp4>` : Clone pacing & cuts from reference video
+- `python3 scripts/studio.py concat <file1> <file2> ...` : Lossless video concatenation (0 re-encoding)
+- `python3 scripts/studio.py cut <file> <start> <end>` : Lossless precision trimming
+- `python3 scripts/studio.py upscale <image_path>` : 4K super-resolution upscaling
+- `python3 scripts/studio.py clone-voice [sample]` : 5-second zero-shot voice cloning
+- `python3 scripts/studio.py hub` : View on-demand engine catalog & JIT install commands
+- `python3 scripts/studio.py advise "<goal>"` : AI stack recommendations for short films
+- `python3 scripts/studio.py pdf` : Compile verified PDF production guide
+- `npm run preview` : Open in-editor Remotion Player
+- `npm run render` : Render broadcast-quality MP4 (auto-detects 16:9 Cinema or 9:16 Vertical)
+
+## Repository URLs
+- GitHub: https://github.com/Bakulesh1Codes108/antigravity-video-studio
+- Releases: https://github.com/Bakulesh1Codes108/antigravity-video-studio/releases
+- PDF Guide: https://raw.githubusercontent.com/Bakulesh1Codes108/antigravity-video-studio/main/Antigravity-Video-Free-Guide.pdf
+- HTML Guide: https://github.com/Bakulesh1Codes108/antigravity-video-studio/blob/main/docs/guide.html
