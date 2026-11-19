@@ -1,7 +1,24 @@
 {
   "name": "antigravity-video-studio",
   "version": "1.0.0",
-  "description": "Autonomous AI Documentary & Course Studio with Graphify Memory, Remotion and DaVinci Color Science",
+  "description": "Unified Video Studio Engine & Antigravity Video Studio — 100% Free, Code-Driven AI Video & Reel Studio with Multi-Engine (Remotion, Three.js, Blender, Manim), Open Higgsfield Rigs, Vertical V3, Reel Mimic, Zero-Shot Voice Cloning & RPA",
+  "keywords": [
+    "unified-video-studio",
+    "video-studio-engine",
+    "antigravity",
+    "remotion",
+    "ai-video-generator",
+    "vertical-video",
+    "blender-3d",
+    "threejs",
+    "higgsfield",
+    "voice-cloning",
+    "shorts-automation",
+    "manim",
+    "ffmpeg",
+    "losslesscut",
+    "pyscenedetect"
+  ],
   "scripts": {
     "preview": "remotion preview src/index.ts",
     "render": "remotion render src/index.ts Documentary out/documentary.mp4",

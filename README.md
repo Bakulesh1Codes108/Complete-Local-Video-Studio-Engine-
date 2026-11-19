@@ -1,6 +1,8 @@
-# 🎬 Antigravity Local Video Studio
+# 🎬 Unified Video Studio Engine & Antigravity AI Studio
+### Autonomous Code-Driven AI Video, Documentary & Viral Reel Production Engine
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Release](https://img.shields.io/badge/Release-v1.0.0-success.svg)](https://github.com/Bakulesh1Codes108/antigravity-video-studio/releases/tag/v1.0.0)
 [![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Windows-555555.svg)]()
 [![Cost](https://img.shields.io/badge/Cost-100%25%20Free%20%26%20Local-success.svg)]()
 [![Engines](https://img.shields.io/badge/Engines-Remotion%20%7C%20Three.js%20%7C%20Blender%20%7C%20Manim%20%7C%20GSAP-orange.svg)]()
@@ -9,7 +11,8 @@
 [![Automation](https://img.shields.io/badge/Workflow-Visual%20RPA%20Pipeline-success.svg)]()
 [![Memory](https://img.shields.io/badge/Memory-Graphify%20Knowledge%20Graph-brightgreen.svg)]()
 
-> **100% Free, Code-Driven AI Documentary & Video Production Studio.**  
+> **Unified Video Studio Engine (also known as Antigravity Video Studio)**  
+> 100% Free, Code-Driven AI Video Production Studio for both **Antigravity AI workflows** and **standalone multi-engine video creation**.  
 > Turn prompts, voiceovers, and reference videos into deterministic, broadcast-quality **16:9 Cinema Documentaries** and **9:16 Viral Reels** using **Remotion, Three.js 3D, Blender Headless, Manim Math, Pixabay Media, and Open Higgsfield Camera Rigs**.  
 > Features an **Interactive AI Copilot**, **Vertical V3 Safe-Zone Engine**, **Zero-Shot 5-Second Voice Cloning**, **Video Reverse-Engineering (OpenMotion + PySceneDetect)**, **LosslessCut Stream Concat**, and a **Zero-Bloat JIT Engine Hub**.  
 > **Zero Subscriptions • Zero API Costs • Zero Watermarks • Hardware Accelerated (macOS & Windows).**
