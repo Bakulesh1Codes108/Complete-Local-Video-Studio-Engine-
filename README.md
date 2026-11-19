@@ -364,6 +364,11 @@ python3 scripts/studio.py convert [16:9|9:16]          # Switch active project b
 python3 scripts/studio.py render-vertical             # Render 9:16 Vertical V3 reel to out/vertical_reel.mp4
 python3 scripts/studio.py mimic <preset> "<topic>"    # Clone viral video pacing (Hormozi, Vox, MrBeast)
 
+# Video Link Inspector & Skeleton Replicator
+python3 scripts/studio.py inspect <URL_or_path>       # Deep forensic inspection of any video link (cuts, cadence, best tools)
+python3 scripts/studio.py replicate <URL> "<topic>" [tweaks] # Replicate viral video skeleton with custom topic & tweaks
+python3 scripts/studio.py skeleton                    # View loaded video skeleton recipe
+
 # Reverse-Engineering, Lossless Cut & Concat
 python3 scripts/studio.py reverse-engineer <video>    # OpenMotion + PySceneDetect video clone
 python3 scripts/studio.py concat <file1> <file2> ...  # Lossless stream concatenation (0 re-encoding)
@@ -492,6 +497,33 @@ python3 scripts/studio.py agent "Create a high-retention 9:16 TikTok reel explai
 
 * **Parallel Worker Execution:** Concurrently dispatches **Sub-Agent A (Media Acquisition)** and **Sub-Agent B (Neural Voiceover Synthesis)** across worker threads using `ThreadPoolExecutor`, reducing generation time from 40 seconds down to <1 second for cached workflows!
 * **Continuous Learning Memory:** Every choice (aspect ratio, narrator voice, pacing preset, subtitle styling) is automatically stored in `graphify-out/learning_cache.json`. When you run your next production, the agent recalls your preferences automatically.
+
+---
+
+## 🔗 Video Link Provision Agent, Forensic Inspector & Skeleton Replicator
+
+If you find a viral reel, short, or documentary on **YouTube, TikTok, Instagram, Twitter, or local MP4**, you can share its link directly with the **Provision & Inspector Agent** (`scripts/video_inspector.py`):
+
+```bash
+# 1. Deeply inspect every piece of any video URL or file
+python3 scripts/studio.py inspect "https://www.youtube.com/shorts/YOUR_VIDEO_ID"
+# Or inspect local video:
+python3 scripts/studio.py inspect examples/vox_k_shape_recovery_ai_geopolitics_explainer.mp4
+```
+
+### What the Inspector Deconstructs:
+* **Dimensions & Aspect Ratio:** Identifies 9:16 Vertical Reel vs 16:9 Widescreen.
+* **Cut Boundaries & Pacing Rhythm:** Uses FFmpeg audio `silencedetect` and visual scene differences to identify cut points and shot durations (e.g. 1.8s viral cuts vs 4.5s documentary pacing).
+* **Audio & Speech Cadence:** Measures speech rhythm, background music ducking, and sentence pauses.
+* **Color Grade & Subtitle Safe Zone:** Detects DaVinci color palettes, 35mm grain, and vertical platform safe zones.
+* **Pre-Flight Best Tools Advisory:** Prescribes the exact Remotion components, 3D scenes, and voice actors before rendering.
+* **Graphify Skeleton Memory:** Saves the video recipe into `graphify-out/video_skeleton.json`.
+
+### Replicating with Slight Tweaks or Instructed Changes:
+Replicate the viral pacing, camera motion, and structure 1:1, replacing its content with your new topic:
+```bash
+python3 scripts/studio.py replicate "https://www.youtube.com/shorts/YOUR_VIDEO_ID" "The Secret Economy of Asteroid Mining" "use Christopher voice, dynamic cuts"
+```
 
 ---
 

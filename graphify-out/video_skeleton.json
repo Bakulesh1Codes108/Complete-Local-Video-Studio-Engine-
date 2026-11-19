@@ -1,0 +1,62 @@
+{
+  "source_file": "/Users/brane/Downloads/aquascape-site/antigravity-video-studio/examples/vox_k_shape_recovery_ai_geopolitics_explainer.mp4",
+  "filename": "vox_k_shape_recovery_ai_geopolitics_explainer.mp4",
+  "dimensions": "1920x1080",
+  "aspect_ratio": "16:9",
+  "format_name": "Widescreen Cinema / YouTube (16:9)",
+  "duration_seconds": 74.0,
+  "fps": 30.0,
+  "total_scenes_detected": 5,
+  "avg_cut_duration": 14.8,
+  "pacing_style": "netflix-doc",
+  "pacing_label": "Cinematic Storytelling (Documentary Style: ~4.5s cuts)",
+  "color_grade": "moody-documentary",
+  "safe_zone": "Standard Lower Third",
+  "scenes": [
+    {
+      "scene_id": "scene_01",
+      "start": 0.0,
+      "end": 17.04,
+      "duration": 17.04,
+      "motion": "zoom-in",
+      "camera_rig": "whip_pan",
+      "j_cut_frames": 0
+    },
+    {
+      "scene_id": "scene_02",
+      "start": 17.04,
+      "end": 25.73,
+      "duration": 8.7,
+      "motion": "pan-left",
+      "camera_rig": "fpv_drone_dive",
+      "j_cut_frames": 10
+    },
+    {
+      "scene_id": "scene_03",
+      "start": 25.73,
+      "end": 29.72,
+      "duration": 3.99,
+      "motion": "zoom-in",
+      "camera_rig": "bullet_time_freeze",
+      "j_cut_frames": 10
+    },
+    {
+      "scene_id": "scene_04",
+      "start": 29.72,
+      "end": 36.02,
+      "duration": 6.29,
+      "motion": "pan-right",
+      "camera_rig": "orbit_360",
+      "j_cut_frames": 10
+    },
+    {
+      "scene_id": "scene_05",
+      "start": 36.02,
+      "end": 74.0,
+      "duration": 37.98,
+      "motion": "zoom-out",
+      "camera_rig": "vertigo_zoom",
+      "j_cut_frames": 10
+    }
+  ]
+}

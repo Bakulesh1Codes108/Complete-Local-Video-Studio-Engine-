@@ -1,34 +1,74 @@
 {
-  "project": "The Story Of Quantum Entanglement",
+  "project": "The Secret Economy Of Space Mining",
   "fps": 30,
   "width": 1920,
   "height": 1080,
   "letterbox": true,
-  "defaultColorGrade": "hollywood-epic",
   "scenes": [
     {
       "id": "scene_01",
-      "durationInFrames": 150,
+      "durationInFrames": 511,
+      "engine": "remotion",
       "voiceover": "assets/audio/scene_01.mp3",
       "visual": "assets/visuals/scene_01.jpg",
-      "subtitle": "Imagine this: The story of quantum entanglement.",
-      "motion": "zoom-in"
+      "subtitle": "Here is what nobody tells you about The Secret Economy of Space Mining.",
+      "motion": "zoom-in",
+      "higgsfieldMotion": "whip_pan",
+      "colorGrade": "moody-documentary",
+      "threeJsScene": null,
+      "jCutFrames": 0
     },
     {
       "id": "scene_02",
-      "durationInFrames": 150,
+      "durationInFrames": 261,
+      "engine": "remotion",
       "voiceover": "assets/audio/scene_02.mp3",
       "visual": "assets/visuals/scene_02.jpg",
-      "subtitle": "Behind the scenes, complex forces shape everything we thought we understood.",
-      "motion": "pan-right"
+      "subtitle": "Notice how this crucial factor completely shifts the entire equation.",
+      "motion": "pan-left",
+      "higgsfieldMotion": "fpv_drone_dive",
+      "colorGrade": "moody-documentary",
+      "threeJsScene": null,
+      "jCutFrames": 10
     },
     {
       "id": "scene_03",
-      "durationInFrames": 150,
+      "durationInFrames": 119,
+      "engine": "remotion",
       "voiceover": "assets/audio/scene_03.mp3",
       "visual": "assets/visuals/scene_03.jpg",
-      "subtitle": "The future belongs to those who observe and build. This changes everything.",
-      "motion": "zoom-out"
+      "subtitle": "Notice how this crucial factor completely shifts the entire equation.",
+      "motion": "zoom-in",
+      "higgsfieldMotion": "bullet_time_freeze",
+      "colorGrade": "moody-documentary",
+      "threeJsScene": null,
+      "jCutFrames": 10
+    },
+    {
+      "id": "scene_04",
+      "durationInFrames": 188,
+      "engine": "remotion",
+      "voiceover": "assets/audio/scene_04.mp3",
+      "visual": "assets/visuals/scene_04.jpg",
+      "subtitle": "Notice how this crucial factor completely shifts the entire equation.",
+      "motion": "pan-right",
+      "higgsfieldMotion": "orbit_360",
+      "colorGrade": "moody-documentary",
+      "threeJsScene": null,
+      "jCutFrames": 10
+    },
+    {
+      "id": "scene_05",
+      "durationInFrames": 1139,
+      "engine": "remotion",
+      "voiceover": "assets/audio/scene_05.mp3",
+      "visual": "assets/visuals/scene_05.jpg",
+      "subtitle": "And that is how you master The Secret Economy of Space Mining. Follow for more.",
+      "motion": "zoom-out",
+      "higgsfieldMotion": "vertigo_zoom",
+      "colorGrade": "moody-documentary",
+      "threeJsScene": null,
+      "jCutFrames": 10
     }
   ]
 }
