@@ -38,7 +38,7 @@ Unified Video Studio Engine (also known as Antigravity Video Studio) is an open-
 - `npm run render` : Render broadcast-quality MP4 (auto-detects 16:9 Cinema or 9:16 Vertical)
 
 ## Repository URLs
-- GitHub: https://github.com/Bakulesh1Codes108/antigravity-video-studio
-- Releases: https://github.com/Bakulesh1Codes108/antigravity-video-studio/releases
-- PDF Guide: https://raw.githubusercontent.com/Bakulesh1Codes108/antigravity-video-studio/main/Antigravity-Video-Free-Guide.pdf
-- HTML Guide: https://github.com/Bakulesh1Codes108/antigravity-video-studio/blob/main/docs/guide.html
+- GitHub: https://github.com/Bakulesh1Codes108/Complete-Local-Video-Studio-Engine-
+- Releases: https://github.com/Bakulesh1Codes108/Complete-Local-Video-Studio-Engine-/releases
+- PDF Guide: https://raw.githubusercontent.com/Bakulesh1Codes108/Complete-Local-Video-Studio-Engine-/main/Antigravity-Video-Free-Guide.pdf
+- HTML Guide: https://github.com/Bakulesh1Codes108/Complete-Local-Video-Studio-Engine-/blob/main/docs/guide.html
