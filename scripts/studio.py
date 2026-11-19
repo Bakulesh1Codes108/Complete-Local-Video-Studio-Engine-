@@ -85,8 +85,10 @@ Usage:
   python3 scripts/studio.py status                      [View live film reel report]
   python3 scripts/studio.py audio [voice_name]          [Generate free Microsoft Neural voiceovers]
   python3 scripts/studio.py clone-voice [sample_path]   [Clone creator 5s voice for all scenes]
+  python3 scripts/studio.py vertical [hormozi|mrbeast] "<topic>" [1-Click 9:16 Vertical V3 viral reel generator]
   python3 scripts/studio.py preview                     [Open in-editor Remotion Player]
-  python3 scripts/studio.py render                      [Render broadcast MP4]
+  python3 scripts/studio.py render                      [Render broadcast MP4 (Auto-detects 16:9 or 9:16)]
+  python3 scripts/studio.py render-vertical             [Render 9:16 Vertical V3 reel to out/vertical_reel.mp4]
 """)
 
 if __name__ == "__main__":
@@ -253,9 +255,34 @@ if __name__ == "__main__":
     elif cmd == "audio":
         args = [sys.executable, VOICEOVER] + sys.argv[2:]
         run_cmd(args)
+    elif cmd in ["vertical", "vertical-v3", "reel", "short"]:
+        preset = "alex_hormozi_viral_reel"
+        topic = "The AI Revolution in 2026"
+        if len(sys.argv) > 2:
+            arg2 = sys.argv[2].lower()
+            if any(k in arg2 for k in ["hormozi", "mrbeast", "vox"]):
+                preset = "alex_hormozi_viral_reel" if "hormozi" in arg2 else ("mrbeast_retention_hook" if "mrbeast" in arg2 else "vox_highlighter_explainer")
+                topic = " ".join(sys.argv[3:]) if len(sys.argv) > 3 else topic
+            else:
+                topic = " ".join(sys.argv[2:])
+        run_cmd([sys.executable, REEL_MIMIC, preset, topic])
+    elif cmd in ["render-vertical", "render-reel"]:
+        run_cmd(["npx", "remotion", "render", "src/index.ts", "VerticalV3", "out/vertical_reel.mp4"])
     elif cmd == "preview":
         run_cmd(["npx", "remotion", "preview", "src/index.ts"])
     elif cmd == "render":
-        run_cmd(["npx", "remotion", "render", "src/index.ts", "Documentary", "out/documentary.mp4"])
+        comp_id = "Documentary"
+        out_file = "out/documentary.mp4"
+        timeline_path = os.path.join(BASE_DIR, "timeline.json")
+        if os.path.exists(timeline_path):
+            try:
+                with open(timeline_path, "r", encoding="utf-8") as f:
+                    tdata = json.load(f)
+                    if tdata.get("height", 1080) > tdata.get("width", 1920):
+                        comp_id = "VerticalV3"
+                        out_file = "out/vertical_reel.mp4"
+            except Exception:
+                pass
+        run_cmd(["npx", "remotion", "render", "src/index.ts", comp_id, out_file])
     else:
         print_help()

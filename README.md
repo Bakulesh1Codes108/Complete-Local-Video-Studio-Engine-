@@ -81,6 +81,30 @@ export PEXELS_API_KEY="your_free_pexels_key"
 
 ---
 
+## 📱 Vertical V3 Architecture (9:16 Shorts, Reels & TikTok)
+
+The studio includes a dedicated **Vertical V3 engine** engineered specifically for the strict interface constraints and high retention demands of modern vertical video platforms:
+
+```bash
+# 1-Click Generate a 9:16 Vertical V3 Reel (Alex Hormozi style pacing)
+python3 scripts/studio.py vertical hormozi "How AI is Automating Software Engineering"
+
+# 1-Click Generate a 9:16 Vertical V3 Reel (MrBeast hyper-retention pacing)
+python3 scripts/studio.py vertical mrbeast "AI Can Build Any App in 60 Seconds"
+
+# Render the 9:16 Vertical V3 Composition directly to MP4
+python3 scripts/studio.py render-vertical
+```
+
+### Vertical V3 Features:
+* **Platform Safe-Zone Subtitles:** Subtitles are automatically elevated (~32% above bottom) so they are **never obscured** by TikTok/Instagram Reels/Shorts UI overlays (username, caption, sound title, like/comment buttons).
+* **Kinetic Word Highlight (Hormozi / MrBeast Style):** Words pop in real-time with vibrant `#FFEE00` neon yellow highlight boxes and bold black text strokes as they are spoken.
+* **Smart Blur-Pad Dual Layer:** When horizontal 16:9 images or footage are used in a 9:16 composition, the engine dynamically creates a blurred, saturated ambient background fill behind the sharp, centered foreground visual.
+* **Top-Edge Retention Progress Bar:** A smooth gradient progress bar tracks video completion across the top edge to maximize viewer watch-time.
+* **Native Composition ID:** Remotion registers both `Documentary` (16:9 1920x1080) and `VerticalV3` (9:16 1080x1920) in [src/Root.tsx](file:///Users/brane/Downloads/aquascape-site/antigravity-video-studio/src/Root.tsx).
+
+---
+
 ## 🧬 Enhanced Reel Mimic Engine (Crash-Proof)
 
 The Reel Mimic engine replicates viral pacing while guaranteeing all visual and audio assets exist on disk:

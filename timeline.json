@@ -1,34 +1,62 @@
 {
-  "project": "Black Hole Singularity",
+  "project": "Mimic: MrBeast Hyper-Retention Fast Cut - AI Can Build Any App in 6",
   "fps": 30,
-  "width": 1920,
-  "height": 1080,
-  "letterbox": true,
-  "defaultColorGrade": "hollywood-epic",
+  "width": 1080,
+  "height": 1920,
+  "letterbox": false,
+  "defaultColorGrade": "teal-and-orange",
   "scenes": [
     {
-      "id": "scene_01",
-      "durationInFrames": 150,
-      "voiceover": "assets/audio/scene_01.mp3",
-      "visual": "assets/visuals/scene_01.jpg",
-      "subtitle": "Black Hole Singularity - The mysterious beginning and initial catalyst.",
-      "motion": "zoom-in"
+      "id": "mimic_01",
+      "durationInFrames": 45,
+      "engine": "remotion",
+      "voiceover": "assets/audio/mimic_01.mp3",
+      "visual": "assets/visuals/mimic_01.jpg",
+      "subtitle": "Extreme Premise in 1 Second: AI Can Build Any App in 60 Seconds",
+      "motion": "zoom-in",
+      "higgsfieldMotion": "fpv_drone_dive",
+      "colorGrade": "teal-and-orange",
+      "threeJsScene": null,
+      "jCutFrames": 8
     },
     {
-      "id": "scene_02",
-      "durationInFrames": 150,
-      "voiceover": "assets/audio/scene_02.mp3",
-      "visual": "assets/visuals/scene_02.jpg",
-      "subtitle": "Black Hole Singularity - Venturing deeper into the unknown, facing immense scale and challenge.",
-      "motion": "zoom-in"
+      "id": "mimic_02",
+      "durationInFrames": 54,
+      "engine": "remotion",
+      "voiceover": "assets/audio/mimic_02.mp3",
+      "visual": "assets/visuals/mimic_02.jpg",
+      "subtitle": "High Stakes Explanation: AI Can Build Any App in 60 Seconds",
+      "motion": "pan-left",
+      "higgsfieldMotion": "whip_pan",
+      "colorGrade": "teal-and-orange",
+      "threeJsScene": null,
+      "jCutFrames": 8
     },
     {
-      "id": "scene_03",
-      "durationInFrames": 150,
-      "voiceover": "assets/audio/scene_03.mp3",
-      "visual": "assets/visuals/scene_03.jpg",
-      "subtitle": "Black Hole Singularity - Reaching the breakthrough, a breathtaking perspective of what lies ahead.",
-      "motion": "zoom-in"
+      "id": "mimic_03",
+      "durationInFrames": 48,
+      "engine": "remotion",
+      "voiceover": "assets/audio/mimic_03.mp3",
+      "visual": "assets/visuals/mimic_03.jpg",
+      "subtitle": "Countdown / Tension Build: AI Can Build Any App in 60 Seconds",
+      "motion": "zoom-in",
+      "higgsfieldMotion": "bullet_time_freeze",
+      "colorGrade": "teal-and-orange",
+      "threeJsScene": null,
+      "jCutFrames": 8
+    },
+    {
+      "id": "mimic_04",
+      "durationInFrames": 57,
+      "engine": "remotion",
+      "voiceover": "assets/audio/mimic_04.mp3",
+      "visual": "assets/visuals/mimic_04.jpg",
+      "subtitle": "Unexpected Twist: AI Can Build Any App in 60 Seconds",
+      "motion": "pan-right",
+      "higgsfieldMotion": "orbit_360",
+      "colorGrade": "teal-and-orange",
+      "threeJsScene": null,
+      "jCutFrames": 8
     }
   ]
 }
