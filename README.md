@@ -10,16 +10,32 @@
 [![Memory](https://img.shields.io/badge/Memory-Graphify%20Knowledge%20Graph-brightgreen.svg)]()
 
 > **100% Free, Code-Driven AI Documentary & Video Production Studio.**  
-> Turn prompts, voiceovers, and research notes into deterministic, broadcast-quality **16:9 Documentaries** and **9:16 Viral Reels** using **Remotion, Three.js 3D, Blender Headless, Manim Math, Pixabay Media, and Open Higgsfield Camera Rigs**.  
-> Features a **Visual RPA Automation UI**, **Reel Mimic Viral Pacing Cloner**, an **AI Hardware & Disk Space Advisor**, and **Prompt-Driven Memory Editing**.  
-> **Zero Cloud Subscriptions • Zero API Costs • Zero Watermarks • Hardware Accelerated.**
+> Turn prompts, voiceovers, and reference videos into deterministic, broadcast-quality **16:9 Cinema Documentaries** and **9:16 Viral Reels** using **Remotion, Three.js 3D, Blender Headless, Manim Math, Pixabay Media, and Open Higgsfield Camera Rigs**.  
+> Features an **Interactive AI Copilot**, **Vertical V3 Safe-Zone Engine**, **Zero-Shot 5-Second Voice Cloning**, **Video Reverse-Engineering (OpenMotion + PySceneDetect)**, **LosslessCut Stream Concat**, and a **Zero-Bloat JIT Engine Hub**.  
+> **Zero Subscriptions • Zero API Costs • Zero Watermarks • Hardware Accelerated (macOS & Windows).**
 
 ---
 
-## 📘 Comprehensive Free Guide Included
+## 📘 Comprehensive Free Guide Included (Verified 2026 Edition)
 
-This repository comes with the official, full-length guide:  
-👉 **[Download: Antigravity-Video-Free-Guide.pdf](./Antigravity-Video-Free-Guide.pdf)** 👈
+This repository includes the official, full-length verified production handbook:  
+👉 **[Download: Antigravity-Video-Free-Guide.pdf](./Antigravity-Video-Free-Guide.pdf)** 👈  
+*(Covers complete dual-machine setup, Vertical V3 safe zones, 5s voice cloning, 3D rigs, and step-by-step CLI workflows).*
+
+---
+
+## 💡 About This Project & What It Solves
+
+### 🛑 The Problem with Modern AI Video Tools
+1. **Expensive Subscriptions & Watermarks:** Most video tools charge \$30–\$100/month for limited credits, low resolutions, and restrictive cloud queues.
+2. **Gigabyte Bloatware:** Many open-source AI projects force users to download 50+ GB of heavy checkpoints, instantly overwhelming machines with modest storage (e.g., laptops with 14 GB disk free).
+3. **Manual Editing Bottlenecks:** Creators spend hours cutting clips, fixing subtitle safe-zones on TikTok, and manually animating camera moves.
+
+### ⚡ How Antigravity Video Studio Solves It
+* **Featherweight Core (&lt;20 MB):** Built on Remotion (React) and Graphify knowledge graphs (&lt;15 KB), keeping your storage free and your machine cool.
+* **Deterministic Code Rendering:** 100% frame-accurate animations, audio ducking, and kinetic typography that never drift or jitter.
+* **Smart Dual-Machine Architecture:** Lightweight cloud planning on 8GB Mac + GPU-accelerated diffusion & voice cloning on HP Pavilion NVIDIA PC.
+* **Multi-Repo Fusion:** Combines Remotion, OpenMotion, FlashML FreeVideo (MiniMax H3), LTX-Video, PySceneDetect, WhisperX, and LosslessCut into a single master CLI.
 
 ---
 

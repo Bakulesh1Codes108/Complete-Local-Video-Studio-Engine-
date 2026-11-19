@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Antigravity AI Video Studio — The Complete Production Guide</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 18mm 16mm 18mm 16mm;
+      @bottom-right {
+        content: counter(page);
+        font-size: 9pt;
+        color: #718096;
+      }
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1a202c;
+      background: #ffffff;
+      line-height: 1.55;
+      font-size: 10pt;
+    }
+    h1, h2, h3, h4 {
+      color: #0f172a;
+      font-weight: 700;
+      page-break-after: avoid;
+    }
+    h1 {
+      font-size: 24pt;
+      margin-top: 0;
+      margin-bottom: 6px;
+      color: #0f172a;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 8px;
+    }
+    .subtitle {
+      font-size: 12pt;
+      color: #475569;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    h2 {
+      font-size: 14pt;
+      margin-top: 22px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 4px;
+      color: #1e3a8a;
+    }
+    h3 {
+      font-size: 11pt;
+      margin-top: 14px;
+      margin-bottom: 6px;
+      color: #0369a1;
+    }
+    p {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      font-size: 8pt;
+      font-weight: 600;
+      border-radius: 4px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      margin-right: 4px;
+      margin-bottom: 4px;
+    }
+    .badge-green {
+      background: #f0fdf4;
+      color: #15803d;
+      border-color: #bbf7d0;
+    }
+    .badge-purple {
+      background: #faf5ff;
+      color: #7e22ce;
+      border-color: #e9d5ff;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 16px 0;
+      font-size: 9pt;
+      page-break-inside: avoid;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 6px 10px;
+      text-align: left;
+    }
+    th {
+      background: #f1f5f9;
+      color: #0f172a;
+      font-weight: 600;
+    }
+    tr:nth-child(even) {
+      background: #f8fafc;
+    }
+    pre {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 8.5pt;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      overflow-x: auto;
+      margin: 8px 0 14px 0;
+      page-break-inside: avoid;
+      line-height: 1.45;
+    }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 8.5pt;
+      background: #f1f5f9;
+      color: #0f172a;
+      padding: 1px 4px;
+      border-radius: 4px;
+    }
+    pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+    }
+    .card {
+      background: #f8fafc;
+      border-left: 4px solid #3b82f6;
+      padding: 10px 14px;
+      margin: 12px 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 9pt;
+    }
+    .card-warn {
+      border-left-color: #f59e0b;
+      background: #fffbeb;
+    }
+    .page-break {
+      page-break-before: always;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎬 Antigravity AI Video Studio</h1>
+  <div class="subtitle">Complete Autonomous Production Guide & Technical Architecture (Verified 2026 Edition)</div>
+
+  <div style="margin-bottom: 16px;">
+    <span class="badge badge-green">100% Free & Open-Source</span>
+    <span class="badge">Remotion + Three.js + Blender</span>
+    <span class="badge badge-purple">Open Higgsfield 3D Rigs</span>
+    <span class="badge">Vertical V3 Reels</span>
+    <span class="badge badge-green">Zero-Shot 5s Voice Cloning</span>
+    <span class="badge">LosslessCut Stream Engine</span>
+    <span class="badge badge-purple">Graphify Context Memory (&lt;15 KB)</span>
+  </div>
+
+  <h2>1. Executive Summary & Purpose</h2>
+  <p>
+    <strong>Antigravity Video Studio</strong> is a production-grade, zero-cost, code-driven video production studio engineered to create high-retention <strong>16:9 Cinematic Documentaries</strong> and <strong>9:16 Viral Reels</strong> (TikTok, Instagram Reels, YouTube Shorts) without monthly subscriptions, cloud API charges, or watermarks.
+  </p>
+  <p>
+    Unlike conventional video generators that dump gigabytes of redundant dependencies or require expensive GPU cloud clusters, Antigravity Video Studio operates under a strict <strong>Zero-Bloat JIT (Just-In-Time) Architecture</strong>. The repository footprint remains under 20 MB, orchestrating heavyweight local engines (NVIDIA CUDA, Blender headless, Ollama) and lightweight cloud fallbacks dynamically.
+  </p>
+
+  <h2>2. Hardware & Dual-Machine Production Strategy</h2>
+  <p>
+    The studio is specifically tailored for cross-platform dual-machine creators (e.g., an 8GB Intel Core i5 Mac + an HP Pavilion Gaming laptop with NVIDIA GPU):
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Production Stage</th>
+        <th>Mac Intel i5 (8GB RAM, ~14GB Free)</th>
+        <th>HP Pavilion Gaming (NVIDIA GPU, CUDA)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Script & Arc Planning</strong></td>
+        <td>Cloud Gemini 2.0 Flash / OpenRouter Free</td>
+        <td>Local Ollama (Llama 3.2 / Qwen 2.5 CUDA)</td>
+      </tr>
+      <tr>
+        <td><strong>Visual Media Acquisition</strong></td>
+        <td>Pixabay / Pexels / Wikimedia (Zero-Cost API)</td>
+        <td>Pixabay / Fooocus SDXL Local Generation</td>
+      </tr>
+      <tr>
+        <td><strong>Voiceover Generation</strong></td>
+        <td>Microsoft Edge-TTS (0 MB disk, 0% CPU)</td>
+        <td>Edge-TTS or Kokoro-82M Offline</td>
+      </tr>
+      <tr>
+        <td><strong>5-Second Voice Cloning</strong></td>
+        <td>Cloud Neural Fallback</td>
+        <td><strong>F5-TTS / MOSS-TTS (GPU Accelerated)</strong></td>
+      </tr>
+      <tr>
+        <td><strong>3D Headless Renders</strong></td>
+        <td>Blender CPU / Procedural Three.js</td>
+        <td><strong>Blender OptiX / CUDA GPU Accelerated</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Remotion Rendering</strong></td>
+        <td>Headless Remotion Node.js CPU</td>
+        <td><strong>NVIDIA Hardware Accelerated MP4</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page-break"></div>
+
+  <h2>3. The Unified Multi-Engine Render Architecture</h2>
+  <p>The studio unifies multiple industry-leading open-source technologies into one pipeline:</p>
+
+  <ul>
+    <li><strong>Remotion Core (React + TypeScript):</strong> Deterministic frame-accurate canvas for 4K Ken Burns, layout scaling, and multi-track audio ducking.</li>
+    <li><strong>Open Higgsfield 3D Camera Rigs:</strong> Transforms static media and 3D scenes using physical camera physics (<code>orbit_360</code>, <code>fpv_drone_dive</code>, <code>vertigo_dolly_zoom</code>, <code>whip_pan</code>, <code>crane_up_reveal</code>, <code>bullet_time_freeze</code>).</li>
+    <li><strong>Three.js 3D Procedural Scenes:</strong> Built-in holographic Earth globe (<code>3d_rotating_globe</code>), quantum particle waves (<code>3d_quantum_particles</code>), and animated financial bar charts (<code>3d_financial_chart</code>).</li>
+    <li><strong>Blender Headless 3D Engine:</strong> Python CLI automation for photorealistic 3D chrome titles and product turntables without GUI overhead.</li>
+    <li><strong>Manim Engine:</strong> 3Blue1Brown-style mathematical formula morphs and neural network animations.</li>
+  </ul>
+
+  <h2>4. Vertical V3 Architecture (9:16 Shorts & Reels)</h2>
+  <p>
+    Standard video renderers place subtitles at the bottom of the screen, where they are obscured by TikTok, Instagram Reels, and YouTube Shorts UI overlays (sound title, captions, like/comment buttons).
+  </p>
+  <div class="card">
+    <strong>Key Innovations of Vertical V3:</strong>
+    <ul>
+      <li><strong>Platform Safe-Zone Positioning:</strong> Subtitles are automatically elevated (~32% from bottom) so they are 100% visible across all mobile apps.</li>
+      <li><strong>Kinetic Word-by-Word Highlight:</strong> Words pop in real-time with vibrant <code>#FFEE00</code> neon yellow highlight boxes, impact typography, and thick black strokes as they are spoken (Hormozi / MrBeast style).</li>
+      <li><strong>Smart Dual-Layer Blur Pad:</strong> If 16:9 landscape assets are used, the engine automatically creates a blurred, saturated ambient background fill behind the sharp, centered foreground visual.</li>
+      <li><strong>Top-Edge Retention Progress Bar:</strong> A smooth gradient progress bar tracks video completion across the top edge to maximize viewer watch-time.</li>
+    </ul>
+  </div>
+
+  <h2>5. Omni-Master Dual-Export & 1-Click Format Conversion</h2>
+  <p>
+    You no longer need to produce separate projects for YouTube and TikTok. The <strong>Omni-Master</strong> workflow produces both from a single prompt:
+  </p>
+  <pre><code># 1-Click format conversion anytime:
+python3 scripts/studio.py convert 9:16    # Converts current project to 9:16 Vertical Reel
+python3 scripts/studio.py convert 16:9   # Converts current project to 16:9 Widescreen Cinema
+
+# Or prompt the memory graph directly in natural language:
+python3 scripts/studio.py edit "switch to 9:16 vertical reel"</code></pre>
+
+  <h2>6. Zero-Shot 5-Second Voice Cloning</h2>
+  <p>
+    To narrate your documentaries or reels in your own voice, drop a 5-second clean recording into <code>assets/voice_samples/my_voice.wav</code>:
+  </p>
+  <pre><code># On your HP Pavilion Gaming PC (NVIDIA CUDA):
+pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu121
+pip install f5-tts
+
+# Execute voice clone for all scenes:
+python3 scripts/studio.py clone-voice
+# Or run with audio flag:
+python3 scripts/studio.py audio --clone</code></pre>
+
+  <div class="page-break"></div>
+
+  <h2>7. Video Reverse-Engineering & Lossless Editing</h2>
+  <p>
+    Incorporates the design patterns of <strong>nexu-io/openmotion</strong>, <strong>PySceneDetect</strong>, and <strong>mifi/lossless-cut</strong>:
+  </p>
+  <pre><code># 1. Reverse-engineer any reference video into an editable Remotion timeline:
+python3 scripts/studio.py reverse-engineer reference_reel.mp4 "Tech Breakthrough"
+
+# 2. Lossless Stream Concatenation (joins rendered MP4s in milliseconds with 0 re-encoding):
+python3 scripts/studio.py concat out/scene_01.mp4 out/scene_02.mp4 out/scene_03.mp4
+
+# 3. Precision Lossless Trimming:
+python3 scripts/studio.py cut input.mp4 0.0 5.4
+
+# 4. Dynamic 4K Super-Resolution Upscaling:
+python3 scripts/studio.py upscale assets/visuals/scene_01.jpg</code></pre>
+
+  <h2>8. The JIT On-Demand Engine Hub & Model Advisor</h2>
+  <p>
+    Instead of downloading 50+ GB of model weights upfront, the studio keeps the core repository under 20 MB and manages external engines on demand:
+  </p>
+  <pre><code># Inspect all available engines and their hardware compute requirements:
+python3 scripts/studio.py hub
+
+# Ask the in-built AI advisor for the best production stack:
+python3 scripts/studio.py advise "generate a 5-minute sci-fi short film"</code></pre>
+
+  <h2>9. Master CLI Command Reference</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Command</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>python3 scripts/studio.py copilot</code></td>
+        <td>Interactive executive producer interview (format, pacing, narrator).</td>
+      </tr>
+      <tr>
+        <td><code>python3 scripts/studio.py step &lt;step&gt; "&lt;topic&gt;"</code></td>
+        <td>Execute strictly up to step: <code>script|timeline|media|audio|preview|render</code>.</td>
+      </tr>
+      <tr>
+        <td><code>python3 scripts/studio.py vertical [preset] "&lt;topic&gt;"</code></td>
+        <td>1-Click 9:16 Vertical V3 viral reel generator (Hormozi, MrBeast, Vox).</td>
+      </tr>
+      <tr>
+        <td><code>python3 scripts/studio.py convert [16:9|9:16]</code></td>
+        <td>Instantly switch active project between Widescreen and Vertical.</td>
+      </tr>
+      <tr>
+        <td><code>python3 scripts/studio.py reverse-engineer &lt;video&gt;</code></td>
+        <td>OpenMotion + PySceneDetect reference video cloning.</td>
+      </tr>
+      <tr>
+        <td><code>python3 scripts/studio.py concat &lt;file1&gt; &lt;file2&gt; ...</code></td>
+        <td>Lossless stream concatenation via FFmpeg concat demuxer (0 re-encoding).</td>
+      </tr>
+      <tr>
+        <td><code>python3 scripts/studio.py cut &lt;file&gt; &lt;start&gt; &lt;end&gt;</code></td>
+        <td>Lossless precision trimming at keyframe boundaries.</td>
+      </tr>
+      <tr>
+        <td><code>python3 scripts/studio.py upscale &lt;image&gt;</code></td>
+        <td>4K super-resolution upscaling without storing 60GB raw caches.</td>
+      </tr>
+      <tr>
+        <td><code>python3 scripts/studio.py hub</code></td>
+        <td>Inspect on-demand engine catalog and JIT install commands.</td>
+      </tr>
+      <tr>
+        <td><code>python3 scripts/studio.py advise "&lt;goal&gt;"</code></td>
+        <td>Get optimal AI model & stack recommendations for short films.</td>
+      </tr>
+      <tr>
+        <td><code>python3 scripts/studio.py rpa</code></td>
+        <td>Launch visual node-based Robotic Process Automation studio in browser.</td>
+      </tr>
+      <tr>
+        <td><code>python3 scripts/studio.py audio</code></td>
+        <td>Batch-synthesize Microsoft Neural voiceovers (Edge-TTS).</td>
+      </tr>
+      <tr>
+        <td><code>python3 scripts/studio.py clone-voice [sample]</code></td>
+        <td>Clone creator 5-second voice for all scenes (F5-TTS / MOSS-TTS).</td>
+      </tr>
+      <tr>
+        <td><code>npm run preview</code></td>
+        <td>Launch Remotion in-editor live player.</td>
+      </tr>
+      <tr>
+        <td><code>npm run render</code></td>
+        <td>Export broadcast-quality MP4 (auto-detects 16:9 Cinema or 9:16 Vertical).</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top: 24px; padding-top: 12px; border-top: 1px solid #cbd5e1; font-size: 8.5pt; color: #64748b; text-align: center;">
+    Antigravity AI Video Studio &bull; Verified 2026 Production Edition &bull; Open-Source MIT License
+  </div>
+
+</body>
+</html>
