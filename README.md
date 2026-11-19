@@ -19,7 +19,11 @@
 ## 📘 Comprehensive Free Guide Included (Verified 2026 Edition)
 
 This repository includes the official, full-length verified production handbook:  
-👉 **[Download: Antigravity-Video-Free-Guide.pdf](./Antigravity-Video-Free-Guide.pdf)** 👈  
+* 📄 **[View PDF on GitHub](https://github.com/Bakulesh1Codes108/antigravity-video-studio/blob/main/Antigravity-Video-Free-Guide.pdf)**
+* 💾 **[Direct Raw Download (Antigravity-Video-Free-Guide.pdf)](https://raw.githubusercontent.com/Bakulesh1Codes108/antigravity-video-studio/main/Antigravity-Video-Free-Guide.pdf)**
+* 🌐 **[Read Online Web Guide (HTML)](./docs/guide.html)**
+* ⚡ **Recompile Guide Anytime:** `python3 scripts/studio.py pdf`
+
 *(Covers complete dual-machine setup, Vertical V3 safe zones, 5s voice cloning, 3D rigs, and step-by-step CLI workflows).*
 
 ---

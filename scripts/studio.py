@@ -45,6 +45,7 @@ FFMPEG_TOOLS = os.path.join(SCRIPTS_DIR, "ffmpeg_tools.py")
 REVERSE_ENGINEER = os.path.join(SCRIPTS_DIR, "reverse_engineer.py")
 ENGINE_HUB = os.path.join(SCRIPTS_DIR, "engine_hub.py")
 UPSCALER = os.path.join(SCRIPTS_DIR, "upscaler.py")
+PDF_COMPILER = os.path.join(SCRIPTS_DIR, "compile_pdf.py")
 
 def run_cmd(args):
     return subprocess.run(args, cwd=BASE_DIR)
@@ -97,6 +98,7 @@ Usage:
   python3 scripts/studio.py upscale <image_path>        [4K super-resolution upscaler]
   python3 scripts/studio.py hub                         [On-demand engine catalog & JIT installer]
   python3 scripts/studio.py advise "<goal>"             [AI stack & model advisor for 5-min films]
+  python3 scripts/studio.py pdf                         [Compile & render verified PDF production guide]
   python3 scripts/studio.py preview                     [Open in-editor Remotion Player]
   python3 scripts/studio.py render                      [Render broadcast MP4 (Auto-detects 16:9 or 9:16)]
   python3 scripts/studio.py render-vertical             [Render 9:16 Vertical V3 reel to out/vertical_reel.mp4]
@@ -301,6 +303,8 @@ if __name__ == "__main__":
     elif cmd in ["advise", "suggest-stack"]:
         goal = " ".join(sys.argv[2:]) if len(sys.argv) > 2 else "Generate a 5-minute short film"
         run_cmd([sys.executable, ENGINE_HUB, "advise", goal])
+    elif cmd in ["pdf", "compile-pdf"]:
+        run_cmd([sys.executable, PDF_COMPILER])
     elif cmd in ["render-vertical", "render-reel"]:
         run_cmd(["npx", "remotion", "render", "src/index.ts", "VerticalV3", "out/vertical_reel.mp4"])
     elif cmd == "preview":
