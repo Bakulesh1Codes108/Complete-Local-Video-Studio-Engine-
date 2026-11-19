@@ -119,7 +119,8 @@ class FilmCopilotAgent:
         if interactive:
             format_choices = {
                 "16:9": "16:9 Widescreen (YouTube, Course Documentaries, Netflix Cinema)",
-                "9:16": "9:16 Vertical (TikTok, Instagram Reels, YouTube Shorts)"
+                "9:16": "9:16 Vertical Reel (TikTok, Instagram Reels, YouTube Shorts)",
+                "omni": "Dual Omni-Master (1-Click Dual Export for BOTH 16:9 Cinema & 9:16 Reel)"
             }
             aspect = prompt_user("Which format and platform are you producing for?", default="16:9", choices=format_choices)
 
@@ -129,6 +130,13 @@ class FilmCopilotAgent:
                     "mrbeast_retention_hook": "MrBeast Fast Cut (Hyper-retention 1.6s cuts)"
                 }
                 pacing = prompt_user("Which viral reel pacing would you like to clone?", default="alex_hormozi_viral_reel", choices=pacing_choices)
+            elif aspect == "omni":
+                pacing_choices = {
+                    "vox_highlighter_explainer": "Vox Data Explainer (Dynamic 3D maps & charts that look stunning in both 16:9 & 9:16)",
+                    "netflix-doc": "Netflix Cinematic (Film grade, 35mm grain, dual-layer smart blur)",
+                    "alex_hormozi_viral_reel": "Hormozi Viral Reel (Punchy pacing, auto-adapted to both)"
+                }
+                pacing = prompt_user("Which master pacing style should anchor both formats?", default="vox_highlighter_explainer", choices=pacing_choices)
             else:
                 pacing_choices = {
                     "netflix-doc": "Netflix Cinema Documentary (Moody 2.39:1 anamorphic, 35mm grain, J-Cuts)",
@@ -218,11 +226,28 @@ class FilmCopilotAgent:
         # STEP 6: HEADLESS MP4 RENDER
         # ----------------------------------------------------
         print("\n🔹 [STEP 6/6: BROADCAST MP4 RENDER]")
-        print("⚡ Rendering final high-speed MP4 via Remotion...")
-        subprocess.run(["npx", "remotion", "render", "src/index.ts", "Documentary", "out/documentary.mp4"], cwd=BASE_DIR)
-        print("\n" + "=" * 70)
-        print("🎉 PRODUCTION COMPLETE! Export saved to: out/documentary.mp4")
-        print("=" * 70)
+        if aspect == "omni":
+            print("⚡ Rendering Widescreen (16:9) Documentary...")
+            subprocess.run(["npx", "remotion", "render", "src/index.ts", "Documentary", "out/documentary.mp4"], cwd=BASE_DIR)
+            print("⚡ Rendering Vertical V3 (9:16) Reel...")
+            subprocess.run(["npx", "remotion", "render", "src/index.ts", "VerticalV3", "out/vertical_reel.mp4"], cwd=BASE_DIR)
+            print("\n" + "=" * 70)
+            print("🎉 DUAL OMNI PRODUCTION COMPLETE! Exports saved:")
+            print("   📺 16:9 Widescreen -> out/documentary.mp4")
+            print("   📱 9:16 Vertical   -> out/vertical_reel.mp4")
+            print("=" * 70)
+        elif aspect == "9:16":
+            print("⚡ Rendering Vertical V3 (9:16) Reel...")
+            subprocess.run(["npx", "remotion", "render", "src/index.ts", "VerticalV3", "out/vertical_reel.mp4"], cwd=BASE_DIR)
+            print("\n" + "=" * 70)
+            print("🎉 PRODUCTION COMPLETE! Export saved to: out/vertical_reel.mp4")
+            print("=" * 70)
+        else:
+            print("⚡ Rendering final high-speed MP4 via Remotion...")
+            subprocess.run(["npx", "remotion", "render", "src/index.ts", "Documentary", "out/documentary.mp4"], cwd=BASE_DIR)
+            print("\n" + "=" * 70)
+            print("🎉 PRODUCTION COMPLETE! Export saved to: out/documentary.mp4")
+            print("=" * 70)
 
 if __name__ == "__main__":
     agent = FilmCopilotAgent()

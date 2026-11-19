@@ -1,62 +1,50 @@
 {
   "project": "Mimic: MrBeast Hyper-Retention Fast Cut - AI Can Build Any App in 6",
   "fps": 30,
-  "width": 1080,
-  "height": 1920,
-  "letterbox": false,
-  "defaultColorGrade": "teal-and-orange",
+  "width": 1920,
+  "height": 1080,
+  "letterbox": true,
+  "defaultColorGrade": "hollywood-epic",
   "scenes": [
     {
       "id": "mimic_01",
       "durationInFrames": 45,
-      "engine": "remotion",
       "voiceover": "assets/audio/mimic_01.mp3",
       "visual": "assets/visuals/mimic_01.jpg",
       "subtitle": "Extreme Premise in 1 Second: AI Can Build Any App in 60 Seconds",
       "motion": "zoom-in",
-      "higgsfieldMotion": "fpv_drone_dive",
-      "colorGrade": "teal-and-orange",
-      "threeJsScene": null,
-      "jCutFrames": 8
+      "colorGrade": "hollywood-epic",
+      "jCutFrames": 12
     },
     {
       "id": "mimic_02",
       "durationInFrames": 54,
-      "engine": "remotion",
       "voiceover": "assets/audio/mimic_02.mp3",
       "visual": "assets/visuals/mimic_02.jpg",
       "subtitle": "High Stakes Explanation: AI Can Build Any App in 60 Seconds",
       "motion": "pan-left",
-      "higgsfieldMotion": "whip_pan",
-      "colorGrade": "teal-and-orange",
-      "threeJsScene": null,
-      "jCutFrames": 8
+      "colorGrade": "hollywood-epic",
+      "jCutFrames": 12
     },
     {
       "id": "mimic_03",
       "durationInFrames": 48,
-      "engine": "remotion",
       "voiceover": "assets/audio/mimic_03.mp3",
       "visual": "assets/visuals/mimic_03.jpg",
       "subtitle": "Countdown / Tension Build: AI Can Build Any App in 60 Seconds",
       "motion": "zoom-in",
-      "higgsfieldMotion": "bullet_time_freeze",
-      "colorGrade": "teal-and-orange",
-      "threeJsScene": null,
-      "jCutFrames": 8
+      "colorGrade": "hollywood-epic",
+      "jCutFrames": 12
     },
     {
       "id": "mimic_04",
       "durationInFrames": 57,
-      "engine": "remotion",
       "voiceover": "assets/audio/mimic_04.mp3",
       "visual": "assets/visuals/mimic_04.jpg",
       "subtitle": "Unexpected Twist: AI Can Build Any App in 60 Seconds",
       "motion": "pan-right",
-      "higgsfieldMotion": "orbit_360",
-      "colorGrade": "teal-and-orange",
-      "threeJsScene": null,
-      "jCutFrames": 8
+      "colorGrade": "hollywood-epic",
+      "jCutFrames": 12
     }
   ]
 }

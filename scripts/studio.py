@@ -86,6 +86,7 @@ Usage:
   python3 scripts/studio.py audio [voice_name]          [Generate free Microsoft Neural voiceovers]
   python3 scripts/studio.py clone-voice [sample_path]   [Clone creator 5s voice for all scenes]
   python3 scripts/studio.py vertical [hormozi|mrbeast] "<topic>" [1-Click 9:16 Vertical V3 viral reel generator]
+  python3 scripts/studio.py convert [16:9|9:16]          [Switch active project between Widescreen & Vertical]
   python3 scripts/studio.py preview                     [Open in-editor Remotion Player]
   python3 scripts/studio.py render                      [Render broadcast MP4 (Auto-detects 16:9 or 9:16)]
   python3 scripts/studio.py render-vertical             [Render 9:16 Vertical V3 reel to out/vertical_reel.mp4]
@@ -249,6 +250,12 @@ if __name__ == "__main__":
         run_cmd([sys.executable, GRAPH_MEMORY, "export-timeline"])
     elif cmd == "sync":
         run_cmd([sys.executable, GRAPH_MEMORY, "export-timeline"])
+    elif cmd in ["convert", "switch-format", "format"]:
+        if len(sys.argv) < 3:
+            print("Usage: python3 scripts/studio.py convert <16:9|9:16>")
+            sys.exit(1)
+        target_fmt = sys.argv[2]
+        run_cmd([sys.executable, GRAPH_EDITOR, "prompt", f"convert to {target_fmt}"])
     elif cmd in ["clone-voice", "voice-clone", "clone"]:
         args = [sys.executable, VOICE_CLONE] + sys.argv[2:]
         run_cmd(args)

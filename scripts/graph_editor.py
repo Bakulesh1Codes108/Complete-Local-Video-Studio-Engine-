@@ -26,10 +26,13 @@ def save_graph(data):
         json.dump(data, f, indent=2)
     export_timeline(data)
 
+def natural_sort_key(s):
+    return [int(text) if text.isdigit() else text.lower() for text in re.split(r'(\d+)', s)]
+
 def export_timeline(data):
     proj = data.get("project", {})
     scenes = [n for n in data.get("nodes", []) if n.get("type") == "Scene"]
-    scenes.sort(key=lambda x: x["id"])
+    scenes.sort(key=lambda x: natural_sort_key(x["id"]))
 
     timeline = {
         "project": proj.get("title", "Autonomous Documentary"),
@@ -89,7 +92,24 @@ def edit_with_natural_prompt(prompt_instruction: str):
     instruction = prompt_instruction.strip()
     updated = False
 
-    # 1. Global style switch
+    # 1. Global format switch (16:9 vs 9:16)
+    if re.search(r"\b(?:switch|convert|change|set|make)\b.*?\b(?:9:16|vertical|reel|tiktok|short|shorts)\b", instruction, re.IGNORECASE):
+        data["project"]["width"] = 1080
+        data["project"]["height"] = 1920
+        data["project"]["letterbox"] = False
+        save_graph(data)
+        print("📱 Project format converted to: 9:16 Vertical Reel (1080x1920) with Vertical V3 active.")
+        return
+
+    if re.search(r"\b(?:switch|convert|change|set|make)\b.*?\b(?:16:9|horizontal|widescreen|cinema|documentary|youtube)\b", instruction, re.IGNORECASE):
+        data["project"]["width"] = 1920
+        data["project"]["height"] = 1080
+        data["project"]["letterbox"] = True
+        save_graph(data)
+        print("🎬 Project format converted to: 16:9 Widescreen Cinema (1920x1080) with 2.39:1 letterbox.")
+        return
+
+    # 2. Global style switch
     style_match = re.search(r"(?:switch|change|set)\s+(?:global\s+)?(?:style|preset|color\s*grade)\s+to\s+([a-zA-Z0-9_\-]+)", instruction, re.IGNORECASE)
     if style_match:
         new_style = style_match.group(1).lower()
