@@ -37,14 +37,17 @@ If you are downloading or cloning this repository on a Windows laptop (e.g. **HP
 
 1. **Step 1:** Download or clone this repository.
 2. **Step 2:** Double-click **`setup.bat`** (or right-click `setup.ps1` $\rightarrow$ Run with PowerShell).
-   * Automatically detects and installs **Node.js LTS** (via winget).
-   * Automatically detects and installs **Python 3.11** (via winget).
-   * Automatically downloads and configures **FFmpeg** in your user PATH.
-   * Configures `.venv` and installs all video dependencies (`requirements.txt`).
+   * **Explicit User Permission & Consent:** Transparently asks for permission before configuring developer tools.
+   * **Multi-Drive Storage Protection:** Automatically scans all drives (`C:`, `D:`, `E:`). If your OS drive (`C:`) has low free space, it guides you to map 4K/1080p video renders to your largest secondary drive (e.g. `D:\OVE_Video_Renders`) using an instant NTFS directory junction (`mklink /J out D:\OVE_Video_Renders`).
+   * **Automated Runtime Verification:** Automatically detects and installs **Node.js LTS** and **Python 3.11** (via winget).
+   * **FFmpeg Stream Engine:** Automatically configures portable FFmpeg in your PATH without admin privileges.
+   * **Python Virtual Environment:** Configures `.venv` and installs all core video dependencies (`requirements.txt`).
    * **NVIDIA GPU Auto-Detection:** If an NVIDIA GPU is detected (GTX/RTX), automatically installs CUDA-accelerated PyTorch for **5-second local voice cloning (F5-TTS)**!
-   * Runs `npm install` for Remotion, Three.js, and GSAP video components.
-   * Creates a convenient **`Open Video Engine (OVE)`** shortcut right on your Desktop!
-3. **Step 3:** Double-click **`Run_Studio.bat`** (or the Desktop shortcut) to launch the studio and start creating!
+   * **Remotion React Core:** Runs `npm install` for Remotion, Three.js, and GSAP video components.
+   * **Autonomous AI Setup Doctor:** Runs `python scripts/setup_doctor.py --fix` to verify system health and self-heal any misconfigurations.
+   * **1-Click Desktop Shortcut:** Creates a convenient **`Open Video Engine (OVE)`** shortcut right on your Desktop!
+3. **Step 3:** Double-click **`Run_Studio.bat`** (or the Desktop shortcut) to launch the studio on `http://127.0.0.1:8080/` and start creating!
+4. **Troubleshooting Anytime:** If anything ever fails or changes on your machine, double-click **`setup_doctor.bat`** (or run `python scripts/studio.py doctor --fix`) for instant autonomous self-healing.
 
 ---
 
@@ -365,16 +368,62 @@ python3 scripts/studio.py upscale <image_path>        # 4K super-resolution upsc
 python3 scripts/studio.py hub                         # View on-demand engine status & JIT install commands
 python3 scripts/studio.py advise "<goal>"             # AI stack & model advisor for 5-min films
 
+# Hardware Advisor, Setup Doctor & Storage Optimizer
+python3 scripts/studio.py doctor                      # AI Setup Assistant: verify system health & runtimes
+python3 scripts/studio.py doctor --fix                # 1-Click autonomous self-healing of environment
+python3 scripts/studio.py storage                     # Multi-drive space scanner & 4K render path optimizer
+python3 scripts/studio.py advisor                     # AI Hardware, RAM & GPU advisor
+
 # Multi-Engine & Audio Tools
 python3 scripts/studio.py audio                       # Generate free Microsoft Neural voiceovers
 python3 scripts/studio.py clone-voice [sample]        # Clone creator 5s voice for all scenes (NVIDIA GPU / F5-TTS)
 python3 scripts/studio.py blender [type] [title]      # Headless 3D Blender render (3d_chrome_title)
 python3 scripts/studio.py manim [type] [id]           # 3Blue1Brown math render (neural_network)
-python3 scripts/studio.py advisor                     # AI Hardware, RAM & disk space advisor
 python3 scripts/studio.py edit "<edit command>"       # Natural prompt graph memory editor
 npm run preview                                       # Open in-editor Remotion Player
 npm run render                                        # Render final broadcast MP4
 ```
+
+---
+
+## 🩺 AI Setup Assistant & Problem Solver Doctor
+
+When setting up video pipelines on diverse Windows laptops or Macs, users frequently encounter missing PATH variables, outdated Node.js versions, unlinked FFmpeg binaries, or low disk space on `C:`.
+
+The **AI Setup Doctor** (`scripts/setup_doctor.py` & `setup_doctor.bat`) runs an autonomous diagnostic checklist:
+
+1. **Runtime Verification:** Checks Python 3.10+ and Node.js 18+ LTS presence.
+2. **Virtual Environment Isolation:** Ensures `.venv` is active with zero package conflicts.
+3. **Hardware-Accelerated FFmpeg:** Verifies FFmpeg in PATH and detects hardware encoding flags (`h264_nvenc`, `hevc_nvenc`, `libx264`).
+4. **Multi-Drive Storage Health:** Evaluates all physical and logical drives, flagging if the OS partition has <25GB free.
+5. **NVIDIA CUDA & TensorRT:** Checks PyTorch CUDA compatibility and hardware-accelerated voice cloning readiness.
+6. **Port Availability:** Validates local studio ports (`8080`, `8888`) are open and unblocked.
+7. **Offline & Cloud Resilience:** Verifies local Ollama LLMs and cloud fallback keys.
+
+### Running the Doctor:
+```bash
+# Diagnostic check
+python3 scripts/studio.py doctor
+
+# Autonomous self-healing repair
+python3 scripts/studio.py doctor --fix
+```
+On Windows, double-click **`setup_doctor.bat`** anytime for an instant graphical report and 1-click repairs!
+
+---
+
+## 💾 Multi-Drive Render Storage Guidance (Protecting Your C: Drive)
+
+Rendering 4K and 1080p Remotion videos generates substantial intermediate cache files, audio buffers, and frame sequences (often 2–10 GB per project). Windows laptops commonly have a fast but compact SSD for the OS (`C:` with only 14–25 GB free) and a larger secondary hard drive or SSD partition (`D:` with 200–1000 GB free).
+
+The **Multi-Drive Storage Advisor** (`scripts/device_advisor.py`):
+1. Automatically scans all partitions across your computer.
+2. Identifies the primary OS drive and secondary data drives.
+3. Creates a seamless NTFS directory junction:
+   ```cmd
+   mklink /J out D:\OVE_Video_Renders
+   ```
+4. All Remotion renders, FFmpeg temp buffers, and upscaled assets are saved directly to `D:\OVE_Video_Renders` without consuming precious space on `C:`, keeping Windows fast and responsive.
 
 ---
 

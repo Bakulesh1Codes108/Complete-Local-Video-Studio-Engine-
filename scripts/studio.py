@@ -46,6 +46,7 @@ REVERSE_ENGINEER = os.path.join(SCRIPTS_DIR, "reverse_engineer.py")
 ENGINE_HUB = os.path.join(SCRIPTS_DIR, "engine_hub.py")
 UPSCALER = os.path.join(SCRIPTS_DIR, "upscaler.py")
 PDF_COMPILER = os.path.join(SCRIPTS_DIR, "compile_pdf.py")
+SETUP_DOCTOR = os.path.join(SCRIPTS_DIR, "setup_doctor.py")
 
 def run_cmd(args):
     return subprocess.run(args, cwd=BASE_DIR)
@@ -81,7 +82,9 @@ Usage:
   python3 scripts/studio.py fetch-media <id> "<query>" [Fetch Pixabay/Pexels stock media]
   python3 scripts/studio.py blender [type] [title]      [Headless 3D Blender render: 3d_chrome_title]
   python3 scripts/studio.py manim [type] [id]           [3Blue1Brown math render: neural_network]
-  python3 scripts/studio.py advisor                     [Hardware, RAM & disk space advisor]
+  python3 scripts/studio.py doctor [--fix]              [AI Setup Assistant & Self-Healing Health Doctor]
+  python3 scripts/studio.py storage                     [Multi-drive disk scanner & 4K render storage advisor]
+  python3 scripts/studio.py advisor                     [Hardware, RAM & GPU advisor]
   python3 scripts/studio.py models                      [Check local Llama / OpenRouter / Gemini]
   python3 scripts/studio.py presets                     [List DaVinci cinematic color palettes]
   python3 scripts/studio.py clean "<noisy prompt>"      [Compress prompt & save 30-70% tokens]
@@ -149,8 +152,12 @@ if __name__ == "__main__":
         stype = sys.argv[2] if len(sys.argv) > 2 else "neural_network"
         sid = sys.argv[3] if len(sys.argv) > 3 else "manim_01"
         run_cmd([sys.executable, MANIM_ENGINE, stype, sid])
-    elif cmd in ["advisor", "doctor", "sysinfo"]:
-        run_cmd([sys.executable, DEVICE_ADVISOR])
+    elif cmd in ["doctor", "health", "fix"]:
+        args = [sys.executable, SETUP_DOCTOR] + sys.argv[2:]
+        run_cmd(args)
+    elif cmd in ["advisor", "storage", "disk", "sysinfo"]:
+        args = [sys.executable, DEVICE_ADVISOR] + sys.argv[2:]
+        run_cmd(args)
     elif cmd in ["quickstart", "generate"]:
         prompt = " ".join(sys.argv[2:]) if len(sys.argv) > 2 else "The mystery of deep space radio bursts"
         run_cmd([sys.executable, QUICKSTART, prompt])
