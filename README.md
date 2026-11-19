@@ -190,6 +190,7 @@ python3 scripts/studio.py edit "<edit command>"       # Natural prompt graph mem
 python3 scripts/studio.py director-scene <id> "<idea>"# Add scene with DaVinci grade & J-Cut
 python3 scripts/studio.py status                      # View live film reel report
 python3 scripts/studio.py audio                       # Generate free Microsoft Neural voiceovers
+python3 scripts/studio.py clone-voice [sample]       # Clone creator 5s voice for all scenes (NVIDIA GPU / F5-TTS)
 npm run preview                                       # Open in-editor Remotion Player
 npm run render                                        # Render final broadcast MP4
 ```
@@ -206,6 +207,7 @@ npm run render                                        # Render final broadcast M
 | **3D Blender Renders** | Headless CPU Render | **NVIDIA OptiX / CUDA GPU Accelerated** |
 | **Memory Graph** | `scripts/studio.py` | `scripts/studio.py` |
 | **Voiceover Engine** | Edge-TTS (Cloud Neural) | Edge-TTS (Cloud Neural) |
+| **5-Sec Voice Cloning** | Cloud / CPU Fallback | **F5-TTS / MOSS-TTS (CUDA GPU Accelerated)** |
 | **Image Keyframes** | Cloud (Imagen 3 / Pollinations) | **Fooocus Local (CUDA SDXL accelerated)** |
 | **Remotion Rendering** | CPU Render | **NVIDIA Hardware Accelerated** |
 

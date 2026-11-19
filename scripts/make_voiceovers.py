@@ -68,5 +68,10 @@ async def batch_generate_from_timeline(voice=DEFAULT_VOICE):
     print(f"✨ Synced speech durations and voiceovers back to {TIMELINE_FILE}")
 
 if __name__ == "__main__":
-    voice = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_VOICE
-    asyncio.run(batch_generate_from_timeline(voice))
+    if "--clone" in sys.argv:
+        import voice_clone
+        custom_sample = sys.argv[2] if len(sys.argv) > 2 and not sys.argv[2].startswith("--") else None
+        voice_clone.batch_clone_from_timeline(custom_sample)
+    else:
+        voice = sys.argv[1] if len(sys.argv) > 1 and not sys.argv[1].startswith("--") else DEFAULT_VOICE
+        asyncio.run(batch_generate_from_timeline(voice))

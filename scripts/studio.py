@@ -40,6 +40,7 @@ MANIM_ENGINE = os.path.join(SCRIPTS_DIR, "manim_engine.py")
 RPA_SERVER = os.path.join(SCRIPTS_DIR, "rpa_server.py")
 MEDIA_FETCHER = os.path.join(SCRIPTS_DIR, "media_fetcher.py")
 COPILOT_AGENT = os.path.join(SCRIPTS_DIR, "copilot_agent.py")
+VOICE_CLONE = os.path.join(SCRIPTS_DIR, "voice_clone.py")
 
 def run_cmd(args):
     return subprocess.run(args, cwd=BASE_DIR)
@@ -83,6 +84,7 @@ Usage:
   python3 scripts/studio.py smart-scene <id> "<prompt>" [Smart model router scene generation]
   python3 scripts/studio.py status                      [View live film reel report]
   python3 scripts/studio.py audio [voice_name]          [Generate free Microsoft Neural voiceovers]
+  python3 scripts/studio.py clone-voice [sample_path]   [Clone creator 5s voice for all scenes]
   python3 scripts/studio.py preview                     [Open in-editor Remotion Player]
   python3 scripts/studio.py render                      [Render broadcast MP4]
 """)
@@ -245,9 +247,12 @@ if __name__ == "__main__":
         run_cmd([sys.executable, GRAPH_MEMORY, "export-timeline"])
     elif cmd == "sync":
         run_cmd([sys.executable, GRAPH_MEMORY, "export-timeline"])
+    elif cmd in ["clone-voice", "voice-clone", "clone"]:
+        args = [sys.executable, VOICE_CLONE] + sys.argv[2:]
+        run_cmd(args)
     elif cmd == "audio":
-        voice = sys.argv[2] if len(sys.argv) > 2 else "en-US-ChristopherNeural"
-        run_cmd([sys.executable, VOICEOVER, voice])
+        args = [sys.executable, VOICEOVER] + sys.argv[2:]
+        run_cmd(args)
     elif cmd == "preview":
         run_cmd(["npx", "remotion", "preview", "src/index.ts"])
     elif cmd == "render":
