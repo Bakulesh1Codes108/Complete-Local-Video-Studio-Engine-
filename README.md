@@ -197,24 +197,77 @@ python3 scripts/studio.py manim neural_network scene_nn_01
 
 ---
 
+## 📦 The Unified Ecosystem (Combined Repositories & Zero-Bloat JIT Architecture)
+
+Instead of forcing creators to download 50+ GB of model weights or clone dozens of disconnected GitHub repositories, **Antigravity Video Studio unifies the best capabilities of modern open-source video engines into a single lightweight (<20 MB) studio** using an on-demand JIT (Just-In-Time) architecture:
+
+```mermaid
+flowchart TD
+    subgraph IntegratedStudio ["🎬 Antigravity Video Studio Core (<20 MB)"]
+        direction TB
+        Studio["scripts/studio.py Master Controller"]
+        Graph["Graphify Memory Cache (<15 KB)"]
+        Remotion["Remotion React Deterministic Core"]
+        Higgs["Open Higgsfield 3D Camera Rigs"]
+        RPA["Visual RPA Studio UI (app/rpa_studio.html)"]
+    end
+
+    subgraph CombinedRepos ["🧩 Unified Open-Source Capabilities"]
+        OM["nexu-io/openmotion<br>(Video Reverse-Engineering & Motion.md)"] --> Studio
+        FV["FlashML-org/FreeVideo<br>(MiniMax H3 Low-VRAM Inference)"] --> Studio
+        LTX["Lightricks LTX-Video 2.5<br>(Fast <5-Min Short Films)"] --> Studio
+        PSD["PySceneDetect + WhisperX<br>(Cut Timestamp & Word Alignment)"] --> Studio
+        LC["mifi/lossless-cut & FFmpeg<br>(Instant 0-Reencode Slicing & Concat)"] --> Studio
+        KK["Kokoro-82M Neural TTS<br>(Ultra-light <100MB Offline Voice)"] --> Studio
+        ESR["Real-ESRGAN / Lanczos<br>(Dynamic 4K Super-Resolution)"] --> Studio
+    end
+```
+
+### 🔍 Repository Fusion & Capability Matrix:
+| Capability | Original Standalone Repos | Unified in Antigravity Video Studio | Why You Don't Need to Install Separately |
+| :--- | :--- | :--- | :--- |
+| **Video Reverse-Engineering** | `nexu-io/openmotion`, `PySceneDetect` | `python3 scripts/studio.py reverse-engineer <video.mp4>` | Automatically maps scene cuts & motion rhythms into `timeline.json` without extra wrappers. |
+| **Lossless Video Cutting & Concat** | `mifi/lossless-cut` | `python3 scripts/studio.py cut` & `studio.py concat` | Stream copies MP4 files in milliseconds via FFmpeg concat demuxer with zero re-encoding loss. |
+| **Short Film Generation (<5 min)** | `Lightricks/LTX-Video`, `FlashML-org/FreeVideo` | `python3 scripts/studio.py advise "short film"` | JIT Engine Hub manages model pipelines on demand without eating 68GB hard drive storage. |
+| **Viral 9:16 Kinetic Subtitles** | `WhisperX`, CapCut, Hormozi style | `src/compositions/VerticalV3Subtitle.tsx` | Native word-by-word active pop with platform safe-zone protection inside Remotion. |
+| **4K Super-Resolution** | `Real-ESRGAN`, Compact upscalers | `python3 scripts/studio.py upscale <image>` | High-fidelity 4K scaling on demand without keeping giant uncompressed render caches. |
+| **Agentic Media Harness** | `slopus/happy`, `bitti-ai/slopus` | `scripts/studio.py copilot` & `app/rpa_studio.html` | Built-in autonomous executive producer copilot and node-based visual RPA canvas. |
+| **Media Transform & Asset Server** | `imbo/imbo` | `scripts/media_fetcher.py` | Built-in Pixabay/Pexels/Wikimedia caching with local fail-safe graphic generation. |
+
+---
+
 ## 🚀 CLI Commands Cheat Sheet
 
 ```bash
+# Core Pipeline & AI Copilot
+python3 scripts/studio.py copilot                     # Interactive AI executive producer interview
+python3 scripts/studio.py step <step> "<topic>"       # Execute strictly up to step: script|timeline|media|audio|preview|render
 python3 scripts/studio.py rpa                         # Launch Visual RPA Automation Studio UI
 python3 scripts/studio.py quickstart "<story prompt>" # 1-Click 3-act film generator
+
+# Vertical V3 & Viral Reel Mimic
+python3 scripts/studio.py vertical [hormozi|mrbeast] "<topic>" # 1-Click 9:16 Vertical V3 viral reel generator
+python3 scripts/studio.py convert [16:9|9:16]          # Switch active project between Widescreen & Vertical
+python3 scripts/studio.py render-vertical             # Render 9:16 Vertical V3 reel to out/vertical_reel.mp4
 python3 scripts/studio.py mimic <preset> "<topic>"    # Clone viral video pacing (Hormozi, Vox, MrBeast)
-python3 scripts/studio.py fetch-media <id> "<query>" # Fetch Pixabay/Pexels stock media
+
+# Reverse-Engineering, Lossless Cut & Concat
+python3 scripts/studio.py reverse-engineer <video>    # OpenMotion + PySceneDetect video clone
+python3 scripts/studio.py concat <file1> <file2> ...  # Lossless stream concatenation (0 re-encoding)
+python3 scripts/studio.py cut <file> <start> <end>    # Lossless precision cut (LosslessCut pattern)
+python3 scripts/studio.py upscale <image_path>        # 4K super-resolution upscaler
+
+# On-Demand Engine Hub & Model Advisor
+python3 scripts/studio.py hub                         # View on-demand engine status & JIT install commands
+python3 scripts/studio.py advise "<goal>"             # AI stack & model advisor for 5-min films
+
+# Multi-Engine & Audio Tools
+python3 scripts/studio.py audio                       # Generate free Microsoft Neural voiceovers
+python3 scripts/studio.py clone-voice [sample]        # Clone creator 5s voice for all scenes (NVIDIA GPU / F5-TTS)
 python3 scripts/studio.py blender [type] [title]      # Headless 3D Blender render (3d_chrome_title)
 python3 scripts/studio.py manim [type] [id]           # 3Blue1Brown math render (neural_network)
 python3 scripts/studio.py advisor                     # AI Hardware, RAM & disk space advisor
-python3 scripts/studio.py models                      # Check Ollama, OpenRouter, Gemini status
-python3 scripts/studio.py presets                     # List 5 DaVinci film color palettes
-python3 scripts/studio.py clean "<noisy prompt>"      # Strip conversational fillers & save tokens
 python3 scripts/studio.py edit "<edit command>"       # Natural prompt graph memory editor
-python3 scripts/studio.py director-scene <id> "<idea>"# Add scene with DaVinci grade & J-Cut
-python3 scripts/studio.py status                      # View live film reel report
-python3 scripts/studio.py audio                       # Generate free Microsoft Neural voiceovers
-python3 scripts/studio.py clone-voice [sample]       # Clone creator 5s voice for all scenes (NVIDIA GPU / F5-TTS)
 npm run preview                                       # Open in-editor Remotion Player
 npm run render                                        # Render final broadcast MP4
 ```

@@ -1,9 +1,9 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-11-19T15:00:44.560426Z",
+  "updatedAt": "2026-11-19T15:35:07.604002Z",
   "project": {
     "id": "proj_01",
-    "title": "Mimic: MrBeast Hyper-Retention Fast Cut - AI Can Build Any App in 6",
+    "title": "Sci-Fi Cyberpunk",
     "fps": 30,
     "width": 1920,
     "height": 1080,
@@ -14,66 +14,94 @@
   },
   "nodes": [
     {
-      "id": "mimic_01",
+      "id": "scene_01",
       "type": "Scene",
       "properties": {
-        "title": "Extreme Premise in 1 Second",
-        "narration": "Extreme Premise in 1 Second: AI Can Build Any App in 60 Seconds",
-        "durationSeconds": 1.5,
-        "durationInFrames": 45,
-        "visualPrompt": "Stock visual representing Extreme Premise in 1 Second AI Can Build Any App in 60 Seconds",
+        "title": "Scene 1",
+        "narration": "Reverse Engineered Beat 1: Dynamic visual hook",
+        "durationSeconds": 2.0,
+        "durationInFrames": 60,
+        "visualPrompt": "Cinematic keyframe matching scene 1",
         "motionType": "zoom-in",
-        "voiceoverAsset": "assets/audio/mimic_01.mp3",
-        "visualAsset": "assets/visuals/mimic_01.jpg"
+        "voiceoverAsset": "assets/audio/scene_01.mp3",
+        "visualAsset": "assets/visuals/scene_01.jpg"
       }
     },
     {
-      "id": "mimic_02",
+      "id": "scene_02",
       "type": "Scene",
       "properties": {
-        "title": "High Stakes Explanation",
-        "narration": "High Stakes Explanation: AI Can Build Any App in 60 Seconds",
+        "title": "Scene 2",
+        "narration": "Reverse Engineered Beat 2: Dynamic visual hook",
+        "durationSeconds": 2.4,
+        "durationInFrames": 72,
+        "visualPrompt": "Cinematic keyframe matching scene 2",
+        "motionType": "pan-left",
+        "voiceoverAsset": "assets/audio/scene_02.mp3",
+        "visualAsset": "assets/visuals/scene_02.jpg"
+      }
+    },
+    {
+      "id": "scene_03",
+      "type": "Scene",
+      "properties": {
+        "title": "Scene 3",
+        "narration": "Reverse Engineered Beat 3: Dynamic visual hook",
         "durationSeconds": 1.8,
         "durationInFrames": 54,
-        "visualPrompt": "Stock visual representing High Stakes Explanation AI Can Build Any App in 60 Seconds",
-        "motionType": "pan-left",
-        "voiceoverAsset": "assets/audio/mimic_02.mp3",
-        "visualAsset": "assets/visuals/mimic_02.jpg"
-      }
-    },
-    {
-      "id": "mimic_03",
-      "type": "Scene",
-      "properties": {
-        "title": "Countdown / Tension Build",
-        "narration": "Countdown / Tension Build: AI Can Build Any App in 60 Seconds",
-        "durationSeconds": 1.6,
-        "durationInFrames": 48,
-        "visualPrompt": "Stock visual representing Countdown / Tension Build AI Can Build Any App in 60 Seconds",
+        "visualPrompt": "Cinematic keyframe matching scene 3",
         "motionType": "zoom-in",
-        "voiceoverAsset": "assets/audio/mimic_03.mp3",
-        "visualAsset": "assets/visuals/mimic_03.jpg"
+        "voiceoverAsset": "assets/audio/scene_03.mp3",
+        "visualAsset": "assets/visuals/scene_03.jpg"
       }
     },
     {
-      "id": "mimic_04",
+      "id": "scene_04",
       "type": "Scene",
       "properties": {
-        "title": "Unexpected Twist",
-        "narration": "Unexpected Twist: AI Can Build Any App in 60 Seconds",
-        "durationSeconds": 1.9,
-        "durationInFrames": 57,
-        "visualPrompt": "Stock visual representing Unexpected Twist AI Can Build Any App in 60 Seconds",
+        "title": "Scene 4",
+        "narration": "Reverse Engineered Beat 4: Dynamic visual hook",
+        "durationSeconds": 3.2,
+        "durationInFrames": 96,
+        "visualPrompt": "Cinematic keyframe matching scene 4",
         "motionType": "pan-right",
-        "voiceoverAsset": "assets/audio/mimic_04.mp3",
-        "visualAsset": "assets/visuals/mimic_04.jpg"
+        "voiceoverAsset": "assets/audio/scene_04.mp3",
+        "visualAsset": "assets/visuals/scene_04.jpg"
+      }
+    },
+    {
+      "id": "scene_05",
+      "type": "Scene",
+      "properties": {
+        "title": "Scene 5",
+        "narration": "Reverse Engineered Beat 5: Dynamic visual hook",
+        "durationSeconds": 2.1,
+        "durationInFrames": 63,
+        "visualPrompt": "Cinematic keyframe matching scene 5",
+        "motionType": "zoom-out",
+        "voiceoverAsset": "assets/audio/scene_05.mp3",
+        "visualAsset": "assets/visuals/scene_05.jpg"
+      }
+    },
+    {
+      "id": "scene_06",
+      "type": "Scene",
+      "properties": {
+        "title": "Scene 6",
+        "narration": "Reverse Engineered Beat 6: Dynamic visual hook",
+        "durationSeconds": 0.5,
+        "durationInFrames": 15,
+        "visualPrompt": "Cinematic keyframe matching scene 6",
+        "motionType": "zoom-in",
+        "voiceoverAsset": "assets/audio/scene_06.mp3",
+        "visualAsset": "assets/visuals/scene_06.jpg"
       }
     }
   ],
   "edges": [
     {
-      "from": "mimic_01",
-      "to": "mimic_02",
+      "from": "scene_01",
+      "to": "scene_02",
       "type": "TRANSITIONS_TO",
       "properties": {
         "transition": "crossfade",
@@ -81,8 +109,8 @@
       }
     },
     {
-      "from": "mimic_02",
-      "to": "mimic_03",
+      "from": "scene_02",
+      "to": "scene_03",
       "type": "TRANSITIONS_TO",
       "properties": {
         "transition": "crossfade",
@@ -90,8 +118,26 @@
       }
     },
     {
-      "from": "mimic_03",
-      "to": "mimic_04",
+      "from": "scene_03",
+      "to": "scene_04",
+      "type": "TRANSITIONS_TO",
+      "properties": {
+        "transition": "crossfade",
+        "durationFrames": 15
+      }
+    },
+    {
+      "from": "scene_04",
+      "to": "scene_05",
+      "type": "TRANSITIONS_TO",
+      "properties": {
+        "transition": "crossfade",
+        "durationFrames": 15
+      }
+    },
+    {
+      "from": "scene_05",
+      "to": "scene_06",
       "type": "TRANSITIONS_TO",
       "properties": {
         "transition": "crossfade",

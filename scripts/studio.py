@@ -41,6 +41,10 @@ RPA_SERVER = os.path.join(SCRIPTS_DIR, "rpa_server.py")
 MEDIA_FETCHER = os.path.join(SCRIPTS_DIR, "media_fetcher.py")
 COPILOT_AGENT = os.path.join(SCRIPTS_DIR, "copilot_agent.py")
 VOICE_CLONE = os.path.join(SCRIPTS_DIR, "voice_clone.py")
+FFMPEG_TOOLS = os.path.join(SCRIPTS_DIR, "ffmpeg_tools.py")
+REVERSE_ENGINEER = os.path.join(SCRIPTS_DIR, "reverse_engineer.py")
+ENGINE_HUB = os.path.join(SCRIPTS_DIR, "engine_hub.py")
+UPSCALER = os.path.join(SCRIPTS_DIR, "upscaler.py")
 
 def run_cmd(args):
     return subprocess.run(args, cwd=BASE_DIR)
@@ -87,6 +91,12 @@ Usage:
   python3 scripts/studio.py clone-voice [sample_path]   [Clone creator 5s voice for all scenes]
   python3 scripts/studio.py vertical [hormozi|mrbeast] "<topic>" [1-Click 9:16 Vertical V3 viral reel generator]
   python3 scripts/studio.py convert [16:9|9:16]          [Switch active project between Widescreen & Vertical]
+  python3 scripts/studio.py reverse-engineer <video.mp4> [OpenMotion + PySceneDetect video clone]
+  python3 scripts/studio.py concat <file1> <file2> ...  [Lossless stream concatenation (0 re-encoding)]
+  python3 scripts/studio.py cut <file> <start> <end>    [Lossless precision cut (LosslessCut pattern)]
+  python3 scripts/studio.py upscale <image_path>        [4K super-resolution upscaler]
+  python3 scripts/studio.py hub                         [On-demand engine catalog & JIT installer]
+  python3 scripts/studio.py advise "<goal>"             [AI stack & model advisor for 5-min films]
   python3 scripts/studio.py preview                     [Open in-editor Remotion Player]
   python3 scripts/studio.py render                      [Render broadcast MP4 (Auto-detects 16:9 or 9:16)]
   python3 scripts/studio.py render-vertical             [Render 9:16 Vertical V3 reel to out/vertical_reel.mp4]
@@ -273,6 +283,24 @@ if __name__ == "__main__":
             else:
                 topic = " ".join(sys.argv[2:])
         run_cmd([sys.executable, REEL_MIMIC, preset, topic])
+    elif cmd in ["reverse-engineer", "reverse", "openmotion"]:
+        args = [sys.executable, REVERSE_ENGINEER] + sys.argv[2:]
+        run_cmd(args)
+    elif cmd in ["concat", "join", "merge"]:
+        files = sys.argv[2:]
+        args = [sys.executable, FFMPEG_TOOLS, "concat"] + files
+        run_cmd(args)
+    elif cmd in ["cut", "slice", "trim"]:
+        args = [sys.executable, FFMPEG_TOOLS, "cut"] + sys.argv[2:]
+        run_cmd(args)
+    elif cmd in ["upscale", "4k"]:
+        args = [sys.executable, UPSCALER] + sys.argv[2:]
+        run_cmd(args)
+    elif cmd in ["hub", "engines", "models-hub"]:
+        run_cmd([sys.executable, ENGINE_HUB])
+    elif cmd in ["advise", "suggest-stack"]:
+        goal = " ".join(sys.argv[2:]) if len(sys.argv) > 2 else "Generate a 5-minute short film"
+        run_cmd([sys.executable, ENGINE_HUB, "advise", goal])
     elif cmd in ["render-vertical", "render-reel"]:
         run_cmd(["npx", "remotion", "render", "src/index.ts", "VerticalV3", "out/vertical_reel.mp4"])
     elif cmd == "preview":
