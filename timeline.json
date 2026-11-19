@@ -1,8 +1,8 @@
 {
   "project": "The Secret Economy Of Space Mining",
   "fps": 30,
-  "width": 1920,
-  "height": 1080,
+  "width": 1080,
+  "height": 1920,
   "letterbox": true,
   "scenes": [
     {
@@ -70,5 +70,7 @@
       "threeJsScene": null,
       "jCutFrames": 10
     }
-  ]
+  ],
+  "colorGrade": "vibrant-high-contrast",
+  "creatorStyleApplied": "MrBeast (Jimmy Donaldson)"
 }

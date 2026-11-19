@@ -369,6 +369,14 @@ python3 scripts/studio.py inspect <URL_or_path>       # Deep forensic inspection
 python3 scripts/studio.py replicate <URL> "<topic>" [tweaks] # Replicate viral video skeleton with custom topic & tweaks
 python3 scripts/studio.py skeleton                    # View loaded video skeleton recipe
 
+# Creator Style Vault (YouTubers & Custom Styles)
+python3 scripts/studio.py styles                      # View creator style vault (MrBeast, Hormozi, Vox, Ali Abdaal, MKBHD)
+python3 scripts/studio.py apply-style <creator_id>    # Apply YouTuber visual editing DNA to timeline
+python3 scripts/studio.py scan-creator <id> "<Name>" <urls> # Scan multiple videos to extract custom creator DNA
+
+# Runtime Telemetry & Stuck-Agent Diagnostics
+python3 scripts/studio.py logs                        # Inspect execution telemetry & diagnose stuck pipeline steps
+
 # Reverse-Engineering, Lossless Cut & Concat
 python3 scripts/studio.py reverse-engineer <video>    # OpenMotion + PySceneDetect video clone
 python3 scripts/studio.py concat <file1> <file2> ...  # Lossless stream concatenation (0 re-encoding)
